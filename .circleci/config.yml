@@ -1,0 +1,75 @@
+# Define YAML anchors
+
+# Start circleci configuration
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.12-node
+    working_directory: ~/build/enterprise-docs/
+    steps:
+      - checkout
+      - run:
+          name: Update theme submodule
+          command: git submodule update --init --recursive
+      - run:
+          name: Install Hugo
+          command: |
+            mkdir tools
+            curl -L https://github.com/gohugoio/hugo/releases/download/v0.55.4/hugo_extended_0.55.4_Linux-64bit.tar.gz > tools/hugo.tar.gz
+            pushd tools
+            tar -xf ./hugo.tar.gz
+            chmod +x ./hugo
+            popd
+      - run:
+          name: Install npms for Docsy Theme
+          command: |
+            npm install
+      - run:
+          name: Build docs
+          command: |
+            export PATH=${PATH}:./tools/
+            ./build_site.sh ${SITE_PREFIX_URL} ${CIRCLE_BRANCH}
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
+  deploy:
+    docker:
+      - image: circleci/golang:1.12
+    working_directory: ~/build/enterprise-docs
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
+      - run:
+          name: Install s3deploy
+          command: |
+            mkdir tools
+            curl -L https://github.com/bep/s3deploy/releases/download/v2.3.0/s3deploy_2.3.0_Linux-64bit.tar.gz > tools/s3deploy.tar.gz
+            pushd tools
+            tar -xf ./s3deploy.tar.gz
+            chmod +x ./s3deploy
+            popd
+      - run:
+          name: Deploy docs to s3
+          command: |
+            export PATH=${PATH}:./tools/
+            cp -R /tmp/workspace/public .
+            ./deploy.sh public/ ${BUCKET_NAME} ${CIRCLE_BRANCH}
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - build: {}
+          #context: aws-prod
+      - deploy:
+          context: aws-prod
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - /^[0-9]+\.[0-9]+(\.[0-9]+)?$/
