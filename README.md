@@ -2,11 +2,16 @@
 
 This is the repository for the Anchore Enterprise Documentation site.
 
-Contributing: See Contributing
+## Filing Bugs/Issues: 
 
-Filing Bugs/Issues: See Issues
+See [Issues](https://github.com/anchore/enterprise-docs/issues)
 
-Making Changes/Contribution:
+## Contributing
+
+See [Contributing](CONTRIBUTING.rst) for the DCO and sign-off information. In short, sign all
+commits with 'Signed-of-by X' with `git commit -s`.
+
+### Making Changes/Contribution Workflow
 
 1. Fork the repository
 
