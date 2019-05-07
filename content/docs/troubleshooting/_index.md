@@ -10,11 +10,9 @@ If you are running into issues performing certain Anchore operations (examples: 
 
 Throughout this guide, Anchore CLI commands will be executed to assist with troubleshooting. For more information on the Anchore CLI, please reference the CLI section. 
 
-<!--ts-->
-   * [Verifying Services]({{< ref "#verifying-services" >}})
-   * [Events]({{< ref "#events" >}})
-   * [Logs]({{< ref "#logs" >}})
-<!--te-->
+* [Verifying Services]({{< ref "#verifying-services" >}})
+* [Events]({{< ref "#events" >}})
+* [Logs]({{< ref "#logs" >}})
 
 ## Verifying Services
 

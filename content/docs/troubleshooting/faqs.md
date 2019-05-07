@@ -9,13 +9,11 @@ weight: 2
 For each of the following frequently asked questions, read the [General Troubleshooting Approach Guide]({{< ref "/docs/troubleshooting" >}}) first, then following the data from there, follow the query specific answers below. 
 
 
-<!--ts-->
-   * [Unauthorized error when using the Anchore CLI]({{< ref "#unauthorized-error-when-using-the-anchore-cli" >}})
-   * [No vulnerability results for an analyzed image]({{< ref "#no-vulnerability-results-for-an-analyzed-image" >}})
-   * [My image will not analyze]({{< ref "#my-image-will-not-analyze" >}})
-   * [Unable to access private registry]({{< ref "#unable-to-access-private-registry" >}})
-   * [Anchore Engine container keeps exiting]({{< ref "#anchore-engine-container-keeps-exiting" >}})
-<!--te-->
+* [Unauthorized error when using the Anchore CLI]({{< ref "#unauthorized-error-when-using-the-anchore-cli" >}})
+* [No vulnerability results for an analyzed image]({{< ref "#no-vulnerability-results-for-an-analyzed-image" >}})
+* [My image will not analyze]({{< ref "#my-image-will-not-analyze" >}})
+* [Unable to access private registry]({{< ref "#unable-to-access-private-registry" >}})
+* [Anchore Engine container keeps exiting]({{< ref "#anchore-engine-container-keeps-exiting" >}})
 
 **Note:** As stated in the [General Troubleshooting Approach Guide]({{< ref "/docs/troubleshooting" >}}), passing the `--debug` option to any Anchore CLI command can often help narrow down particular issues. 
 
