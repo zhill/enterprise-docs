@@ -2,7 +2,7 @@
 title: "Policies"
 linkTitle: "Policies"
 weight: 3
---- 
+---
 
 ### Overview
 
@@ -17,11 +17,11 @@ A policy:
 A simple example of a policy JSON object (found within a larger policy bundle object):
 
 ```JSON
-{      
+{
   "name": "DefaultPolicy",
   "version": "1_0",
   "comment": "Policy for basic checks",
-  "id": "policy1", 
+  "id": "policy1",
   "rules": [
       {
         "action": "STOP",
@@ -65,7 +65,7 @@ Examples of gates:
 - *files*
 - *...*
 
-For a complete listing see: Anchore Policy Checks
+For a complete listing see: [Anchore Policy Checks]({{< ref "/docs/overview/concepts/policy/policy_checks" >}})
 
 ### Triggers
 
@@ -95,8 +95,6 @@ For a complete listing of gates, triggers, and the parameters, see: [Anchore Pol
 - Each firing of a trigger generates a trigger_id for that match
 - Rules may be executed in any order, and are executed in isolation (e.g. conflicting rules are allowed, it's up to the user to ensure that policies make sense)
 
-See Anchore Policy Checks for a complete list of all gates, triggers, and parameters
-
 Each output match from a rule contains the matching rule's:
 
 - Gate
@@ -111,8 +109,8 @@ Excerpt from a bundle evaluation, showing just the policy evaluation output:
 ```
 ...
 "result": {
-  "final_action": "warn", 
-  "header": [ 
+  "final_action": "warn",
+  "header": [
     "Image_Id",
     "Repo_Tag",
     "Trigger_Id",
@@ -122,35 +120,35 @@ Excerpt from a bundle evaluation, showing just the policy evaluation output:
     "Gate_Action",
     "Whitelisted",
     "Policy_Id"
-  ], 
-  "row_count": 55, 
+  ],
+  "row_count": 55,
   "rows": [
     [
-      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950", 
-      "docker.io/node:latest", 
-      "CVE-2008-3134+imagemagick-6.q16", 
-      "vulnerabilities", 
-      "package", 
-      "MEDIUM Vulnerability found in os package type (dpkg) - imagemagick-6.q16 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)", 
-      "go", 
-      false, 
+      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950",
+      "docker.io/node:latest",
+      "CVE-2008-3134+imagemagick-6.q16",
+      "vulnerabilities",
+      "package",
+      "MEDIUM Vulnerability found in os package type (dpkg) - imagemagick-6.q16 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)",
+      "go",
+      false,
       "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
-    ], 
+    ],
     [
-      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950", 
-      "docker.io/node:latest", 
-      "CVE-2008-3134+libmagickwand-6.q16-2", 
-      "vulnerabilities", 
-      "package", 
-      "MEDIUM Vulnerability found in os package type (dpkg) - libmagickwand-6.q16-2 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)", 
-      "go", 
-      false, 
+      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950",
+      "docker.io/node:latest",
+      "CVE-2008-3134+libmagickwand-6.q16-2",
+      "vulnerabilities",
+      "package",
+      "MEDIUM Vulnerability found in os package type (dpkg) - libmagickwand-6.q16-2 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)",
+      "go",
+      false,
       "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
     ]
   ...
 ```
 
-See: policy bundles for more information on the policy bundle evaluation result object itself, which contains the policy evaluation result as a component.
+See: [policy bundles]({{< ref "/docs/overview/concepts/policy/bundles" >}}) for more information on the policy bundle evaluation result object itself, which contains the policy evaluation result as a component.
 
 ### Final Action
 
@@ -162,7 +160,7 @@ The *final action* of a policy evaluation will be:
 - **warn** - If there are any triggers that match with this action, and no triggers that match with stop, then the policy evaluation will result in *warn*.
 - **go** - If there are no triggers that match with either stop or warn, then the policy evaluation is result is a *go*. *go* actions have no impact on the evaluation result, but are useful for recording the results of specific checks on an image in the audit trail of policy evaluations over time
 
-The policy evaluation is one part of the broader policy bundle evaluation which includes things like image whitelists and blacklists and makes a final bundle evaluation status determination based on the combination of several component executions. See policy bundles for more information on that process.
+The policy evaluation is one part of the broader policy bundle evaluation which includes things like image whitelists and blacklists and makes a final bundle evaluation status determination based on the combination of several component executions. See [policy bundles]({{< ref "/docs/overview/concepts/policy/bundles" >}}) for more information on that process.
 
 ### Next Steps
 

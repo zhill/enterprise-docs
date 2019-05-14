@@ -13,7 +13,7 @@ weight: 2
 
 ### Anchore Enterprise vs. Anchore Engine
 
-**_Anchore Enterprise_** provides features and capabilities in addition to those of the open-source **_Anchore Engine_**. 
+**_Anchore Enterprise_** provides features and capabilities in addition to those of the open-source **_Anchore Engine_**.
 
 - On-premise UI for visualization, policy editing, report generation, and user management
 - RBAC support for the APIs
@@ -23,7 +23,7 @@ weight: 2
     - Enables Air-Gapped deployments
 - Commercial Support (8/5 or 24/7)
 
-### How does it work? 
+### How does it work?
 
 Anchore takes a data-driven approach to analysis and policy enforcement. The system essentially has discrete phases for each image analyzed:
 
@@ -35,7 +35,7 @@ Anchore takes a data-driven approach to analysis and policy enforcement. The sys
 - **Notify** users of changes to policy evaluations and vulnerability matches
 Repeat 5 & 6 on intervals to ensure latest external data and updated image evaluations
 
-![alt text](/HowItWorks.png)
+![alt text](HowItWorks.png)
 
 The primary interface is a RESTful API that provides mechanisms to request analysis, policy evaluation, and monitoring of images in registries as well as query for image contents and analysis results. We also provide a CLI and its own container.
 

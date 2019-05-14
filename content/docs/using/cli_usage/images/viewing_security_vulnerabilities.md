@@ -56,8 +56,8 @@ Finally, for any of the above queries, these commands (and other anchore-cli com
 
 ### Next Steps
 
-- [Evaluate the image]() against policies you create.
-- Subscribe to receive [notifications]() when the image is updated, when the policy status changes or when new vulnerabilities are detected.
+- [Evaluate the image]({{< ref "/docs/using/cli_usage/policies/evaluating_images_against_policies" >}}) against policies you create.
+- Subscribe to receive [notifications]({{< ref "/docs/using/cli_usage/subscriptions" >}}) when the image is updated, when the policy status changes or when new vulnerabilities are detected.
 
 
 

@@ -39,7 +39,7 @@ The `anchore-cli` tool allows you to upload policy bundles to the Anchore Engine
 
 `anchore-cli policy add /path/to/policy/bundle.json`
 
-**Note:** Adding a policy bundle will **not** automatically set the bundle to be active, you will need to activate the bundle using the *activate* command. 
+**Note:** Adding a policy bundle will **not** automatically set the bundle to be active, you will need to activate the bundle using the *activate* command.
 
 #### Listing Policies
 
@@ -47,11 +47,11 @@ The Anchore Engine may store multiple policy bundles however at a given time onl
 
 ```
 $ anchore-cli policy list
-Policy ID                                   Active        Created                    Updated                    
+Policy ID                                   Active        Created                    Updated
 
-715a6056-87ab-49fb-abef-f4b4198c67bf        True          2017-09-02T12:33:28        2017-09-02T12:33:28        
+715a6056-87ab-49fb-abef-f4b4198c67bf        True          2017-09-02T12:33:28        2017-09-02T12:33:28
 
-2170857d-b660-4b56-a1a7-06550bf02eb2        False         2017-09-02T12:33:14        2017-09-02T12:33:28   
+2170857d-b660-4b56-a1a7-06550bf02eb2        False         2017-09-02T12:33:14        2017-09-02T12:33:28
 ```
 
 Each policy has a unique ID that will be reference in policy evaluation reports.
