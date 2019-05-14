@@ -32,7 +32,7 @@ By default the Anchore Engine will automatically add the discovered tags to the 
 
 The Anchore Engine needs to find a single TAG in the repository before the repository can be added to the watch list. By default the Anchore Engine will look for a tag named latest this behavior can be overridden using the `--lookuptag` option.
 
-In the following example the *apps* repo is known to contain a dev tag. 
+In the following example the *apps* repo is known to contain a dev tag.
 
 `$ anchore-cli repo add repo.example.com/apps --lookuptag dev`
 
@@ -43,9 +43,9 @@ The `repo list` command will show the repositories monitored by the Anchore Engi
 ```
 $ anchore-cli repo list
 
-Repository                   Watched        TagCount        
-docker.io/anchore/test        True           15              
-docker.io/anchore/prod        True           25    
+Repository                   Watched        TagCount
+docker.io/anchore/test        True           15
+docker.io/anchore/prod        True           25
 ```
 
 ### Deleting Repositories
@@ -73,5 +73,5 @@ The repo watch command instructs the Anchore Engine to monitor a repository for 
 ### Next Steps
 
 - [View security vulnerabilities in the image]({{< ref "/docs/using/cli_usage/images/viewing_security_vulnerabilities" >}})
-- [Evaluate the image]() against policies you create
-- Subscribe to receive [notifications]() when the image is updated, when the policy status changes, or when new vulnerabilites are detected. 
+- [Evaluate the image]({{< ref "/docs/using/cli_usage/policies/evaluating_images_against_policies" >}}) against policies you create
+- Subscribe to receive [notifications]({{< ref "/docs/using/cli_usage/subscriptions" >}}) when the image is updated, when the policy status changes, or when new vulnerabilites are detected.

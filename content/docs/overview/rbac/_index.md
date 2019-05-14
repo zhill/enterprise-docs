@@ -54,81 +54,15 @@ Roles are applied within the existing account and user frameworks defined in Anc
 | Role | Allowed Actions | Description |
 | :--- | :-------------- | :---------- |
 | Full Control | * | Full control over any account granted for. USE WITH EXTREME CAUTION |
-| Account User Admin | listUsers
-createUser
-updateUser
-deleteUser
-listRoles
-getRole
-listRoleMembers
-createRoleMember
-deleteRoleMember | Manage account creation and addition of users to accounts |
-| Read Write | createImage
-createPolicy
-createRegistry
-createRepository
-createSubscription
-deleteEvents
-deleteImage
-deletePolicy
-deleteRegistry
-deleteSubscription
-getAccount
-getEvent
-getImage
-getImageEvaluation
-getPolicy
-getRegistry
-getService
-getSubscription
-importImage
-listEvents
-listFeeds
-listImages
-listPolicies
-listRegistries
-listServices
-listSubscriptions
-updateFeeds
-updatePolicy
-updateRegistry
-updateSubscription | Full read-write permissions for regular account-level resources, excluding user/role management |
-| Read Only | listImages
-getImage
-listPolicies
-getPolicy
-listSubscriptions
-getSubscription
-listRegistries
-getRegistry
-getImageEvaluation
-listFeeds
-listServices
-getService
-listEvents
-getEvent | Read only access to account resources, but includes policy evaluation permission |
-| Policy Editor | listImages
-listSubscriptions
-listPolicies
-getImage
-getPolicy
-getImageEvaluation
-createPolicy
-updatePolicy
-deletePolicy | Edit policies, get evaluations of images, intended for users to set policies but not change the scanning configurations |
-| Image Analyzer | listImages
-getImage
-createImage
-getImageEvaluation
-listEvents
-getEvent
-listSubscriptions
-getSubscription |
-| Submit images for analysis, get results, but not change config. Intended for CI/CD systems and automation |
+| Account User Admin | listUsers, createUser, updateUser, deleteUser, listRoles, getRole, listRoleMembers, createRoleMember, deleteRoleMember | Manage account creation and addition of users to accounts |
+| Read Write | createImage, createPolicy, createRegistry, createRepository, createSubscription, deleteEvents, deleteImage, deletePolicy, deleteRegistry, deleteSubscription, getAccount, getEvent, getImage, getImageEvaluation, getPolicy, getRegistry, getService, getSubscription, importImage, listEvents, listFeeds, listImages, listPolicies, listRegistries, listServices, listSubscriptions, updateFeeds, updatePolicy, updateRegistry, updateSubscription | Full read-write permissions for regular account-level resources, excluding user/role management |
+| Read Only | listImages, getImage, listPolicies, getPolicy, listSubscriptions, getSubscription, listRegistries, getRegistry, getImageEvaluation, listFeeds, listServices, getService, listEvents, getEvent | Read only access to account resources, but includes policy evaluation permission |
+| Policy Editor | listImages, listSubscriptions, listPolicies, getImage, getPolicy, getImageEvaluation, createPolicy, updatePolicy, deletePolicy | Edit policies, get evaluations of images, intended for users to set policies but not change the scanning configurations |
+| Image Analyzer | listImages, getImage, createImage, getImageEvaluation, listEvents, getEvent, listSubscriptions, getSubscription | Submit images for analysis, get results, but not change config. Intended for CI/CD systems and automation |
 
 ### Granting Cross-Account Access
 
-The Anchore API supports a specific mechanism for allowing a user to make requests in another account's namespace, the x-anchore-account header. By including x-anchore-account: <desiredaccount>, on a request, a user can attempt that request in the namespace of the other account. This is, of course, subject to full authorization and RBAC.
+The Anchore API supports a specific mechanism for allowing a user to make requests in another account's namespace, the x-anchore-account header. By including `x-anchore-account: "desiredaccount"`, on a request, a user can attempt that request in the namespace of the other account. This is, of course, subject to full authorization and RBAC.
 
 To grant a username the ability to execute operations in another account, simply make the username a member of a role in the desired account This can be accomplished in the UI or via API against the RBAC Manager service endpoint. For example, using curl:
 
@@ -136,6 +70,6 @@ To grant a username the ability to execute operations in another account, simply
 
 This should be done with caution as there is currently no support for resource-specific access controls, a user will have the permitted actions on all resources in the other account (based on the permissions of the role). For example, making a user a member of policy-editor role for another account will enable full ability to create, delete, and update that account's policy bundles.
 
-**WARNING: Because roles to not currently provide custom target/resource definitions, assigning users to the Account User Admin role for an account other than their own is dangerous because there are no guards against that user then removing permissions of the granting user (unless that user is an 'admin' account user), so use with extreme caution.**
+**WARNING: Because roles do not currently provide custom target/resource definitions, assigning users to the Account User Admin role for an account other than their own is dangerous because there are no guards against that user then removing permissions of the granting user (unless that user is an 'admin' account user), so use with extreme caution.**
 
 **NOTE: admin account users are not subject to rbac constraints and therefore always have full access to add/remove users to roles in any account. So, while it is possible to grant them role membership, the result is a no-op and does not change the permissions of the user in any way.**

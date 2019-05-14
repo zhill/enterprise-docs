@@ -30,14 +30,14 @@ the CONTENT_TYPE can be one of the following types:
 
 For example: `anchore-cli image content debain:latest files`
 
-The CLI will output a subseet of fields from the content view, for example for `files` on the file name and size are displayed. To retrieve the full output the `--json` parameter should be passed. 
+The CLI will output a subseet of fields from the content view, for example for `files` on the file name and size are displayed. To retrieve the full output the `--json` parameter should be passed.
 
 For example: `anchore-cli --json content debian:latest files`
 
 ### Next Steps
 
 - [View security vulnerabilities in the image]({{< ref "/docs/using/cli_usage/images/viewing_security_vulnerabilities" >}})
-- [Evaluate the image]() against policies you create
-- Subscribe to receive [notifications]() when the image is updated, when the policy status changes, or when new vulnerabilites are detected. 
+- [Evaluate the image]({{< ref "/docs/using/cli_usage/policies/evaluating_images_against_policies" >}}) against policies you create
+- Subscribe to receive [notifications]({{< ref "docs/using/cli_usage/subscriptions" >}}) when the image is updated, when the policy status changes, or when new vulnerabilites are detected.
 - [Scan Respositories]({{< ref "/docs/using/cli_usage/repositories" >}})
 

@@ -8,9 +8,9 @@ Once an image is submitted to the Anchore Engine for analysis the Engine will at
 
 The Anchore Engine can run one or more analyzer services to scale out processing of images. The next available analyzer worker will process the image.
 
-![alt text](/AnalyzingImages.png)
+![alt text](AnalyzingImages.png)
 
-During analysis every package, software library and file are inspected and this data is stored in the Anchore Database. 
+During analysis every package, software library and file are inspected and this data is stored in the Anchore Database.
 
 The Anchore Engine includes a number of analyzer modules that extract data from the image including:
 
@@ -24,10 +24,10 @@ The Anchore Engine includes a number of analyzer modules that extract data from 
 - Python Packages
 - File content
 
-Once a tag has been added to the Anchore Engine the repository will be monitored for updates to that tag. 
+Once a tag has been added to the Anchore Engine the repository will be monitored for updates to that tag.
 
 Any updated images will be downloaded and analyzed.
 
 ### Next Steps
 
-Now let's get familiar with the [Image Analysis Process]({{< ref "/docs/engine/general/concepts/images/image_analysis_process" >}}).
+Now let's get familiar with the [Image Analysis Process]({{< ref "/docs/engine/general/concepts/images/analysis" >}}).

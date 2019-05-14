@@ -19,7 +19,7 @@ pip install --user --upgrade anchorecli
 #### Installing Anchore CLI on Debian and Ubuntu
 
 ```
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get install python-pip
 pip install --user --upgrade anchorecli
 ```
@@ -36,7 +36,7 @@ pip install --user --upgrade anchorecli
 ```
 git clone https://github.com/anchore/anchore-cli
 cd anchore-cli
-pip install --user --upgrade . 
+pip install --user --upgrade .
 ```
 
 #### Setting the Path
@@ -62,4 +62,4 @@ Executable files installed by pip --user will be placed in the bin sub directory
 
 Once the Anchore CLI has been installed it should be configured to access the Anchore Engine.
 
-See Configuring the Anchore CLI.
+See [Configuring the Anchore CLI]({{< ref "/docs/engine/engine_installation/anchore_cli/cli_config" >}}).

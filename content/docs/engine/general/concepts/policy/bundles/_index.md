@@ -9,9 +9,9 @@ Policy bundles are the unit of policy definition and evaluation in Anchore Engin
 
 A policy bundle is a single JSON document, composed of several parts:
 
-- [Policies]({{< ref "/docs/engine/general/concepts/policies/policies" >}}) -  The named sets of rules and actions
-- [Whitelists]({{< ref "/docs/engine/general/concepts/policies/whitelists" >}}) - Named sets of rule exclusions to override a match in a policy rule
-- [Mappings]({{< ref "/docs/engine/general/concepts/policies/policy_mappings" >}}) - Ordered rules that determine which policies and whitelists should be applied to a specific image at evaluation time.
+- [Policies]({{< ref "/docs/engine/general/concepts/policy/policies" >}}) -  The named sets of rules and actions
+- [Whitelists]({{< ref "/docs/engine/general/concepts/policy/whitelists" >}}) - Named sets of rule exclusions to override a match in a policy rule
+- [Mappings]({{< ref "/docs/engine/general/concepts/policy/policy_mappings" >}}) - Ordered rules that determine which policies and whitelists should be applied to a specific image at evaluation time.
 - Whitelisted Images - Overrides for specific images to statically set the final result to a pass regardless of the policy evaluation result.
 - Blacklisted Images - Overrides for specific images to statically set the final result to a fail regardless of the policy evaluation result.
 
@@ -39,20 +39,20 @@ Example of a single policy JSON object, one entry in the policies array of the l
 
 ```JSON
 {
-  "name": "DefaultPolicy", 
+  "name": "DefaultPolicy",
   "version": "1_0",
-  "comment": "Policy for basic checks", 
-  "id": "ba6daa06-da3b-46d3-9e22-f01f07b0489a", 
+  "comment": "Policy for basic checks",
+  "id": "ba6daa06-da3b-46d3-9e22-f01f07b0489a",
   "rules": [
     {
-      "action": "STOP", 
-      "gate": "vulnerabilities", 
-      "id": "80569900-d6b3-4391-b2a0-bf34cf6d813d", 
+      "action": "STOP",
+      "gate": "vulnerabilities",
+      "id": "80569900-d6b3-4391-b2a0-bf34cf6d813d",
       "params": [
-        { "name": "package_type", "value": "all" }, 
-        { "name": "severity_comparison", "value": ">=" }, 
+        { "name": "package_type", "value": "all" },
+        { "name": "severity_comparison", "value": ">=" },
         { "name": "severity", "value": "medium" }
-      ], 
+      ],
       "trigger": "package"
     }
   ]
@@ -61,7 +61,7 @@ Example of a single policy JSON object, one entry in the policies array of the l
 
 The above example defines a stop action to be produced for all package vulnerabilities found in an image that are severity medium or higher.
 
-For information on how policies work and are evaluated, see: Policies
+For information on how policies work and are evaluated, see: [Policies]({{< ref "/docs/engine/general/concepts/policy/policies" >}})
 
 ### Whitelists
 
@@ -86,7 +86,7 @@ Example of a simple whitelist as a JSON object from a bundle:
 }
 ```
 
-For more information, see: Whitelists
+For more information, see: [Whitelists]({{< ref "/docs/engine/general/concepts/policy/whitelists" >}})
 
 ### Mappings
 
@@ -96,14 +96,14 @@ Example of a simple mapping rule set:
 
 ```JSON
 [
-  { 
+  {
     "registry": "docker.io",
     "repository": "library/postgres",
     "image": { "type": "tag", "value": "latest" }
     "policy_ids": [ "policy1", "policy2" ],
     "whitelist_ids": [ "whitelist1", "whitelist2" ]
   },
-  { 
+  {
     "registry": "*",
     "repository": "*",
     "image": { "type": "tag", "value": "*" }
@@ -113,7 +113,7 @@ Example of a simple mapping rule set:
 ]
 ```
 
-For more information about mappings see: Mappings
+For more information about mappings see: [Mappings]({{< ref "/docs/engine/general/concepts/policy/policy_mappings" >}})
 
 ### Whitelisted Images
 
@@ -122,7 +122,7 @@ Whitelisted images are images, defined by registry, repository, and tag/digest/i
 Example image whitelist section:
 
 ```JSON
-{ 
+{
   "name": "WhitelistDebianStable",
   "registry": "docker.io",
   "repository": "library/debian",
@@ -139,7 +139,7 @@ Blacklisted image matches override any whitelisted image matches (e.g. a tag mat
 Example image blacklist section:
 
 ```JSON
-{ 
+{
   "name": "BlacklistDebianUnstable",
   "registry": "docker.io",
   "repository": "library/debian",
@@ -156,7 +156,7 @@ A complete bundle example with all sections containing data:
   "name": "My Default bundle",
   "comment": "My system's default bundle",
   "whitelisted_images": [
-    { 
+    {
       "name": "WhitelistDebianStable",
       "registry": "docker.io",
       "repository": "library/debian",
@@ -164,7 +164,7 @@ A complete bundle example with all sections containing data:
     }
   ],
   "blacklisted_images": [
-    { 
+    {
       "name": "BlacklistDebianUnstable",
       "registry": "docker.io",
       "repository": "library/debian",
@@ -172,14 +172,14 @@ A complete bundle example with all sections containing data:
     }
   ],
   "mappings": [
-    { 
+    {
       "registry": "docker.io",
       "repository": "library/postgres",
       "image": { "type": "tag", "value": "latest" }
       "policy_ids": [ "policy1", "policy2" ],
       "whitelist_ids": [ "whitelist1", "whitelist2" ]
     },
-    { 
+    {
       "registry": "*",
       "repository": "*",
       "image": { "type": "tag", "value": "*" }
@@ -195,7 +195,7 @@ A complete bundle example with all sections containing data:
       "items": [
         { "id": "item1", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-10000+libssl" },
         { "id": "item2", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-10001+*" }
-      ]  
+      ]
     },
     {
       "id": "whitelist2",
@@ -203,43 +203,43 @@ A complete bundle example with all sections containing data:
       "version": "1_0",
       "items": [
         { "id": "item1", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-1111+*" }
-      ]  
+      ]
     }
   ],
   "policies": [
     {
-      "name": "DefaultPolicy", 
+      "name": "DefaultPolicy",
       "version": "1_0",
-      "comment": "Policy for basic checks", 
-      "id": "policy1", 
+      "comment": "Policy for basic checks",
+      "id": "policy1",
       "rules": [
         {
-          "action": "STOP", 
-          "gate": "vulnerabilities", 
+          "action": "STOP",
+          "gate": "vulnerabilities",
           "trigger": "package"
-          "id": "rule1", 
+          "id": "rule1",
           "params": [
-            { "name": "package_type", "value": "all" }, 
-            { "name": "severity_comparison", "value": ">=" }, 
+            { "name": "package_type", "value": "all" },
+            { "name": "severity_comparison", "value": ">=" },
             { "name": "severity", "value": "medium" }
           ]
         }
       ]
     },
     {
-      "name": "DBPolicy", 
+      "name": "DBPolicy",
       "version": "1_0",
-      "comment": "Policy for basic checks on a db", 
-      "id": "policy2", 
+      "comment": "Policy for basic checks on a db",
+      "id": "policy2",
       "rules": [
         {
-          "action": "STOP", 
-          "gate": "vulnerabilities", 
+          "action": "STOP",
+          "gate": "vulnerabilities",
           "trigger": "package",
-          "id": "rule1", 
+          "id": "rule1",
           "params": [
-            { "name": "package_type", "value": "all" }, 
-            { "name": "severity_comparison", "value": ">=" }, 
+            { "name": "package_type", "value": "all" },
+            { "name": "severity_comparison", "value": ">=" },
             { "name": "severity", "value": "low" }
           ]
         }
@@ -262,4 +262,4 @@ A *pass* status means the image evaluated against the bundle and only *go* or *w
 
 The flow chart for policy bundle evaluation:
 
-![alt text](/AnchoreFlowchart.jpg)
+![alt text](AnchoreFlowchart.jpg)
