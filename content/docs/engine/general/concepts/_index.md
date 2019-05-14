@@ -8,7 +8,7 @@ weight: 1
 
 **_Anchore Engine_** is an open-source Docker container static analysis and policy-based compliance tool that automates the inspection, analysis, and evaluation of images against user-defined checks to allow high confidence in container deployments by ensuring workload content meets the required criteria. Anchore Engine ultimately provides a policy evaluation result for each image: pass/fail against policies defined by the user. Additionally, the way that policies are defined and evaluated allows the policy evaluation itself to double as an audit mechanism that allows point-in-time evaluations of specific image properties and content attributes.
 
-### How does it work? 
+### How does it work?
 
 Anchore takes a data-driven approach to analysis and policy enforcement. The system essentially has discrete phases for each image analyzed:
 
@@ -20,7 +20,7 @@ Anchore takes a data-driven approach to analysis and policy enforcement. The sys
 - **Notify** users of changes to policy evaluations and vulnerability matches
 Repeat 5 & 6 on intervals to ensure latest external data and updated image evaluations
 
-![alt text](/HowItWorks.png)
+![alt text](../HowItWorks.png)
 
 The primary interface is a RESTful API that provides mechanisms to request analysis, policy evaluation, and monitoring of images in registries as well as query for image contents and analysis results. We also provide a CLI and its own container.
 

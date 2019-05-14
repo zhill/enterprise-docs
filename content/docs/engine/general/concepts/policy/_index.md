@@ -21,7 +21,7 @@ For a full listing of gate, triggers, and their parameters see: Anchore Policy C
 
 These policies can applied globally or customized for specific images or categories of applications.
 
-![alt text](/AnchorePolicyEval.png)
+![alt text](AnchorePolicyEval.png)
 
 A policy can return one of two results:
 
@@ -36,4 +36,4 @@ For more information on the concepts of policies and how policies are defined an
 
 ### Next Steps
 
-Read more on [Policies]({{< ref "/docs/engine/general/concepts/policies/policies" >}})
+Read more on [Policies]({{< ref "/docs/engine/general/concepts/policy/policies" >}})

@@ -111,7 +111,13 @@ After populating your Dashboard with various widgets, you can easily modify the 
 <i class="fas fa-arrows-alt mr-2"></i>Click this icon shown in the top right or the header of a widget to **Drag and Drop** it into a new location.
 
 <p>
-<span class="resize-wrapper"><span class="resize-icon"></span></span><span class="ml-4">Shown in the bottom right of a widget, click and hold this icon to <strong>Resize</strong> it.</span></p>
+  <span class="resize-wrapper">
+    <span class="resize-icon"></span>
+  </span>
+  <span class="ml-4">
+    Shown in the bottom right of a widget, click and hold this icon to <strong>Resize</strong> it.
+  </span>
+</p>
 
 <i class="fas fa-expand mr-2"></i>Click this icon shown in the top right of a widget to **Expand** it and include a graphical representation of how your data has evolved over a time period of your choice.
 

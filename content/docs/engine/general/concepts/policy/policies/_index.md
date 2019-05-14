@@ -2,7 +2,7 @@
 title: "Policies"
 linkTitle: "Policies"
 weight: 3
---- 
+---
 
 ### Overview
 
@@ -17,11 +17,11 @@ A policy:
 A simple example of a policy JSON object (found within a larger policy bundle object):
 
 ```JSON
-{      
+{
   "name": "DefaultPolicy",
   "version": "1_0",
   "comment": "Policy for basic checks",
-  "id": "policy1", 
+  "id": "policy1",
   "rules": [
       {
         "action": "STOP",
@@ -42,7 +42,7 @@ The above example defines a stop action to be produced for all package vulnerabi
 
 Policy evaluation is the execution of all defined triggers in the policy against the image analysis result and feed data and results in a set of output trigger matches, each of which contains the *defined* action from the rule definition. The final recommendation value for the policy evaluation is called the *final action*, and is computed from the set of output matches: *stop*, *go*, or *warn*.
 
-![alt text](/AnchorePolicyOutcome.jpg)
+![alt text](AnchorePolicyOutcome.jpg)
 
 ### Policy Rules
 
@@ -111,8 +111,8 @@ Excerpt from a bundle evaluation, showing just the policy evaluation output:
 ```
 ...
 "result": {
-  "final_action": "warn", 
-  "header": [ 
+  "final_action": "warn",
+  "header": [
     "Image_Id",
     "Repo_Tag",
     "Trigger_Id",
@@ -122,29 +122,29 @@ Excerpt from a bundle evaluation, showing just the policy evaluation output:
     "Gate_Action",
     "Whitelisted",
     "Policy_Id"
-  ], 
-  "row_count": 55, 
+  ],
+  "row_count": 55,
   "rows": [
     [
-      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950", 
-      "docker.io/node:latest", 
-      "CVE-2008-3134+imagemagick-6.q16", 
-      "vulnerabilities", 
-      "package", 
-      "MEDIUM Vulnerability found in os package type (dpkg) - imagemagick-6.q16 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)", 
-      "go", 
-      false, 
+      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950",
+      "docker.io/node:latest",
+      "CVE-2008-3134+imagemagick-6.q16",
+      "vulnerabilities",
+      "package",
+      "MEDIUM Vulnerability found in os package type (dpkg) - imagemagick-6.q16 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)",
+      "go",
+      false,
       "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
-    ], 
+    ],
     [
-      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950", 
-      "docker.io/node:latest", 
-      "CVE-2008-3134+libmagickwand-6.q16-2", 
-      "vulnerabilities", 
-      "package", 
-      "MEDIUM Vulnerability found in os package type (dpkg) - libmagickwand-6.q16-2 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)", 
-      "go", 
-      false, 
+      "52fe93b8eea726594f3b8efefedc2e3a1db02828ab57632b217b953f00192950",
+      "docker.io/node:latest",
+      "CVE-2008-3134+libmagickwand-6.q16-2",
+      "vulnerabilities",
+      "package",
+      "MEDIUM Vulnerability found in os package type (dpkg) - libmagickwand-6.q16-2 (CVE-2008-3134 - https://security-tracker.debian.org/tracker/CVE-2008-3134)",
+      "go",
+      false,
       "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
     ]
   ...

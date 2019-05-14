@@ -6,9 +6,9 @@ weight: 4
 
 ## Introduction
 
-For most CI/CD systems Anchore Integration Follows a similar model:
+For most CI/CD systems, Anchore Integration follows a similar model:
 
-![alt text](/ci-cd.png)
+![alt text](../ci-cd.png)
 
 1. Developers commit code into source control system
 2. CI / CD platform builds container image
@@ -20,7 +20,7 @@ For most CI/CD systems Anchore Integration Follows a similar model:
 
 ### Adding Anchore Scanning to Gitlab
 
-There are two different solutions for adding Anchore Engine image scanning to your GitLab CI/CD pipelines. The 'on premises' solution requires a functional installation of Anchore Engine running on a system that is accessible from your GitLab runners. The 'integrated' solution allows you to run Anchore Engine directly on your GitLab docker runner and utilizes a pre-populated vulnerability database image. This solution does not require any external systems. 
+There are two different solutions for adding Anchore Engine image scanning to your GitLab CI/CD pipelines. The 'on premises' solution requires a functional installation of Anchore Engine running on a system that is accessible from your GitLab runners. The 'integrated' solution allows you to run Anchore Engine directly on your GitLab docker runner and utilizes a pre-populated vulnerability database image. This solution does not require any external systems.
 
 A container scanning job can be added to the CI/CD pipeline to allow any image to be scanned for vulnerabilities and policy compliance.
 
@@ -32,7 +32,7 @@ The Docker executor is required for this job, as it utilizes the official Anchor
 
 A fully functional pipeline can be viewed at gitlab.com
 
-To be a thorough as possible, this document will provide an entire Docker build/scan/publish pipeline. This is just one example of a pipeline utilizing the integrated Anchore Engine solution, users are free to tweak it to their needs. The 'container_scan' job is responsible for the actual Anchore Engine image scanning, the only requirement of this job is that the image to be scanned is pushed to the GitLab registry. 
+To be a thorough as possible, this document will provide an entire Docker build/scan/publish pipeline. This is just one example of a pipeline utilizing the integrated Anchore Engine solution, users are free to tweak it to their needs. The 'container_scan' job is responsible for the actual Anchore Engine image scanning, the only requirement of this job is that the image to be scanned is pushed to the GitLab registry.
 
 The example pipeline is shown below and is attached at the bottom of this page named anchore-integrated-gitlab.txt
 

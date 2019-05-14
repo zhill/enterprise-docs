@@ -20,10 +20,10 @@ If a group of users need to share a set of resources, they should all be in the 
 
 ### Access Control
 
-Access to all resources in Anchore Engine (0.3.0+) are gated by authorization checks which evaluate at user's permission set against a required authorization domain, action, and target. 
+Access to all resources in Anchore Engine (0.3.0+) are gated by authorization checks which evaluate at user's permission set against a required authorization domain, action, and target.
 
 - Domain: defines the namespace for an action, in this case an Account, or system for global resources like accounts themselves
-- Action: defined per API operation and can be found in the API swagger definition with the x-anchore-authz-action property on the path. For example, GET /images is mapped to the listImages action. 
+- Action: defined per API operation and can be found in the API swagger definition with the x-anchore-authz-action property on the path. For example, GET /images is mapped to the listImages action.
 - Target: the resource the action will operate on. Either a wild card, '*' for all, or a resource identifier (e.g. image digest).
 
 Anchore Engine provides a simple static set of permissions for authorization:
@@ -37,7 +37,7 @@ Anchore Engine provides a simple static set of permissions for authorization:
 
 #### Cross-Account Resource Access
 
-To access resources in an account other than that to which a user belongs, a request should include the custom header: *x-anchore-account: <account to access>*. This has the effect of setting the account context for the request to that specified account. In the open source Anchore Engine, the only users that have permissions to access resources in other accounts are users in the admin account. 
+To access resources in an account other than that to which a user belongs, a request should include the custom header: *x-anchore-account: <account to access>*. This has the effect of setting the account context for the request to that specified account. In the open source Anchore Engine, the only users that have permissions to access resources in other accounts are users in the admin account.
 
 ### Account and User Life-cycle
 
@@ -47,4 +47,4 @@ Accounts have states, these states govern the operations that are permitted by u
 2. Disabled - Users of the account are locked out of the system and not permitted to perform any actions. Resources are unaffected, but asynchronous actions such as subscriptions and tag update watchers are disabled for accounts in this state. Essentially, the account is frozen.
 3. Deleting - The account has been marked for deletion and its resources are being reaped by the system. Upon completion of deletion of all resources the account will be removed and the name can be re-used. To enter the Deleting state and account must first be in the Disabled state. This state is terminal.
 
-For more information on managing users and accounts via the API or CLI, see: Managing Users and Accounts.
+For more information on managing users and accounts via the API or CLI, see: [Managing Users and Accounts]({{< ref "/docs/engine/usage/cli_usage/accounts" >}}).
