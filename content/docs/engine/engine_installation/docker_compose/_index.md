@@ -41,10 +41,8 @@ Next, copy the included docker-compose.yaml to the ~/aevolume/ directory.
 Once these steps are complete, your ~/aevolume/ workspace should now look like this:
 
 ```
-# cd ~/aevolume
-# find .
-.
-./docker-compose.yaml
+# ls ~/aevolume
+docker-compose.yaml
 ```
 
 ### Step 3: Download and run the containers

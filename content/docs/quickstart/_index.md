@@ -55,11 +55,9 @@ Finally, copy the license.yaml file that was provided to you into the ~/aevolume
 Once these steps are complete, your ~/aevolume/ workspace should now look like this:
 
 ```
-# cd ~/aevolume
-# find .
-.
-./docker-compose.yaml
-./license.yaml
+# ls ~/aevolume
+docker-compose.yaml
+license.yaml
 ```
 
 ### Step 3: Download and run the containers
