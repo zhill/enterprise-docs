@@ -26,11 +26,11 @@ A container scanning job can be added to the CI/CD pipeline to allow any image t
 
 #### Integrated Solution:
 
-This sample pipeline runs directly on a GitLab runner, including shared runners on Gitlab.com
+This sample pipeline runs directly on a GitLab runner, including shared runners on gitlab.com
 
 The Docker executor is required for this job, as it utilizes the official Anchore Engine container.
 
-A fully functional pipeline can be viewed at gitlab.com
+A fully functional pipeline can be viewed at [gitlab.com/anchore/gitlab-demo](https://gitlab.com/anchore/gitlab-demo/blob/master/.gitlab-ci.yml)
 
 To be a thorough as possible, this document will provide an entire Docker build/scan/publish pipeline. This is just one example of a pipeline utilizing the integrated Anchore Engine solution, users are free to tweak it to their needs. The 'container_scan' job is responsible for the actual Anchore Engine image scanning, the only requirement of this job is that the image to be scanned is pushed to the GitLab registry. 
 
@@ -63,10 +63,10 @@ container_build:
 container_scan:
   stage: scan
   image:
-    name: anchore/anchore-engine:v0.3.0
+    name: anchore/anchore-engine:v0.4.1
     entrypoint: [""]
   services:
-    - name: anchore/engine-db-preload:v0.3.0
+    - name: anchore/engine-db-preload:v0.4.1
       alias: anchore-db
 
   variables:
@@ -76,7 +76,7 @@ container_scan:
 
   script:
     - |
-        curl -o /tmp/anchore_ci_tools.py https://raw.githubusercontent.com/anchore/ci-tools/v0.3.0/scripts/anchore_ci_tools.py
+        curl -o /tmp/anchore_ci_tools.py https://raw.githubusercontent.com/anchore/ci-tools/v0.4.1/scripts/anchore_ci_tools.py
         chmod +x /tmp/anchore_ci_tools.py
         ln -s /tmp/anchore_ci_tools.py /usr/local/bin/anchore_ci_tools
     - anchore_ci_tools --setup
