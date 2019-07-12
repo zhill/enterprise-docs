@@ -28,7 +28,7 @@ For example: `anchore-cli image content debain:latest files`
 
 The CLI will output a subseet of fields from the content view, for example for `files` on the file name and size are displayed. To retrieve the full output the `--json` parameter should be passed.
 
-For example: `anchore-cli --json content debian:latest files`
+For example: `anchore-cli --json image content debian:latest files`
 
 ### Next Steps
 
