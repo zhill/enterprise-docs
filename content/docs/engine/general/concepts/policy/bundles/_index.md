@@ -97,16 +97,18 @@ Example of a simple mapping rule set:
 ```JSON
 [
   {
+    "name": "DockerHub",
     "registry": "docker.io",
     "repository": "library/postgres",
-    "image": { "type": "tag", "value": "latest" }
+    "image": { "type": "tag", "value": "latest" },
     "policy_ids": [ "policy1", "policy2" ],
     "whitelist_ids": [ "whitelist1", "whitelist2" ]
   },
   {
+    "name": "default", 
     "registry": "*",
     "repository": "*",
-    "image": { "type": "tag", "value": "*" }
+    "image": { "type": "tag", "value": "*" },
     "policy_ids": [ "policy1" ],
     "whitelist_ids": [ "whitelist1" ]
   }
@@ -151,7 +153,7 @@ A complete bundle example with all sections containing data:
 
 ```
 {
-  "id": "default0,
+  "id": "default0",
   "version": "1_0",
   "name": "My Default bundle",
   "comment": "My system's default bundle",
@@ -173,16 +175,18 @@ A complete bundle example with all sections containing data:
   ],
   "mappings": [
     {
+      "name": "DockerHub", 
       "registry": "docker.io",
       "repository": "library/postgres",
-      "image": { "type": "tag", "value": "latest" }
+      "image": { "type": "tag", "value": "latest" },
       "policy_ids": [ "policy1", "policy2" ],
       "whitelist_ids": [ "whitelist1", "whitelist2" ]
     },
     {
+      "name": "default", 
       "registry": "*",
       "repository": "*",
-      "image": { "type": "tag", "value": "*" }
+      "image": { "type": "tag", "value": "*" },
       "policy_ids": [ "policy1" ],
       "whitelist_ids": [ "whitelist1" ]
     }
@@ -216,7 +220,7 @@ A complete bundle example with all sections containing data:
         {
           "action": "STOP",
           "gate": "vulnerabilities",
-          "trigger": "package"
+          "trigger": "package",
           "id": "rule1",
           "params": [
             { "name": "package_type", "value": "all" },

@@ -100,16 +100,18 @@ Example of a simple mapping rule set:
 ```JSON
 [
   { 
+    "name": "DockerHub",
     "registry": "docker.io",
     "repository": "library/postgres",
-    "image": { "type": "tag", "value": "latest" }
+    "image": { "type": "tag", "value": "latest" },
     "policy_ids": [ "policy1", "policy2" ],
     "whitelist_ids": [ "whitelist1", "whitelist2" ]
   },
-  { 
+  {
+    "name": "default", 
     "registry": "*",
     "repository": "*",
-    "image": { "type": "tag", "value": "*" }
+    "image": { "type": "tag", "value": "*" },
     "policy_ids": [ "policy1" ],
     "whitelist_ids": [ "whitelist1" ]
   }
@@ -154,12 +156,12 @@ A complete bundle example with all sections containing data:
 
 ```
 {
-  "id": "default0,
+  "id": "default0",
   "version": "1_0",
   "name": "My Default bundle",
   "comment": "My system's default bundle",
   "whitelisted_images": [
-    { 
+    {
       "name": "WhitelistDebianStable",
       "registry": "docker.io",
       "repository": "library/debian",
@@ -167,7 +169,7 @@ A complete bundle example with all sections containing data:
     }
   ],
   "blacklisted_images": [
-    { 
+    {
       "name": "BlacklistDebianUnstable",
       "registry": "docker.io",
       "repository": "library/debian",
@@ -175,17 +177,19 @@ A complete bundle example with all sections containing data:
     }
   ],
   "mappings": [
-    { 
+    {
+      "name": "DockerHub", 
       "registry": "docker.io",
       "repository": "library/postgres",
-      "image": { "type": "tag", "value": "latest" }
+      "image": { "type": "tag", "value": "latest" },
       "policy_ids": [ "policy1", "policy2" ],
       "whitelist_ids": [ "whitelist1", "whitelist2" ]
     },
-    { 
+    {
+      "name": "default", 
       "registry": "*",
       "repository": "*",
-      "image": { "type": "tag", "value": "*" }
+      "image": { "type": "tag", "value": "*" },
       "policy_ids": [ "policy1" ],
       "whitelist_ids": [ "whitelist1" ]
     }
@@ -198,7 +202,7 @@ A complete bundle example with all sections containing data:
       "items": [
         { "id": "item1", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-10000+libssl" },
         { "id": "item2", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-10001+*" }
-      ]  
+      ]
     },
     {
       "id": "whitelist2",
@@ -206,43 +210,43 @@ A complete bundle example with all sections containing data:
       "version": "1_0",
       "items": [
         { "id": "item1", "gate": "vulnerabilities", "trigger": "package", "trigger_id": "CVE-1111+*" }
-      ]  
+      ]
     }
   ],
   "policies": [
     {
-      "name": "DefaultPolicy", 
+      "name": "DefaultPolicy",
       "version": "1_0",
-      "comment": "Policy for basic checks", 
-      "id": "policy1", 
+      "comment": "Policy for basic checks",
+      "id": "policy1",
       "rules": [
         {
-          "action": "STOP", 
-          "gate": "vulnerabilities", 
-          "trigger": "package"
-          "id": "rule1", 
+          "action": "STOP",
+          "gate": "vulnerabilities",
+          "trigger": "package",
+          "id": "rule1",
           "params": [
-            { "name": "package_type", "value": "all" }, 
-            { "name": "severity_comparison", "value": ">=" }, 
+            { "name": "package_type", "value": "all" },
+            { "name": "severity_comparison", "value": ">=" },
             { "name": "severity", "value": "medium" }
           ]
         }
       ]
     },
     {
-      "name": "DBPolicy", 
+      "name": "DBPolicy",
       "version": "1_0",
-      "comment": "Policy for basic checks on a db", 
-      "id": "policy2", 
+      "comment": "Policy for basic checks on a db",
+      "id": "policy2",
       "rules": [
         {
-          "action": "STOP", 
-          "gate": "vulnerabilities", 
+          "action": "STOP",
+          "gate": "vulnerabilities",
           "trigger": "package",
-          "id": "rule1", 
+          "id": "rule1",
           "params": [
-            { "name": "package_type", "value": "all" }, 
-            { "name": "severity_comparison", "value": ">=" }, 
+            { "name": "package_type", "value": "all" },
+            { "name": "severity_comparison", "value": ">=" },
             { "name": "severity", "value": "low" }
           ]
         }
