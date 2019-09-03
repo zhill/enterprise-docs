@@ -12,7 +12,7 @@ between other providers such as LDAP or other SAML providers and applications th
 The following is an example of how to configure a new client entry in KeyCloak and configure Anchore to use it to permit UI login by KeyCloak users that are granted access via KeyCloak configuration.
 
 
-## 1. Configure a client entry in Keycloak for Anchore
+## Configuring KeyCloak
 
 Anchore supports multiple IDP configurations, each given a name. For this example we'll choose the name "keycloak" for our configuration.
 This important as that name is used in several URL paths to ensure that the correct configuration is used for validating responses,
@@ -68,7 +68,7 @@ Some config choices and assumptions specifically for this example:
     1. Download or copy the XML to save in the Anchore configuration
 
  
-## 2. Configure Anchore Enterprise to use the KeyCloak Identity Provider
+## Configure Anchore Enterprise to use the KeyCloak
     
 1. You'll need the following information from keycloak to enter in the Anchore UI:
   1. The name to use fo the configuration, in this example `keycloak`
