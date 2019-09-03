@@ -17,3 +17,4 @@ To jump to a particular guide, select from the following below:
 - [Managing Users]({{< ref "/docs/using/ui_usage/user_management" >}})
 - [LDAP]({{< ref "/docs/using/ui_usage/ldap" >}})
 - [Dashboard]({{< ref "/docs/using/ui_usage/dashboard" >}})
+- [Reports]({{< ref "/docs/using/ui_usage/reports" >}})
