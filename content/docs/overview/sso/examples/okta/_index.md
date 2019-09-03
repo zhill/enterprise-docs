@@ -8,9 +8,9 @@ weight: 3
 
 Some config choices and assumptions specifically for this example:
 
-1. Anchore UI endpoint: `https://localhost:3000`. Replace with the appropriate url as needed.
+1. Anchore UI endpoint: `http://localhost:3000`. Replace with the appropriate url as needed.
 1. IDP Config Name: `okta`. This will identify the specific configuration and is used in urls, and can be any url-safe string you'd like.
-1. The Single Sign-on URL (also called the Assertion Consumer Service/ACS URL) for this deployment will be: `https://localhost:3000/service/sso/auth/okta`. 
+1. The Single Sign-on URL (also called the Assertion Consumer Service/ACS URL) for this deployment will be: `http://localhost:3000/service/sso/auth/okta`. 
 This is constructed with the UI endpoint and path _/service/sso/auth/{IDP Config Name}_
 1. Our SP Entity ID will use the same url: `http://localhost:3000/service/sso/auth/okta`. This could be different but for simplicity we use the same value.
  
