@@ -53,6 +53,13 @@ In the Anchore UI, create an SSO Idp Configuration:
 1. Select "Configuration" Tab on the top
 1. Select "SSO" on the left-side menu
 1. Click "Let's Add One" in the configuration listing
+
+![Settings1](sso_okta_ui_settings1.png)
+
+And...     
+
+![Settings2](sso_okta_ui_settings2.png)
+
 1. Enter the values:
     * Name: `okta` - This is the name of the configuration and will be referenced in login and sso URLs, so we use the value 
     chosen at the beginning of this example
@@ -68,14 +75,6 @@ In the Anchore UI, create an SSO Idp Configuration:
 
 1. Save the configuration, configuration is complete and you should see a login with 'okta' option on the login screen. 
 Users can now login to your Anchore deployment using this Okta endpoint.
-
-![Settings1](sso_okta_ui_settings1.png)
-
-And scrolling down...     
-
-![Settings2](sso_okta_ui_settings2.png)
-
-
 
 See: [Mapping Users and Roles in SSO]({{< ref "/docs/overview/sso/mapping" >}}) for more information on using the account 
 and role defaults, IDP attribute values and understanding how identities are mapped into Anchore's RBAC system.
