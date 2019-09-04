@@ -55,4 +55,4 @@ NOTE: The nvd parameter must be set to true to configure the Anchore Engine to d
 
 2. Restart Anchore Engine (or just the Policy Engine component containers if you have split services out into their own containers) for the config changes to take effect. If the policy engine cannot reach the configured url it will raise an error and terminate during the bootstrap process. You can check the policy engine logs in /var/log/anchore/anchore-policy-engine.log for errors on the url configuration. If the service start successfully then it was able to reach the Anchore Enterprise Feeds endpoint.
 
-You should now have and Anchore Engine executing feed syncs against the On-Premise Anchore Enterprise Feeds.
+You should now have and Anchore Engine executing feed syncs against the On-Premises Anchore Enterprise Feeds.

@@ -4,14 +4,14 @@ linkTitle: "Feeds"
 weight: 4
 ---
 
-Anchore Enterprise Feeds is an On-Premise service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of the Anchore Engine, uses this data for vulnerability listing and policy evaluation. For more information about Anchore Engine's usage of feeds, see feeds overview
+Anchore Enterprise Feeds is an On-Premises service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of the Anchore Engine, uses this data for vulnerability listing and policy evaluation. For more information about Anchore Engine's usage of feeds, see feeds overview
 
 Anchore maintains a public and free feed service at https://ancho.re/v1/service/feeds which is used by the open source Anchore Engine and Anchore Cloud. Anchore Enterprise Feeds offers the following benefits over the free service:
 
 - Vulnerability data from 3rd party licensed feeds
 - Run Anchore Enterprise in Air-Gapped mode
 - Examine updates to vulnerability dataset (for audit trail) with advanced APIs
-- Granular control and configuration over feed data due to On-Premise installation. Configure   how often the data from external sources is synced, enable/disable individual drivers         responsible for processing normalized data.
+- Granular control and configuration over feed data due to On-Premises installation. Configure   how often the data from external sources is synced, enable/disable individual drivers         responsible for processing normalized data.
 
 ### Design Overview
 
@@ -28,8 +28,8 @@ A driver downloads raw data from an external source and normalizes it. Each driv
 
 - Drivers responsible for operating system package vulnerabilities gather raw data from the respective os resources listed below
 - Package drivers process the official list of packages maintained by NPM and RubyGems organizations 
-- nvd driver processes all the CVEs in the NIST database and the supplies normalized data that can be used for matching non-os packages (such as Java, Python, NPM, GEM)
-- third party drivers source vulnerability data for software artifacts, curated by the third party. Policy Engine may prioritize third-party data matches over other feed data sources, when availablem for matching vulnerabilities against software artifacts. 
+- nvdv2 driver processes CVEs from the NIST database and the supplies normalized data that is used for matching non-os packages (such as Java, Python, NPM, GEM)
+- third party drivers source vulnerability data for software artifacts, curated by the third party. Policy Engine may prioritize third-party data matches over other feed data sources, when available for matching vulnerabilities against software artifacts. 
 
 All drivers except for the package drivers are enabled by default. The service has configuration toggles enabling/disabling each driver individually and tuning driver specific settings. 
 
@@ -42,7 +42,8 @@ All drivers except for the package drivers are enabled by default. The service h
 | ubuntu | vulnerabilities | https://launchpad.net/ubuntu-cve-tracker |
 | gem | packages | https://s3-us-west-2.amazonaws.com/rubygems-dumps |
 | npm | packages | https://replicate.npmjs.com |
-| nvd | nvd | https://nvd.nist.gov/vuln/data-feeds |
+| nvd (deprecated) | nvd (deprecated) | https://nvd.nist.gov/vuln/data-feeds |
+| nvdv2 | nvdv2 | https://nvd.nist.gov/feeds/json/cve/1.0/ |
 | third-party | third-party | https://data.anchore-enterprise.com |
 
 ### Database 

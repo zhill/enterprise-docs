@@ -1,9 +1,9 @@
 ---
-title: "Migrating Data Between On-Premise Anchore Enterprise Feeds Installations"
+title: "Migrating Data Between On-Premises Anchore Enterprise Feeds Installations"
 weight: 1
 ---
 
-The On-Premise Anchore Enterprise Feeds has two high level functions:
+The On-Premises Anchore Enterprise Feeds has two high level functions:
 
 - Gather vulnerability data from external sources, normalize and persist the data
 - Serve persisted normalized vulnerability data from via an API

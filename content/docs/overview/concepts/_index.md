@@ -15,10 +15,10 @@ weight: 2
 
 **_Anchore Enterprise_** provides features and capabilities in addition to those of the open-source **_Anchore Engine_**.
 
-- On-premise UI for visualization, policy editing, report generation, and user management
+- On-Premises UI for visualization, policy editing, report generation, and user management
 - RBAC support for the APIs
 - Proprietary vulnerability data feeds to significantly enhance vulnerability detection in application packages and libraries (e.g. python, ruby gems, nodejs packages, java jars...)
-- Fully On-Premise Vulnerability Feed Service providing vulnerability and package metadata
+- Fully On-Premises Vulnerability Feed Service providing vulnerability and package metadata
     - Full data provenance from vendor sources (RedHat, Debian, etc) into the analysis engine
     - Enables Air-Gapped deployments
 - Commercial Support (8/5 or 24/7)
