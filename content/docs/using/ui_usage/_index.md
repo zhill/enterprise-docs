@@ -13,8 +13,10 @@ If you have not installed the Anchore Enterprise UI, please refer to the [instal
 To jump to a particular guide, select from the following below:
 
 - [Analyzing Images]({{< ref "/docs/using/ui_usage/images" >}})
+- [Data Context Switching]({{< ref "/docs/using/ui_usage/context" >}})
 - [Configuring Registries]({{< ref "/docs/using/ui_usage/registries" >}})
 - [Managing Users]({{< ref "/docs/using/ui_usage/user_management" >}})
+- [Policies]({{< ref "/docs/using/ui_usage/policies" >}})
 - [LDAP]({{< ref "/docs/using/ui_usage/ldap" >}})
 - [Dashboard]({{< ref "/docs/using/ui_usage/dashboard" >}})
 - [Reports]({{< ref "/docs/using/ui_usage/reports" >}})
