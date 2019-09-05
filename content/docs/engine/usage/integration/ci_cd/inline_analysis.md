@@ -63,6 +63,7 @@ Image Digest: sha256:d212a12aa728ccb4baf06fcc83dc77392d90018d13c9b40717cf455e09a
 
 #### Analyzing an image from a registry
 Here we show an example of an image (docker.io/alpine:latest) that is available in a registry (thus the manifest is accessible). We get the manifest from the registry, using skopeo, by first getting the parent digest - which will be used to get the digest of the image that matches your desired architecture- then getting the actual image digest.  Finally, we perform analysis/import using the inline_scan tool.
+
 ```
 # skopeo inspect --raw docker://docker.io/alpine:latest > alpine_parent_digest.json
 
@@ -76,3 +77,4 @@ Here we show an example of an image (docker.io/alpine:latest) that is available 
 
 # anchore-cli image get docker.io/alpine:latest
 Image Digest: sha256:acd3ca9941a85e8ed16515bfc5328e4e2f8c128caa72959a58a127b7801ee01f
+```
