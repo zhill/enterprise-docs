@@ -3,89 +3,64 @@ title = "Enterprise Documentation"
 linkTitle = "Anchore Enterprise Documentation"
 +++
 
-{{< blocks/cover title="Welcome to the Anchore Enterprise Documentation!" image_anchor="top" height="half" color="white" >}}
-<div class="mx-auto ">
-    <a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{< ref "docs/quickstart" >}}">
-		Enterprise Quick Start <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+{{< blocks/cover title="Anchore Container Analysis" subtitle="Welcome to the Anchore Docs! Ready to get started?" image-anchor="top" height="med" color="dark" >}}
+<div class="mx-auto">
+  <a class="btn btn-lg btn-secondary mr-3 mt-3 mb-3" href="{{< ref "docs/quickstart" >}}">
+		Enterprise Quick Start
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{< ref "docs/engine/quickstart" >}}">
-		Open-Source Quick Start <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+	<a class="btn btn-lg btn-secondary mr-3 mt-3 mb-3" href="{{< ref "docs/engine/quickstart" >}}">
+		Open-Source Quick Start
 	</a>
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< ref "docs" >}}">
-		Start Reading <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+	<a class="btn btn-lg btn-primary mr-3 mt-3 mb-3" href="{{< ref "docs" >}}">
+		Start Reading
 	</a>
-
 </div>
 {{< /blocks/cover >}}
 
+{{% blocks/section title="Integrations" subtitle="Integrate Anchore with your favorite CI/CD Systems, Orchestration Platforms, and more" color="primary" %}}
 
-{{% blocks/lead color="primary" %}}
-Related projects for integrating Anchore Enterprise into your container platform and workflows
-
-{{% /blocks/lead %}}
-
-{{< blocks/section color="white">}}
-
-
-{{% blocks/feature icon="fa-terminal" title="Anchore CLI" url="https://github.com/anchore/anchore-cli" %}}
-The Open-Source CLI for Anchore Engine
-
+{{% blocks/feature svg="icons/kubernetes-logo.svg" title="Kubernetes" %}}
+Install Anchore Engine using the [Helm Chart](https://hub.helm.sh/charts/stable/anchore-engine) and make admission decisions based on analysis and policy-based evaluations with our [Kubernetes Admission Controller](https://github.com/anchore/kubernetes-admission-controller)
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-download" title="Official Helm Chart" url="https://github.com/helm/charts/tree/master/stable/anchore-engine" %}}
-Helm Chart for installing Anchore Engine in Kubernetes
+{{% blocks/feature svg="icons/jenkins-logo.svg" title="Jenkins" %}}
+Integrate Anchore Engine seamlessly into your container based CI/CD pipeline with our [Jenkins Plugin](https://plugins.jenkins.io/anchore-container-scanner) to include compliance, results visualizations, and reports to your workflow
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-comments" title="Anchore Policy Hub" url="https://github.com/anchore/hub" %}}
-Git repository for sharing and distributing Anchore policies
-
+{{% blocks/feature svg="icons/circleci-logo.svg" title="CircleCI" %}}
+Import our Partner-certified [CircleCI Orb](https://circleci.com/orbs/registry/orb/anchore/anchore-engine) to add Anchore Engine scanning to your CircleCI builds and automate policy-based compliance in your container deployments
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-balance-scale" title="Kubernetes Admission Controller" url="https://github.com/anchore/kubernetes-admission-controller" %}}
-Make pod execution decisions based on anchore analysis and policy decisions
+{{% /blocks/section %}}
 
+{{% blocks/section title="Related Content" subtitle="Browse our various projects, import pre-made policies, and start deploying secure containers with Anchore" color="white" %}}
+
+{{% blocks/feature iconFormat="square" icon="fas fa-terminal" title="Anchore CLI" %}}
+The [Open-Source CLI](https://github.com/anchore/anchore-cli) for Anchore Engine to manage and inspect images, policies, subscriptions, and registries
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-download" title="Anchore Helm Charts Repository" url="https://github.com/anchore/anchore-charts" %}}
-Helm Charts hosted by Anchore for tooling and utilities, including installing the Admission Controller
-
+{{% blocks/feature iconFormat="square" icon="fas fa-comments" title="Anchore Policy Hub" %}}
+View, list and import pre-made security, compliance and best-practices policies hosted on the publicly available [Anchore Policy Hub](https://github.com/anchore/hub)
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-jenkins" title="Anchore Jenkins Plugin" url="https://plugins.jenkins.io/anchore-container-scanner" %}}
-Jenkins Plugin for using Anchore Engine in your builds, including results visualizations and reports
-
-{{% /blocks/feature %}}
-
-{{% blocks/feature icon="fa-circle" title="Anchore CircleCI Orb" url="https://circleci.com/orbs/registry/orb/anchore/anchore-engine" %}}
-CircleCI Orb for adding Anchore Engine scanning to your CircleCI builds. [Orb Source](https://github.com/anchore/ci-tools/tree/master/circleci-orbs/anchore-engine)
-
-{{% /blocks/feature %}}
-
-{{% blocks/feature icon="fab fa-docker" title="Docker Images" url="https://hub.docker.com/r/anchore"%}}
-Anchore Engine pre-built containers
-
-{{% /blocks/feature %}}
-
-
-{{</blocks/section>}}
-
-{{< blocks/section color="primary">}}
-{{% blocks/feature icon="fab fa-slack" title="Join us on Slack!" url_text="Join our community" url="https://anchore.com/slack" %}}
-
-
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/anchore/anchore-engine" url_text="Github Project"%}}
-Anchore Enterprise is built on the open-source Anchore Engine project.
-
-We do a [Pull Request](https://github.com/anchore/anchore-engine/pulls) contributions workflow on **GitHub**. New users are always welcome!
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url_text="Twitter" url="https://twitter.com/anchore" %}}
-For announcement of latest updates and features.
+{{% blocks/feature iconFormat="square" icon="fab fa-docker" title="Docker Images" %}}
+Browse our team’s collection of container images on [Docker Hub](https://hub.docker.com/r/anchore) and get up and running with [Anchore Engine](https://hub.docker.com/r/anchore/anchore-engine) today
 {{% /blocks/feature %}}
 
 {{< /blocks/section >}}
 
+{{< blocks/section title="Join our Community" subtitle="Ask questions, engage with Anchore users, contribute code, and let us know what you think" color="primary">}}
+
+{{% blocks/feature svg="icons/slack-logo.svg" title="Slack" %}}
+Join our [Slack](https://anchore.com/slack) channel and chat live with members of the Anchore community
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fab fa-github" title="GitHub" %}}
+Browse the source code for [Anchore Engine](https://github.com/anchore/anchore-engine) and feel free to contribute via [Pull Request](https://github.com/anchore/anchore-engine/pulls)
+{{% /blocks/feature %}}
+
+{{% blocks/feature svg="icons/twitter-logo.svg" title="Twitter" %}}
+Follow us on [Twitter](https://twitter.com/anchore) for announcements of latest updates and features on everything Anchore
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
