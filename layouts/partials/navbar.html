@@ -1,7 +1,7 @@
 {{ $cover := .HasShortcode "blocks/cover" }}
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
+<nav class="navbar navbar-expand navbar-dark bg-dark flex-column flex-md-row td-navbar">
 	<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
-		<span class="navbar-logo">{{ with resources.Get "icons/logo.svg" }}{{ ( . | minify).Content | safeHTML }} {{ end }}</span><span class="text-uppercase font-weight-bold">{{ .Site.Title }}</span>
+		<span class="navbar-logo">{{ with resources.Get "icons/logo-inverted.svg" }}{{ ( . | minify).Content | safeHTML }} {{ end }}</span>
 	</a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
@@ -12,7 +12,7 @@
 				{{ with .Page }}
 				{{ $active = or $active ( $.IsDescendant .)  }}
 				{{ end }}
-				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"><span{{if $active }} class="active"{{end}}>{{ .Name }}</span></a>
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"><span{{if $active }} class="active"{{end}}>Docs</span></a>
 			</li>
 			{{ end }}
 			<li class="nav-item dropdown d-none d-lg-block">

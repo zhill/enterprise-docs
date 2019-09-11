@@ -74,3 +74,20 @@
     }
   }
 }
+
+.td-search-input {
+  color: #222;
+
+  &.form-control {
+    height: calc(2rem + 2px);
+  }
+
+  &.form-control:focus {
+    color: #222;
+    height: calc(2rem + 2px);
+  }
+
+  &.form-control::placeholder {
+    color: #888;
+  }
+}

@@ -85,18 +85,37 @@ no = 'Sorry to hear that. Please <a href="https://github.com/anchore/enterprise-
 [[params.links.user]]
 	name ="Twitter"
 	url = "https://twitter.com/anchore"
-	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news!"
+	icon = "fab fa-twitter-square"
+    desc = "Follow us on Twitter to get the latest news!"
 
 [[params.links.user]]
-    name = "Slack"
-    url = "https://anchore.com/slack"
-    icon = "fab fa-slack"
-        desc = "Chat with other users and project developers!"
+  name = "LinkedIn"
+  url = "https://linkedin.com/company/anchore/"
+  icon = "fab fa-linkedin"
+    desc = "Reach out to us on LinkedIn!"
+
+[[params.links.user]]
+  name = "Facebook"
+  url = "https://facebook.com/anchore"
+  icon = "fab fa-facebook"
+    desc = "Check out our Facebook page!"
+
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+  name = "Slack"
+  url = "https://anchore.com/slack"
+  icon = "fab fa-slack"
+    desc = "Chat with other users and project developers!"
+
 [[params.links.developer]]
 	name = "GitHub"
 	url = "https://github.com/anchore/anchore-engine"
 	icon = "fab fa-github"
-        desc = "Anchore Engine Source"
+    desc = "Anchore Engine Source"
+
+[[params.links.developer]]
+  name = "Anchore, Inc."
+  url = "https://anchore.com"
+  icon = "fas fa-university"
+    desc = "Anchore Company Site"
 
