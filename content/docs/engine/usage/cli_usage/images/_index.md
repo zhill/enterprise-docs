@@ -10,7 +10,7 @@ The `image add` command instructs the Anchore Engine to pull (download) and anal
 
 `anchore-cli image add docker.io/library/nginx:latest`
 
-The Anchore Engine will attempt to retrieve metadata about the image from the Docker registry and if successful will initiate a pull of the image and queue the image for analysis. The command will output details about the image including the image digest, image ID, and full name of the image. 
+The Anchore Engine will attempt to retrieve metadata about the image from the Docker registry and if successful will initiate a pull of the image and queue the image for analysis. The command will output details about the image including the image digest, image ID, and full name of the image.
 
 ```
 Image Digest: sha256:2b0e9b0e40202e2a6a0619f327c9acb9d0adc39d7dc292fefc1a886fc8cefee3
@@ -30,9 +30,9 @@ Full Tag: docker.io/mysql:latest
 
 For an image that has not yet been analyzed, the status will appear as *not_analyzed*. Once the image has been downloaded it will be queued for analysis. When the analysis begins the status will be updated to *analyzing*, after which te status will update to *analyzed*.
 
-The image type is shown as `docker`, future release will support the analysis of OCI formatted images. 
+The image type is shown as `docker`, future release will support the analysis of OCI formatted images.
 
-### Adding images that you own
+### Adding Images That You Own
 
 For images that you are building yourself, the Dockerfile used to build the image should always be passsed to the Anchore Engine at the time of image addition. This is achieved by adding the image as above, but with the additional option to pass the Dockerfile contents to be stored with the engine alongside the image analysis data.
 
@@ -42,7 +42,7 @@ To update an image's Dockerfile, simply run the same command again with the path
 
 ### Additional Options
 
-When adding an image, there are some additional (optional) parameters that can be used. We show some examples below. 
+When adding an image, there are some additional (optional) parameters that can be used. We show some examples below.
 `anchore-cli image add alpine:latest --force`
 
 the `--force` option can be used to reset the image analysis status of any image to *not_analyzed*, which is the base analysis state for an image. This option should be be necessary to use in normal circumstancesm but can be useful if image re-analysis is needed for any reason desired.
@@ -74,6 +74,51 @@ Layer Count: 12
 
 Full Tag: docker.io/mysql:latest
 Full Tag: docker.io/mysql:5
+```
+
+### Deleting An Image
+
+The `image del` command instructs the Anchore Engine to delete the image from the repository.
+
+#### Get The Image Digest
+
+To delete the image, first get the image digest from `anchore-cli image list`.
+
+```
+anchore-cli image list                                                             
+Full Tag                    Image Digest                                                                Analysis Status        
+docker.io/alpine:latest     sha256:acd3ca9941a85e8ed16515bfc5328e4e2f8c128caa72959a58a127b7801ee01f     analyzed        
+```
+
+#### Deactivate Image Subscriptions
+
+Check if the image has any active subscriptions.
+
+```
+anchore-cli subscription list                                                   
+Tag                         Subscription Type        Active        
+docker.io/alpine:latest     analysis_update          True          
+docker.io/alpine:latest     policy_eval              False         
+docker.io/alpine:latest     tag_update               True          
+docker.io/alpine:latest     vuln_update              False
+```
+If it the image has an active subscription(s), deactivate the subscription(s).
+
+```
+anchore-cli subscription deactivate analysis_update docker.io/alpine:latest
+Success
+
+anchore-cli subscription deactivate tag_update docker.io/alpine:latest
+Success
+```
+
+#### Delete The Image
+
+Once no subscriptions are active and the image digest has been obtained, delete the image.
+
+```
+anchore-cli image del sha256:acd3ca9941a85e8ed16515bfc5328e4e2f8c128caa72959a58a127b7801ee01f
+Success
 ```
 
 ### Advanced
