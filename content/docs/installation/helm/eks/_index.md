@@ -4,11 +4,12 @@ linkTitle: "Amazon EKS"
 weight: 3
 ---
 
-This document will walkthrough the installation of Anchore Enterprise on an Amazon EKS cluster. 
+This document will walkthrough the installation of Anchore Enterprise on an Amazon EKS cluster and expose it on the public internet. 
 ## Prerequisites
 
 - A running Amazon EKS cluster with worker nodes launched. See [EKS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) for more information on this setup. 
-- [Helm](https://helm.sh/) client and server installed and configured with your EKS cluster. 
+- [Helm](https://helm.sh/) client and server installed and configured with your EKS cluster.
+- [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host. 
 
 Once you have an EKS cluster up and running with worker nodes launched, you can verity via the followiing command. 
 
@@ -30,7 +31,7 @@ Anchore maintains a [Helm chart](https://github.com/helm/charts/tree/master/stab
 
 To make the necessary configurations to the Helm chart, create a custom `anchore_values.yaml` file and reference it during installation. There are many options for configuration with Anchore, this document is intended to cover the minimum required changes to successfully install Anchore Enterprise on Amazon EKS. 
 
-**Note:** For this installation, an ALB ingress controller will be used You can read more about Kubernetes Ingress with AWS ALB Ingress Controller [here](https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/)
+**Note:** For this installation, an ALB ingress controller will be used. You can read more about Kubernetes Ingress with AWS ALB Ingress Controller [here](https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/)
 
 ### Configurations
 
@@ -55,6 +56,8 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
 ```
+
+**Note:** Configuring ingress is optional. It is used throughout this guide to expose the Anchore deployment on the public internet.
 
 #### Anchore Engine API Service
 
@@ -189,13 +192,16 @@ Events:
   Normal  CREATE  14m   alb-ingress-controller  rule 2 created with conditions [{    Field: "path-pattern",    Values: ["/*"]  }]
 ```
 
-TThe output above shows that an ELB has been created. Navigate to the specified URL in a browser:
+The output above shows that an ELB has been created. Navigate to the specified URL in a browser:
 
 ![login](anchore-login.png)
 
 #### Anchore System
 
-Check the status of the system to verify all of the Anchore services are up:
+Check the status of the system with the Anchore CLI to verify all of the Anchore services are up:
+
+**Note:** Read more on [Configuring the Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/cli_config/)
+
 
 ```
 $ anchore-cli --url http://xxxxxx-default-anchoreen-xxxx-xxxxxxxxxx.us-east-1.elb.amazonaws.com/v1/ --u admin --p foobar system status
@@ -214,7 +220,7 @@ Engine Code Version: 0.5.0
 
 #### Anchore Feeds
 
-It can take some time to fetch all of the vulnerability feeds from the upstream data sources. Check on the status of feeds:
+It can take some time to fetch all of the vulnerability feeds from the upstream data sources. Check on the status of feeds with the Anchore CLI:
 
 ```
 $ anchore-cli --url http://xxxxxx-default-anchoreen-xxxx-xxxxxxxxxx.us-east-1.elb.amazonaws.com/v1/ --u admin --p foobar system feeds list

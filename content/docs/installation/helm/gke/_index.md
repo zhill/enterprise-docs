@@ -4,11 +4,12 @@ linkTitle: "Google Kubernetes Engine (GKE)"
 weight: 3
 ---
 
-This document will walkthrough the installation of Anchore Enterprise on a Google Kubernetes Engine (GKE) cluster.
+This document will walkthrough the installation of Anchore Enterprise on a Google Kubernetes Engine (GKE) cluster and expose it on the public internet.
 ## Prerequisites
 
 - A running GKE cluster with worker nodes launched. See [GKE Documentation](https://cloud.google.com/kubernetes-engine/docs/) for more information on this setup. 
-- [Helm](https://helm.sh/) client and server installed and configured with your GKE cluster. 
+- [Helm](https://helm.sh/) client and server installed and configured with your GKE cluster.
+- [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host. 
 
 Once you have a GKE cluster up and running with worker nodes launched, you can verity via the followiing command. 
 
@@ -30,7 +31,7 @@ Anchore maintains a [Helm chart](https://github.com/helm/charts/tree/master/stab
 
 To make the necessary configurations to the Helm chart, create a custom `anchore_values.yaml` file and reference it during installation. There are many options for configuration with Anchore, this document is intended to cover the minimum required changes to successfully install Anchore Enterprise on Google Kubernetes Engine. 
 
-**Note:** For this installation, a GKE ingress controller will be used You can read more about Kubernetes Ingress with a GKE Ingress Controller [here](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
+**Note:** For this installation, a GKE ingress controller will be used. You can read more about Kubernetes Ingress with a GKE Ingress Controller [here](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
 
 ### Configurations
 
@@ -52,6 +53,8 @@ ingress:
     # uiHosts:
     #   - anchore-ui.example.com
 ```
+
+**Note:** Configuring ingress is optional. It is used throughout this guide to expose the Anchore deployment on the public internet.
 
 #### Anchore Engine API Service
 
@@ -157,13 +160,15 @@ Events:
   Normal  CREATE  14m   loadbalancer-controller  ip: 34.96.64.148
 ```
 
-TThe output above shows that an Load Balancer has been created. Navigate to the specified URL in a browser:
+The output above shows that an Load Balancer has been created. Navigate to the specified URL in a browser:
 
 ![login](anchore-login.png)
 
 #### Anchore System
 
-Check the status of the system to verify all of the Anchore services are up:
+Check the status of the system with the Anchore CLI to verify all of the Anchore services are up:
+
+**Note:** Read more on [Configuring the Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/cli_config/)
 
 ```
 $ anchore-cli --url http://34.96.64.148/v1/ --u admin --p foobar system status
@@ -182,7 +187,7 @@ Engine Code Version: 0.5.0
 
 #### Anchore Feeds
 
-It can take some time to fetch all of the vulnerability feeds from the upstream data sources. Check on the status of feeds:
+It can take some time to fetch all of the vulnerability feeds from the upstream data sources. Check on the status of feeds with the Anchore CLI:
 
 ```
 $ anchore-cli --url http://34.96.64.148/v1/ --u admin --p foobar system feeds list
