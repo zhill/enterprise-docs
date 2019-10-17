@@ -61,12 +61,20 @@ Some config choices and assumptions specifically for this example:
 
 1. Download the metadata xml to import into Anchore
 
-    ![Metadata XML](keycloak_sso_metadata_xml.png)
-
-    **Note** Keycloak v5.0.0 was used in this example.  In v6.0.0, the SAML Metadata IDPSSODescriptor was removed so for v6.0.0+ the Mod Auth Mellon files option exports a .zip containing the idp-metadata.xml.
-
     1. Select 'Installation' tab.
-    1. Select Format Option - SAML Metadata IDPSSODescriptor
+    1. Select Format
+
+      * **Keycloak <= 5.0.0**
+
+      1. Select Format Option - SAML Metadata IDPSSODescriptor
+        ![Metadata XML](keycloak_sso_metadata_xml.png)
+
+      * **Keycloak 6.0.0+**
+
+      1. Select Format Option - Mod Auth Mellon files
+        ![Mod Auth Mellon Files](keycloak_sso_metadata_auth_mellon_files.png)
+      2. Unzip the downloaded .zip and locate `idp-metadata.xml`
+        ![Metadata XML](keycloak_sso_metadata_auth_mellon_files_download.png)
     1. Download or copy the XML to save in the Anchore configuration
 
 ## Configure Anchore Enterprise to use the KeyCloak
