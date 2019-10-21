@@ -20,7 +20,7 @@ In this section, you'll learn how what is required for configuring Anchore Engin
 | linux.oracle.com | 443 | Oracle Linux Security Feed |
 | github.com | 443 | Alpine Linux Security Database |
 | redhat.com | 443 | Red Hat Enterprise Linux Security Database |
-| security-tracker.debain.org | 443 | Debian Security Feed |
+| security-tracker.debian.org | 443 | Debian Security Feed |
 | salsa.debian.org | 443 | Debian Security Feed |
 | replicate.npmjs.com | 443 | NPM Registry Package Data |
 | s3-us-west-2.amazonaws.com | 443 | Ruby Gems Data Feed |
