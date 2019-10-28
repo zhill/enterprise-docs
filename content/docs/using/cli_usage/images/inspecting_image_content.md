@@ -28,7 +28,7 @@ the CONTENT_TYPE can be one of the following types:
 - java: Java Archives
 - python: Python Artifacts
 
-For example: `anchore-cli image content debain:latest files`
+For example: `anchore-cli image content debian:latest files`
 
 The CLI will output a subseet of fields from the content view, for example for `files` on the file name and size are displayed. To retrieve the full output the `--json` parameter should be passed.
 
