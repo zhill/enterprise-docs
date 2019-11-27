@@ -45,7 +45,9 @@ A few items will be required:
 - Repository (e.g. library/centos)
 - Tag (e.g. latest)
 
-If you’ve already navigated through to a specific registry, repository, or tag using the inline links, those editable fields will be pre-filled in with the relevant route info for your convenience.
+If you’ve already navigated through to a specific registry, repository, or tag using the inline links, those editable fields will be pre-filled in with the relevant route info for your convenience.  The inline links can be the registry name (e.g., docker.io), the repository name (e.g., alpine), or the tag version (e.g., latest) as outlined in the image below:
+
+![alt text](InlineLinks.png)
 
 A few additional options are also provided on the right:
 

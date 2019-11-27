@@ -1,15 +1,18 @@
 ---
-title: "Installing Anchore Enterprise on OpenShift Kubernetes Distribution (OKD) 3.11"
+title: "Installing Anchore Enterprise on OpenShift"
 linkTitle: "OpenShift"
 weight: 3
 ---
 
 This document will walkthrough the installation of Anchore Enterprise on an OpenShift Kubernetes Distribution (OKD) 3.11 cluster and expose it on the public internet.
 
+**Note:** While this document walks through deploying on OKD 3.11, it has been successfully deployed and tested on OpenShift 4.2.4 and 4.2.7.
+
 ## Prerequisites
 
 - A running OpenShift Kubernetes Distribution (OKD) 3.11 cluster. Read more about the installation requirements [here](https://docs.okd.io/3.11/install/running_install.html).
-- [Helm](https://helm.sh/) client and server installed and configured with your OKD cluster.
+  - **Note:** If deploying to a running OpenShift 4.2.4+ cluster, read more about the installation requirements [here](https://docs.openshift.com/container-platform/4.2/welcome/index.html).
+- [Helm](https://helm.sh/) client and server installed and configured with your cluster.
 - [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host.
 
 **Considerations for Helm on OpenShift:**
@@ -75,7 +78,7 @@ Verify these secrets are in the correct namespace: anchore-enterprise
 
 Link the above Docker registry secret to the default service account:
 
-`oc link default anchore-enterprise-pullcreds --for=pull --namepsace=anchore-enterprise`
+`oc secrets link default anchore-enterprise-pullcreds --for=pull --namepsace=anchore-enterprise`
 
 Verify this by running the following:
 
