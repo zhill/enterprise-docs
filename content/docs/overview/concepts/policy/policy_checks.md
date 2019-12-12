@@ -35,6 +35,13 @@ Checks against files in the analyzed image including file content, file names, a
 | :----------- | :---------- | :-------- | :---------- | :------ |
 | content_regex_match | Triggers for each file where the content search analyzer has found a match using configured regexes in the analyzer_config.yaml "content_search" section. If the parameter is set, the trigger will only fire for files that matched the named regex. Refer to your analyzer_config.yaml for the regex values. | regex_name | Regex string that also appears in the FILECHECK_CONTENTMATCH analyzer parameter in analyzer configuration, to limit the check to. If set, will only fire trigger when the specific named regex was found in a file. | .*password.* |
 | name_match | Triggers if a file exists in the container that has a filename that matches the provided regex. This does have a performance impact on policy evaluation. | regex | Regex to apply to file names for match. | .*\.pem |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | filename | Filename to check against provided checksum. | /etc/passwd |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | checksum_algorithm | Checksum algorithm | sha256 |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | checksum | Checksum of file. | 832cd0f75b227d13aac82b1f70b7f90191a4186c151f9db50851d209c45ede11 |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | checksum_match | Checksum operation to perform. | equals |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | mode | File mode of file. | 00644 |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | mode_op | File mode operation to perform. | equals |
+| attribute_match | Triggers if a filename exists in the container that has attributes that match those which are provided . This check has a performance impact on policy evaluation. | skip_missing | If set to true, do not fire this trigger if the file is not present.  If set to false, fire this trigger ignoring the other parameter settings. | true |
 | suid_or_guid_set | Fires for each file found to have suid or sgid bit set. | | | |
 
 ### Gate: passwd_file
@@ -74,9 +81,22 @@ CVE/Vulnerability checks.
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | package_type | Only trigger for specific package type. | all |
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | severity_comparison | The type of comparison to perform for severity evaluation. | > |
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | severity | Severity to compare against. | high |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_base_score_comparison | The type of comparison to perform for CVSS v3 base score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_base_score | CVSS v3 base score to compare against. | None |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_exploitability_score_comparison | The type of comparison to perform for CVSS v3 exploitability sub score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_exploitability_score | CVSS v3 exploitability sub score to compare against. | None |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_impact_score_comparison | The type of comparison to perform for CVSS v3 impact sub score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | cvss_v3_impact_score | CVSS v3 impact sub score to compare against. | None |
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | fix_available | If present, the fix availability for the vulnerability record must match the value of this parameter. | true |
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_only | If True, an available fix for this CVE must not be explicitly marked as wont be addressed by the vendor | true |
 | package | Triggers if a found vulnerability in an image meets the comparison criteria. | max_days_since_creation | If provided, this CVE must be older than the days provided to trigger. | 7 |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | max_days_since_fix | If provided (only evaluated when fix_available option is also set to true), the fix first observed time must be older than days provided, to trigger. | 30 |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_base_score_comparison | The type of comparison to perform for vendor specified CVSS v3 base score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_base_score | Vendor CVSS v3 base score to compare against. | None |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_exploitability_score_comparison | The type of comparison to perform for vendor specified CVSS v3 exploitability sub score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_exploitability_score | Vendor CVSS v3 exploitability sub score to compare against. | None |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_impact_score_comparison | The type of comparison to perform for vendor specified CVSS v3 impact sub score evaluation. | > |
+| package | Triggers if a found vulnerability in an image meets the comparison criteria. | vendor_cvss_v3_impact_score | Vendor CVSS v3 impact sub score to compare against. | None |
 | stale_feed_data | Triggers if the CVE data is older than the window specified by the parameter MAXAGE (unit is number of days). | max_days_since_sync | Fire the trigger if the last sync was more than this number of days ago. | 10 |
 | vulnerability_data_unavailable | Triggers if vulnerability data is unavailable for the image's distro. | | | |
 
@@ -117,12 +137,13 @@ NPM Checks
 
 ### Gate: secret_scans
 
-Checks for secrets found in the image using configured regexes found in the "secret_search" section of analyzer_config.yaml.
+Checks for secrets and content found in the image using configured regexes found in the "secret_search" section of analyzer_config.yaml.
 
 | Trigger Name | Description | Parameter | Description | Example |
 | :----------- | :---------- | :-------- | :---------- | :------ |
-| content_regex_checks | Triggers if the content search analyzer has found any matches with the configured and named regexes. Matches are filtered by the content_regex_name and filename_regex if they are set. The content_regex_name shoud be a value from the "secret_search" section of the analyzer_config.yaml. | filename_regex | Regexp to filter the content matched files by. | /etc/.* |
-| content_regex_checks | Triggers if the content search analyzer has found any matches with the configured and named regexes. Matches are filtered by the content_regex_name and filename_regex if they are set. The content_regex_name shoud be a value from the "secret_search" section of the analyzer_config.yaml. | content_regex_name | Name of content regexps configured in the analyzer that should trigger if found in the image, instead of triggering for any match. Names available by default are: ['AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'PRIV_KEY', 'DOCKER_AUTH', 'API_KEY']. | AWS_ACCESS_KEY |
+| content_regex_checks | Triggers if the secret content search analyzer has found any matches with the configured and named regexes. Checks can be configured to trigger if a match is found or is not found (selected using match_type parameter).  Matches are filtered by the content_regex_name and filename_regex if they are set. The content_regex_name shoud be a value from the "secret_search" section of the analyzer_config.yaml. | content_regex_name | Name of content regexps configured in the analyzer that match if found in the image, instead of matching all. Names available by default are: ['AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'PRIV_KEY', 'DOCKER_AUTH', 'API_KEY']. | AWS_ACCESS_KEY |
+| content_regex_checks | Triggers if the secret content search analyzer has found any matches with the configured and named regexes. Checks can be configured to trigger if a match is found or is not found (selected using match_type parameter).  Matches are filtered by the content_regex_name and filename_regex if they are set. The content_regex_name shoud be a value from the "secret_search" section of the analyzer_config.yaml. | filename_regex | Regexp to filter the content matched files by. | /etc/.* |
+| content_regex_checks | Triggers if the secret content search analyzer has found any matches with the configured and named regexes. Checks can be configured to trigger if a match is found or is not found (selected using match_type parameter).  Matches are filtered by the content_regex_name and filename_regex if they are set. The content_regex_name shoud be a value from the "secret_search" section of the analyzer_config.yaml. | match_type | Set to define the type of match - trigger if match is found (default) or not found. | found |
 
 ### Gate: metadata
 
@@ -141,6 +162,17 @@ Triggers that fire unconditionally if present in policy, useful for things like 
 | Trigger Name | Description | Parameter | Description | Example |
 | :----------- | :---------- | :-------- | :---------- | :------ |
 | always | Fires if present in a policy being evaluated. Useful for things like blacklisting images or testing mappings and whitelists by using this trigger in combination with policy mapping rules. | | | |
+
+### Gate: retrieved_files
+
+Checks against content and/or presence of files retrieved at analysis time from an image
+
+| Trigger Name | Description | Parameter | Description | Example |
+| :----------- | :---------- | :-------- | :---------- | :------ |
+| content_not_available | Triggers if the specified file is not present/stored in the evaluated image. | path | The path of the file to verify has been retrieved during analysis | /etc/httpd.conf |
+| content_regex | Evaluation of regex on retrieved file content | path | The path of the file to verify has been retrieved during analysis | /etc/httpd.conf |
+| content_regex | Evaluation of regex on retrieved file content | check | The type of check to perform with the regex | match |
+| content_regex | Evaluation of regex on retrieved file content | regex | The regex to evaluate against the content of the file | .*SSlEnabled.* |
 
 
 ### Next Steps

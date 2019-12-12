@@ -37,8 +37,10 @@ Currently the following the anchore-engine draws vulnerability data specifically
 - Debian
 - Oracle Linux
 - Red Hat Enterprise Linux
+- Red Hat Universal Base Image (UBI)
 - Ubuntu
 - Amazon Linux 2
+- Google Distroless
 
 To generate a report of language package (NPM/GEM/Java/Python) vulnerabilities, the system draws vulnerability data from the NVD data feed, and vulnerability reports can be viewed using the 'non-os' vulnerability type:
 

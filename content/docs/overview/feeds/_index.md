@@ -40,6 +40,7 @@ All drivers except for the package drivers are enabled by default. The service h
 | debian | vulnerabilities | https://security-tracker.debian.org/tracker/data/json https://salsa.debian.org/security-tracker-team/security-tracker/raw/master/data/DSA/list |
 | oracle | vulnerabilities | https://linux.oracle.com/security/oval/com.oracle.elsa-all.xml.bz2 |
 | ubuntu | vulnerabilities | https://launchpad.net/ubuntu-cve-tracker |
+| amazonlinux2 | vulnerabilities | https://alas.aws.amazon.com/AL2/ |
 | gem | packages | https://s3-us-west-2.amazonaws.com/rubygems-dumps |
 | npm | packages | https://replicate.npmjs.com |
 | nvd (deprecated) | nvd (deprecated) | https://nvd.nist.gov/vuln/data-feeds |
