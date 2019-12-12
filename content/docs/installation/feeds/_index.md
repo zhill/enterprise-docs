@@ -24,8 +24,9 @@ In this section, you'll learn how what is required for configuring Anchore Engin
 | salsa.debian.org | 443 | Debian Security Feed |
 | replicate.npmjs.com | 443 | NPM Registry Package Data |
 | s3-us-west-2.amazonaws.com | 443 | Ruby Gems Data Feed |
-| static.nvd.nist.gov | 443 | NVD Database |
-| launchpad.net/ubuntu-cve-tracker | 443 | Ubuntu Data |
+| nvd.nist.gov | 443 | NVD Database |
+| git.launchpad.net | 443 | Ubuntu Data |
+| alas.aws.amazon.com | 443 | Amazon Linux ALAS Data Feed |
 | data.anchore-enterprise.com | 443 | Third Party Data Feeds|
 
 #### Database
@@ -45,7 +46,7 @@ feeds:
     feeds:
       vulnerabilities: true
       packages: false
-      nvd: false
+      nvdv2: false
   url: 'http://enterprise-feeds:8228/v1/feeds'
 ```
 

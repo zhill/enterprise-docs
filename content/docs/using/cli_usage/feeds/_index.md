@@ -13,7 +13,10 @@ The Anchore Engine uses security vulnerability and package data froma number of 
     - Debian
     - Oracle Linux
     - Red Hat Enterprise Linux
+    - Red Hat Universal Base Image (UBI)    
     - Ubuntu
+    - Amazon Linux 2
+    - Google Distroless
 
 - Feed **packages** - Software Package Repositories
 
