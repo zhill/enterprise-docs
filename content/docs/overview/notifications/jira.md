@@ -3,7 +3,11 @@ title: "Jira"
 weight: 3
 ---
 
-Notifications to Jira are in the form of new issues in a project. To receive notifications
+Notifications to Jira are in the form of new issues in a project
+
+### Requirements
+
+To receive notifications
 
 1. The following Jira account and project related information is required
     * URL of the Jira project

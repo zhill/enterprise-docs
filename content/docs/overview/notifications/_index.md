@@ -64,6 +64,15 @@ In an Anchore Enterprise RBAC enabled deployment the table below lists the requi
 | update an endpoint configuration and associated selectors | updateNotificationEndpointConfiguration | Read Write |
 | delete an endpoint configuration and associated selectors | deletetNotificationEndpointConfiguration | Read Write |
 
+#### External Tools 
+
+In order to send notifications to an external tool/endpoint the service requires connection information to that endpoint. Links below detail the required information for each endpoint
+
+* [Slack]({{< ref "/docs/overview/notifications/slack#requirements" >}})         
+* [GitHub]({{< ref "/docs/overview/notifications/github#requirements" >}})
+* [Jira]({{< ref "/docs/overview/notifications/jira#requirements" >}})
+* [SMTP]({{< ref "/docs/overview/notifications/smtp#requirements" >}})
+* [Microsoft Teams]({{< ref "/docs/overview/notifications/teams#requirements" >}})
 
 ### Concepts 
 
@@ -127,6 +136,6 @@ Selector configurations for notifying a few interesting events
 
 #### Enterprise UI
 
-To learn more about configuring Notifications service in the Enterprise UI go to [Notifications]({{< ref "/docs/using/ui_usage/reports" >}})             
+[Click here] to learn more about configuring notifications in the Enterprise UI             
 
 

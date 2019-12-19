@@ -3,7 +3,11 @@ title: "SMTP"
 weight: 4
 ---
 
-Notifications to SMTP server are in the form of html and plain text message packets. To receive notifications
+Notifications to SMTP server are in the form of html and plain text message packets
+
+### Requirements
+
+To receive notifications
 
 1. The following SMTP server information is required
      * Host name/address

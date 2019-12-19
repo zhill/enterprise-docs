@@ -3,7 +3,11 @@ title: "GitHub"
 weight: 2
 ---
 
-Notifications to GitHub are in the form of new issues in a repository. To receive notifications
+Notifications to GitHub are in the form of new issues in a repository
+
+### Requirements
+
+To receive notifications
 
 1. The following GitHub account and repository related information is required
     * Username of the account for creating issues
