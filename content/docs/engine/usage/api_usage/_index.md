@@ -6,11 +6,9 @@ weight: 3
 
 ## Introduction
 
-The Anchore API has been documented using the OpenAPI Specification (Swagger) and the source can be found in the [swagger.yaml](https://github.com/anchore/anchore-engine/blob/master/anchore_engine/services/apiext/swagger/swagger.yaml) document withiin the external API service.  There are also a variety of ways in which the API specification can be accessed.
+The Anchore API has been documented using the OpenAPI Specification (Swagger) and the source can be found in the [swagger.yaml](https://github.com/anchore/anchore-engine/blob/master/anchore_engine/services/apiext/swagger/swagger.yaml) document within the external API service.  There are also a variety of ways in which the API specification can be accessed.
 
-### Online
-
-You can browse latest stable the Anchore API specification on [SwaggerHub](https://app.swaggerhub.com/apis/anchore/anchore-engine/)
+[Browse it here]({{< ref "/docs/engine/usage/api_usage/browse_api">}})
 
 ### Local Swagger JSON
 
