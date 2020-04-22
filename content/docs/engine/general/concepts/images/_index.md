@@ -22,6 +22,7 @@ The Anchore Engine includes a number of analyzer modules that extract data from 
 - Node.JS NPMs
 - Java Archives
 - Python Packages
+- Dotnet Nuget Packages
 - File content
 
 Once a tag has been added to the Anchore Engine the repository will be monitored for updates to that tag.

@@ -27,9 +27,9 @@ Anchore Enterprise Feeds has three high level components:
 A driver downloads raw data from an external source and normalizes it. Each driver outputs normalized data for one of the four feed types - (os) vulnerabilities, packages, nvd or third party feeds
 
 - Drivers responsible for operating system package vulnerabilities gather raw data from the respective os resources listed below
-- Package drivers process the official list of packages maintained by NPM and RubyGems organizations
-- nvdv2 driver processes CVEs from the NIST database and the supplies normalized data that is used for matching non-os packages (such as Java, Python, NPM, GEM)
-- third party drivers source vulnerability data for software artifacts, curated by the third party. Policy Engine may prioritize third-party data matches over other feed data sources, when available for matching vulnerabilities against software artifacts.
+- Package drivers process the official list of packages maintained by NPM and RubyGems organizations 
+- nvdv2 driver processes CVEs from the NIST database and the supplies normalized data that is used for matching non-os packages (such as Java, Python, NPM, GEM, NuGet)
+- third party drivers source vulnerability data for software artifacts, curated by the third party. Policy Engine may prioritize third-party data matches over other feed data sources, when available for matching vulnerabilities against software artifacts. 
 
 All drivers except for the package drivers are enabled by default. The service has configuration toggles enabling/disabling each driver individually and tuning driver specific settings.
 
