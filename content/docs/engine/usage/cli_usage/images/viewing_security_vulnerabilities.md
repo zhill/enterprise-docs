@@ -39,7 +39,7 @@ Currently the following the anchore-engine draws vulnerability data specifically
 - Amazon Linux 2
 - Google Distroless
 
-To generate a report of language package (NPM/GEM/Java/Python/Nuget) vulnerabilities, the system draws vulnerability data from the NVD data feed, and vulnerability reports can be viewed using the 'non-os' vulnerability type:
+To generate a report of language package (NPM/GEM/Java/Python/NuGet) vulnerabilities, the system draws vulnerability data from the NVD data feed, and vulnerability reports can be viewed using the 'non-os' vulnerability type:
 
 `anchore-cli image vuln node:latest non-os`
 

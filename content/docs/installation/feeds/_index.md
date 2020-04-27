@@ -74,7 +74,7 @@ feeds:
 
 In this example only operating system vulnerability data is synchronized, however the packages and NVD (for non-os package vulnerability matches) parameter can be set to true to configure Anchore Engine to synchronize NPM and GEM package data.
 
-NOTE: The nvd parameter must be set to true to configure the Anchore Engine to download NVD vulnerability data, which used for matching vulnerabilities in non-operating system packages (NPM, GEM, Python, Java, Nuget).
+NOTE: The nvd parameter must be set to true to configure the Anchore Engine to download NVD vulnerability data, which used for matching vulnerabilities in non-operating system packages (NPM, GEM, Python, Java, NuGet).
 
 2. Restart Anchore Engine (or just the Policy Engine component containers if you have split services out into their own containers) for the config changes to take effect. If the policy engine cannot reach the configured url it will raise an error and terminate during the bootstrap process. You can check the policy engine logs in /var/log/anchore/anchore-policy-engine.log for errors on the url configuration. If the service start successfully then it was able to reach the Anchore Enterprise Feeds endpoint.
 
