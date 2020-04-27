@@ -16,8 +16,8 @@ The quickstart docker-compose.yaml file is available [here](./docker-compose.yam
 
 The following instructions assume you are using a system running Docker v1.12 or higher, and a version of Docker Compose that supports at least v2 of the docker-compose configuration format.
 
-* A stand-alone installation will requires at least 4GB of RAM, and enough disk space available to support the largest container images you intend to analyze (we recommend 3x largest container image size).  For small images/testing (basic Linux distro images, database images, etc), between 5GB and 10GB of disk space should be sufficient.  
-* In order to access the Anchore Enterprise, you will also require a valid `license.yaml` file that has been issued to you by Anchore.  If you do not have a license yet, visit this [page](https://info.anchore.com/contact) for instructions on how to request one.
+* A stand-alone installation requires at least 4GB of RAM, and enough disk space available to support the largest container images you intend to analyze (we recommend 3x largest container image size).  For small images/testing (like basic Linux distro images or database images), between 5GB and 10GB of disk space should be sufficient.
+* To access the Anchore Enterprise, you need a valid `license.yaml` file that has been issued to you by Anchore.  If you do not have a license yet, visit this [page](https://info.anchore.com/contact) for instructions on how to request one.
 
 
 ### Step 1: Ensure you can authenticate to DockerHub to pull the images
@@ -31,7 +31,7 @@ Username: <your_dockerhub_account>
 Password: <your_dockerhub_password>
 ```
 
-### Step 2: Download compose, copy license and start.
+### Step 2: Download compose, copy license, and start.
 
  Now, ensure the license.yaml file you got from Anchore Sales/Support is in the directory where you want to run the containers from, then download the compose file and start it.
 ```
@@ -46,19 +46,19 @@ After a few moments (depending on system speed), your Anchore Engine, Anchore En
 
 ```
 # docker-compose ps
-                Name                               Command                        State           Ports         
+                Name                               Command                        State           Ports
 -------------------------------------------------------------------------------------------------------
-anchorequickstart_anchore-db_1                   docker-entrypoint.sh postgres    Up      5432/tcp              
-anchorequickstart_anchore-gems-db_1              docker-entrypoint.sh postgres    Up      5432/tcp              
-anchorequickstart_engine-analyzer_1              /docker-entrypoint.sh anch ...   Up      8228/tcp              
+anchorequickstart_anchore-db_1                   docker-entrypoint.sh postgres    Up      5432/tcp
+anchorequickstart_anchore-gems-db_1              docker-entrypoint.sh postgres    Up      5432/tcp
+anchorequickstart_engine-analyzer_1              /docker-entrypoint.sh anch ...   Up      8228/tcp
 anchorequickstart_engine-api_1                   /docker-entrypoint.sh anch ...   Up      0.0.0.0:8228->8228/tcp
-anchorequickstart_engine-catalog_1               /docker-entrypoint.sh anch ...   Up      8228/tcp              
-anchorequickstart_engine-policy-engine_1         /docker-entrypoint.sh anch ...   Up      8228/tcp              
-anchorequickstart_engine-simpleq_1               /docker-entrypoint.sh anch ...   Up      8228/tcp              
+anchorequickstart_engine-catalog_1               /docker-entrypoint.sh anch ...   Up      8228/tcp
+anchorequickstart_engine-policy-engine_1         /docker-entrypoint.sh anch ...   Up      8228/tcp
+anchorequickstart_engine-simpleq_1               /docker-entrypoint.sh anch ...   Up      8228/tcp
 anchorequickstart_enterprise-feeds_1             /docker-entrypoint.sh anch ...   Up      0.0.0.0:8448->8228/tcp
-anchorequickstart_enterprise-rbac-authorizer_1   /docker-entrypoint.sh anch ...   Up      8089/tcp, 8228/tcp    
+anchorequickstart_enterprise-rbac-authorizer_1   /docker-entrypoint.sh anch ...   Up      8089/tcp, 8228/tcp
 anchorequickstart_enterprise-rbac-manager_1      /docker-entrypoint.sh anch ...   Up      0.0.0.0:8229->8228/tcp
-anchorequickstart_enterprise-ui-redis_1          docker-entrypoint.sh redis ...   Up      6379/tcp              
+anchorequickstart_enterprise-ui-redis_1          docker-entrypoint.sh redis ...   Up      6379/tcp
 anchorequickstart_enterprise-ui_1                /bin/sh -c node /home/node ...   Up      0.0.0.0:3000->3000/tcp
 ```
 
@@ -84,42 +84,42 @@ Engine Code Version: 0.3.0-dev
 
 ```
 # docker-compose exec engine-api anchore-cli system feeds list
-Feed                   Group                  LastSync                           RecordCount        
-vulnerabilities        alpine:3.3             2018-06-27T17:13:53.509309Z        457                
-vulnerabilities        alpine:3.4             2018-06-27T17:13:59.103245Z        594                
-vulnerabilities        alpine:3.5             2018-06-27T17:14:05.000942Z        649                
-vulnerabilities        alpine:3.6             2018-06-27T17:14:10.606606Z        632                
-vulnerabilities        alpine:3.7             2018-06-27T17:14:17.673851Z        767                
-vulnerabilities        centos:5               2018-06-27T17:14:46.616051Z        1270               
-vulnerabilities        centos:6               2018-06-27T17:15:18.600668Z        1266               
-vulnerabilities        centos:7               2018-06-27T17:15:41.468527Z        657                
-vulnerabilities        debian:10              2018-06-27T17:18:16.960078Z        17494              
-vulnerabilities        debian:7               2018-06-27T17:21:20.058941Z        20455              
-vulnerabilities        debian:8               None                               0                  
-vulnerabilities        debian:9               None                               0                  
-vulnerabilities        debian:unstable        None                               0                  
-vulnerabilities        ol:5                   None                               0                  
-vulnerabilities        ol:6                   None                               0                  
-vulnerabilities        ol:7                   None                               0                  
-vulnerabilities        ubuntu:12.04           None                               0                  
-vulnerabilities        ubuntu:12.10           None                               0                  
-vulnerabilities        ubuntu:13.04           None                               0                  
-vulnerabilities        ubuntu:14.04           None                               0                  
-vulnerabilities        ubuntu:14.10           None                               0                  
-vulnerabilities        ubuntu:15.04           None                               0                  
-vulnerabilities        ubuntu:15.10           None                               0                  
-vulnerabilities        ubuntu:16.04           None                               0                  
-vulnerabilities        ubuntu:16.10           None                               0                  
-vulnerabilities        ubuntu:17.04           None                               0                  
-vulnerabilities        ubuntu:17.10           None                               0                  
-vulnerabilities        ubuntu:18.04           None                               0                  
+Feed                   Group                  LastSync                           RecordCount
+vulnerabilities        alpine:3.3             2018-06-27T17:13:53.509309Z        457
+vulnerabilities        alpine:3.4             2018-06-27T17:13:59.103245Z        594
+vulnerabilities        alpine:3.5             2018-06-27T17:14:05.000942Z        649
+vulnerabilities        alpine:3.6             2018-06-27T17:14:10.606606Z        632
+vulnerabilities        alpine:3.7             2018-06-27T17:14:17.673851Z        767
+vulnerabilities        centos:5               2018-06-27T17:14:46.616051Z        1270
+vulnerabilities        centos:6               2018-06-27T17:15:18.600668Z        1266
+vulnerabilities        centos:7               2018-06-27T17:15:41.468527Z        657
+vulnerabilities        debian:10              2018-06-27T17:18:16.960078Z        17494
+vulnerabilities        debian:7               2018-06-27T17:21:20.058941Z        20455
+vulnerabilities        debian:8               None                               0
+vulnerabilities        debian:9               None                               0
+vulnerabilities        debian:unstable        None                               0
+vulnerabilities        ol:5                   None                               0
+vulnerabilities        ol:6                   None                               0
+vulnerabilities        ol:7                   None                               0
+vulnerabilities        ubuntu:12.04           None                               0
+vulnerabilities        ubuntu:12.10           None                               0
+vulnerabilities        ubuntu:13.04           None                               0
+vulnerabilities        ubuntu:14.04           None                               0
+vulnerabilities        ubuntu:14.10           None                               0
+vulnerabilities        ubuntu:15.04           None                               0
+vulnerabilities        ubuntu:15.10           None                               0
+vulnerabilities        ubuntu:16.04           None                               0
+vulnerabilities        ubuntu:16.10           None                               0
+vulnerabilities        ubuntu:17.04           None                               0
+vulnerabilities        ubuntu:17.10           None                               0
+vulnerabilities        ubuntu:18.04           None                               0
 ```
 
-As soon as you see RecordCount values > 0 for all vulnerability groups, the system is fully populated and ready to present vulnerability results.   Note that feed syncs are incremental, so the next time you start up Anchore Enterprise it will be ready immediately.
+As soon as you see RecordCount values > 0 for all vulnerability groups, the system is fully populated and ready to present vulnerability results.   Note that feed syncs are incremental, so the next time you start up Anchore Enterprise, it will be ready immediately.
 
 ### Step 4: Start using Anchore
 
-To get started, you can add a few images to Anchore Engine using the CLI. Once this is done, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
+To get started, you can add a few images to Anchore Engine using the CLI. Once complete, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
 
 ```
 # docker-compose exec engine-api anchore-cli image add docker.io/library/alpine:latest
@@ -131,33 +131,41 @@ To get started, you can add a few images to Anchore Engine using the CLI. Once t
 ...
 
 # docker-compose exec engine-api anchore-cli image list
-Full Tag                               Image ID                                                                Analysis Status        
-docker.io/library/alpine:latest        3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353        analyzed               
+Full Tag                               Image ID                                                                Analysis Status
+docker.io/library/alpine:latest        3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353        analyzed
 docker.io/library/nginx:latest         5699ececb21caf07b92cbda9daa1e965407e3793a72000ecbf6b8e8595a0824a        analyzing
 
 # docker-compose exec engine-api anchore-cli image list
-Full Tag                               Image ID                                                                Analysis Status        
-docker.io/library/alpine:latest        3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353        analyzed               
-docker.io/library/nginx:latest         5699ececb21caf07b92cbda9daa1e965407e3793a72000ecbf6b8e8595a0824a        analyzed                       
+Full Tag                               Image ID                                                                Analysis Status
+docker.io/library/alpine:latest        3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353        analyzed
+docker.io/library/nginx:latest         5699ececb21caf07b92cbda9daa1e965407e3793a72000ecbf6b8e8595a0824a        analyzed
 ```
 
 
-Now that some images are in place, you can point your browser at the Anchore Enterprise UI by directing it to _http://localhost:3000/_.  
+Now that some images are in place, you can point your browser at the Anchore Enterprise UI by directing it to _http://localhost:3000/_.
 
-Enter the username _admin_ and password _foobar_ to log in.  There, you will be able to navigate your images, inspect image contents, perform security scans, review compliance policy evaluations, edit compliance policies with a complete policy editor UI, manage accounts/users/RBAC assignments, and review system events (and other UI features).
+Enter the username _admin_ and password _foobar_ to log in.  These are some of the features you can use in the browser:
 
-**Note:** This document is intended to serve as a quickstart guide. Before moving further with Anchore Enterprise, it is highly recommended that you enhance your learning by reading the [Overview]({{< ref "/docs/overview" >}}) sections to gain a deeper understanding of fundamentals, concepts, and proper usage. 
+- Navigate images
+- Inspect image contents
+- Perform security scans
+- Review compliance policy evaluations
+- Edit compliance policies with a complete policy editor UI
+- Manage accounts, users, and RBAC assignments
+- Review system events
+
+**Note:** This document is intended to serve as a quickstart guide. Before moving further with Anchore Enterprise, it is highly recommended to read the [Overview]({{< ref "/docs/overview" >}}) sections to gain a deeper understanding of fundamentals, concepts, and proper usage.
 
 ### Enabling Windows Image Support
 
-To enable scanning of Windows images you'll have to configure more of the system to deploy a feed service and setup the proper drivers to collect vulnerability data for Windows.0
+To enable scanning of Windows images, you'll have to configure more of the system to deploy a feed service and setup the proper drivers to collect vulnerability data for Windows.
 
 
 See: [Enabling Windows]({{< ref "/docs/quickstart/enabling_windows" >}})
 
 ### Next Steps
 
-Now that you have Anchore Enterprise running, you can begin to learning more about Anchore Enterprise Architecture, Anchore Concepts and Anchore Usage.
+Now that you have Anchore Enterprise running, you can begin to learn more about Anchore Enterprise Architecture, Anchore Concepts, and Anchore Usage.
 
 - To learn more about Anchore Enterprise, go to [Overview]({{< ref "/docs/overview" >}})
 - To learn more about Anchore Concepts, go to [Concepts]({{< ref "/docs/overview/concepts" >}})
