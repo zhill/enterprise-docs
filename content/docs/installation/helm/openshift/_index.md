@@ -15,23 +15,6 @@ This document will walkthrough the installation of Anchore Enterprise on an Open
 - [Helm](https://helm.sh/) client and server installed and configured with your cluster.
 - [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host.
 
-**Considerations for Helm on OpenShift:**
-
-- The Helm client doesn't current set up the service account rolebindings that OpenShift wants. There is a template that does everything needed for this. https://raw.githubusercontent.com/openshift/origin/master/examples/helm/tiller-template.yaml
-
-```
-$ wget -q https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml
-$ oc process -p TILLER_NAMESPACE=$TILLER_NAMESPACE \
-    -p HELM_VERSION=v2.14.3 -f tiller-template.yaml > tiller.yaml
-$ oc create -f tiller.yaml
-serviceaccount "tiller" created
-role "tiller" created
-rolebinding "tiller" created
-deployment "tiller" created
-```
-
-**Note:** Set HELM_VERSION to your installed version of Helm.
-
 ## Anchore Helm Chart
 
 Anchore maintains a [Helm chart](https://github.com/helm/charts/tree/master/stable/anchore-engine) to simplify the software installation process. An Enterprise installation of the chart will include the following:
