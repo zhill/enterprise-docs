@@ -336,7 +336,7 @@ services:
 #      #- ANCHORE_AUTH_SECRET=supersharedsecret
 #    command: ["anchore-enterprise-manager", "service", "start",  "feeds"]
 #
-#  # Uncomment this sectionto add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
+#  # Uncomment this section to add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
 #  prometheus:
 #    image: docker.io/prom/prometheus:latest
 #    depends_on:
