@@ -14,7 +14,7 @@ To enable windows support in the quickstart install docker-compose.yaml file you
 
    The following also includes the GitHub advisories feed for NuGet/.NET support and for parity with the hosted feed service.
 
-   Note that you will need to obtain and provide access tokens for MS and GitHub vulnerability feed configuration.  See the comments inline for instructions on how to obtain these tokens.
+   Note that you will need to obtain and provide access tokens for MSRC and GitHub vulnerability feed configuration.  See the comments inline for instructions on how to obtain these tokens.
 
 
     ```
@@ -64,7 +64,7 @@ To enable windows support in the quickstart install docker-compose.yaml file you
 
     ```
 
-1. Configure the policy engine to use the deployed feed service instead of the hosted feed service
+1. Configure the policy engine to use the deployed feed service instead of the hosted feed service, and enable the microsoft feed by uncommenting the ANCHORE_FEEDS_MICROSOFT_ENABLED variable
 
     Ensure the following environment variables are set in the docker-compose.yaml file:
 
@@ -79,6 +79,8 @@ To enable windows support in the quickstart install docker-compose.yaml file you
           - ANCHORE_FEEDS_URL=http://feeds:8228/v1/feeds
           - ANCHORE_FEEDS_CLIENT_URL=null
           - ANCHORE_FEEDS_TOKEN_URL=null
+          # Uncomment the next variable in addition to enabling the on-prem feed service just above, to enable syncing of the MSRC data feeds for windows scanning support.
+          - ANCHORE_FEEDS_MICROSOFT_ENABLED=true
       ...
     ```
 
@@ -90,7 +92,7 @@ To enable windows support in the quickstart install docker-compose.yaml file you
 # docker-compose exec api anchore-cli system feeds list
 ```
 
-will show 'msrc' group data entries. In addition, you caqn verify with `anchore-cli event list` to show a feed sync complete event for the 'microsoft' feed.
+will show 'microsoft' feed, with 'msrc' group data entries. In addition, you caqn verify with `anchore-cli event list` to show a feed sync complete event for the 'microsoft' feed.
 
 1. Scan windows images! Either via the UI, or CLI analyze windows-based images
 

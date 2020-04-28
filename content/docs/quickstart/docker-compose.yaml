@@ -109,10 +109,12 @@ services:
       - ANCHORE_DB_PASSWORD=mysecretpassword
       - ANCHORE_ENABLE_METRICS=false
       - ANCHORE_LOG_LEVEL=INFO
-      # Uncomment the ANCHORE_FEEDS_* environment variables (and uncomment the feeds db and service sections at the end of this file) to use the on-prem feed service
+      # Uncomment the following ANCHORE_FEEDS_* environment variables (and uncomment the feeds db and service sections at the end of this file) to use the on-prem feed service
       #- ANCHORE_FEEDS_URL=http://feeds:8228/v1/feeds
       #- ANCHORE_FEEDS_CLIENT_URL=null
       #- ANCHORE_FEEDS_TOKEN_URL=null
+      # Uncomment the next variable in addition to enabling the on-prem feed service just above, to enable syncing of the MSRC data feeds for windows scanning support.
+      #- ANCHORE_FEEDS_MICROSOFT_ENABLED=true
       # Uncomment both ANCHORE_OAUTH_ENABLED and ANCHORE_AUTH_SECRET to enable SSO feature of anchore-enterprise
       #- ANCHORE_OAUTH_ENABLED=true
       #- ANCHORE_AUTH_SECRET=supersharedsecret
