@@ -80,6 +80,7 @@ Anchore DB upgrade process using a kubernetes job. The upgrade will only be cons
 will cause the Helm client to block until the upgrade job completes and the new Anchore service pods are started.
 
 ```
+helm repo update
 helm upgrade <release_name> stable/anchore-engine -f anchore_values.yaml
 ```
 
