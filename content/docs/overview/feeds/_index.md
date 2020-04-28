@@ -1,19 +1,21 @@
 ---
-title: "Anchore Enterprise Feeds Overview"
+title: "Anchore Enterprise Feeds"
 linkTitle: "Feeds"
 weight: 4
 ---
 
-Anchore Enterprise Feeds is an On-Premises service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of the Anchore Engine, uses this data for vulnerability listing and policy evaluation. For more information about Anchore Engine's usage of feeds, see feeds overview
+### Overview
 
-Anchore maintains a public and free feed service at https://ancho.re/v1/service/feeds which is used by the open source Anchore Engine and Anchore Cloud. Anchore Enterprise Feeds offers the following benefits over the free service:
+Anchore Enterprise Feeds is an On-Premises service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of Anchore Engine, uses this data for finding vulnerabilities and evaluating policies. Read more about how Anchore Engine manages feed data [here]({{< ref "/docs/engine/usage/cli_usage/feeds" >}}) 
+
+Anchore maintains a public and free feed service at https://ancho.re/v1/service/feeds which is used by open source Anchore Engine. Anchore Enterprise Feeds offers the following benefits over the free service:
 
 - Vulnerability data from 3rd party licensed feeds
 - Run Anchore Enterprise in Air-Gapped mode
 - Examine updates to vulnerability dataset (for audit trail) with advanced APIs
 - Granular control and configuration over feed data due to On-Premises installation. Configure how often the data from external sources is synced, enable/disable individual drivers responsible for processing normalized data.
 
-### Design Overview
+### Design
 
 
 Anchore Enterprise Feeds has three high level components:
@@ -22,7 +24,7 @@ Anchore Enterprise Feeds has three high level components:
 * Database -- Stores the current state of the normalized data for serving via api
 * API -- Serves the data to clients, supporting update-only fetches.
 
-### Drivers
+#### Drivers
 
 A driver downloads raw data from an external source and normalizes it. Each driver outputs normalized data for one of the four feed types - (os) vulnerabilities, packages, nvd or third party feeds
 
@@ -41,20 +43,25 @@ All drivers except for the package drivers are enabled by default. The service h
 | debian | vulnerabilities | https://security-tracker.debian.org/tracker/data/json https://salsa.debian.org/security-tracker-team/security-tracker/raw/master/data/DSA/list |
 | oracle | vulnerabilities | https://linux.oracle.com/security/oval/com.oracle.elsa-all.xml.bz2 |
 | ubuntu | vulnerabilities | https://launchpad.net/ubuntu-cve-tracker |
-| amazonlinux2 | vulnerabilities | https://alas.aws.amazon.com/AL2/ |
+| amzn | vulnerabilities | https://alas.aws.amazon.com/AL2/ |
 | gem | packages | https://s3-us-west-2.amazonaws.com/rubygems-dumps |
 | npm | packages | https://replicate.npmjs.com |
-| github | packages | https://github.com |
+| github | github | https://github.com |
 | nvd (deprecated) | nvd (deprecated) | https://nvd.nist.gov/vuln/data-feeds |
-| nvdv2 | nvdv2 | https://nvd.nist.gov/feeds/json/cve/1.0/ |
-| third-party | third-party | https://data.anchore-enterprise.com |
+| nvdv2 | nvdv2 | https://nvd.nist.gov/feeds/json/cve/1.1/ |
 | msrc | microsoft | https://api.msrc.microsoft.com/ |
+| third-party | third-party | https://data.anchore-enterprise.com |
 
-### Database
+
+#### Database
 
 Normalized vulnerability and package data is persisted in the database. In addition, the execution state and updates to the data set are tracked in the database
 
-### API
+#### API
 
-Anchore Enterprise Feeds exposes a RESTful API for interaction with the service. The API layer serves normalized data from the database based on the client requests. Policy Engine uses this API to sync the feed data down to the Anchore database.
+Anchore Enterprise Feeds exposes a RESTful API. It accepts client requests and serves normalized data accordingly. Policy Engine is one of the clients using this API to sync the feed data. [Click here]({{< ref "/docs/using/api_usage/feeds" >}}) to read more about API access
 
+
+### Configuration
+
+[Click here]({{< ref "/docs/installation/feeds" >}}) to read about installation requirements for an air-gapped deployment and optional configuraiton of drivers    
