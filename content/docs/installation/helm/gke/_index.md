@@ -8,7 +8,7 @@ This document will walkthrough the installation of Anchore Enterprise on a Googl
 ## Prerequisites
 
 - A running GKE cluster with worker nodes launched. See [GKE Documentation](https://cloud.google.com/kubernetes-engine/docs/) for more information on this setup.
-- [Helm](https://helm.sh/) client and server installed and configured with your GKE cluster.
+- [Helm](https://helm.sh/) client installed on local host.
 - [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host.
 
 Once you have a GKE cluster up and running with worker nodes launched, you can verity via the followiing command.
@@ -181,8 +181,8 @@ Service analyzer (anchore-enterprise-anchore-engine-analyzer-75679f559b-tnpkv, h
 Service simplequeue (anchore-enterprise-anchore-engine-simplequeue-77468954f5-48h5g, http://anchore-enterprise-anchore-engine-simplequeue:8083): up
 Service policy_engine (anchore-enterprise-anchore-engine-policy-79cff7dcbd-ptjvh, http://anchore-enterprise-anchore-engine-policy:8087): up
 
-Engine DB Version: 0.0.11
-Engine Code Version: 0.5.0
+Engine DB Version: 0.0.13
+Engine Code Version: 0.7.1
 ```
 
 #### Anchore Feeds

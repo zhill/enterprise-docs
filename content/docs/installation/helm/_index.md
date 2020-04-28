@@ -43,7 +43,10 @@ To use this Helm chart with the enterprise services enabled, perform these steps
 
 1. Install the helm chart using a custom anchore_values.yaml file (see examples below)
 
-    `helm install --name <release_name> -f /path/to/anchore_values.yaml stable/anchore-engine`
+    #### Helm v3 installation
+    `helm repo add stable https://kubernetes-charts.storage.googleapis.com`
+
+    `helm install <release_name> -f anchore_values.yaml stable/anchore-engine`
 
 #### Example anchore_values.yaml file for installing Anchore Enterprise
 *Note: This installs with chart managed PostgreSQL & Redis databases. This is not a production ready config.*
@@ -70,6 +73,15 @@ To use this Helm chart with the enterprise services enabled, perform these steps
   anchore-ui-redis:
     password: <PASSWORD>
   ```
+
+### Upgrading from a previous Helm deployment
+A Helm post-upgrade hook job has been added starting with Chart version 1.6.0 - this job will shut down all previously running Anchore services and perform the
+Anchore DB upgrade process using a kubernetes job. The upgrade will only be considered successful when this job completes successfully. Performing an update after v1.6.0
+will cause the Helm client to block until the upgrade job completes and the new Anchore service pods are started.
+
+```
+helm upgrade <release_name> stable/anchore-engine -f anchore_values.yaml
+```
 
 ### Next Steps
 
