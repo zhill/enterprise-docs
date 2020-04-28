@@ -16,8 +16,8 @@ The quickstart docker-compose.yaml file is available [here](./docker-compose.yam
 
 The following instructions assume you are using a system running Docker v1.12 or higher, and a version of Docker Compose that supports at least v2 of the docker-compose configuration format.
 
-* A stand-alone installation will requires at least 4GB of RAM, and enough disk space available to support the largest container images you intend to analyze (we recommend 3x largest container image size).  For small images/testing (basic Linux distro images, database images, etc), between 5GB and 10GB of disk space should be sufficient.  
-* In order to access the Anchore Enterprise, you will also require a valid `license.yaml` file that has been issued to you by Anchore.  If you do not have a license yet, visit this [page](https://info.anchore.com/contact) for instructions on how to request one.
+* A stand-alone installation requires at least 4GB of RAM, and enough disk space available to support the largest container images you intend to analyze (we recommend 3x largest container image size).  For small images/testing (like basic Linux distro images or database images), between 5GB and 10GB of disk space should be sufficient.
+* To access the Anchore Enterprise, you need a valid `license.yaml` file that has been issued to you by Anchore.  If you do not have a license yet, visit this [page](https://info.anchore.com/contact) for instructions on how to request one.
 
 
 ### Step 1: Ensure you can authenticate to DockerHub to pull the images
@@ -31,7 +31,7 @@ Username: <your_dockerhub_account>
 Password: <your_dockerhub_password>
 ```
 
-### Step 2: Download compose, copy license and start.
+### Step 2: Download compose, copy license, and start.
 
  Now, ensure the license.yaml file you got from Anchore Sales/Support is in the directory where you want to run the containers from, then download the compose file and start it.
 ```
@@ -157,10 +157,9 @@ Feed sync: Success.
 
 ```
 
-
 ### Step 4: Start using Anchore
 
-To get started, you can add a few images to Anchore Engine using the CLI. Once this is done, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
+To get started, you can add a few images to Anchore Engine using the CLI. Once complete, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
 
 ```
 # docker-compose exec api anchore-cli image add docker.io/library/alpine:latest
@@ -188,22 +187,30 @@ docker.io/library/nginx:latest         sha256:cccef6d6bdea671c394956e24b0d0c44cd
 ```
 
 
-Now that some images are in place, you can point your browser at the Anchore Enterprise UI by directing it to _http://localhost:3000/_.  
+Now that some images are in place, you can point your browser at the Anchore Enterprise UI by directing it to _http://localhost:3000/_.
 
-Enter the username _admin_ and password _foobar_ to log in.  There, you will be able to navigate your images, inspect image contents, perform security scans, review compliance policy evaluations, edit compliance policies with a complete policy editor UI, manage accounts/users/RBAC assignments, and review system events (and other UI features).
+Enter the username _admin_ and password _foobar_ to log in.  These are some of the features you can use in the browser:
 
-**Note:** This document is intended to serve as a quickstart guide. Before moving further with Anchore Enterprise, it is highly recommended that you enhance your learning by reading the [Overview]({{< ref "/docs/overview" >}}) sections to gain a deeper understanding of fundamentals, concepts, and proper usage. 
+- Navigate images
+- Inspect image contents
+- Perform security scans
+- Review compliance policy evaluations
+- Edit compliance policies with a complete policy editor UI
+- Manage accounts, users, and RBAC assignments
+- Review system events
+
+**Note:** This document is intended to serve as a quickstart guide. Before moving further with Anchore Enterprise, it is highly recommended to read the [Overview]({{< ref "/docs/overview" >}}) sections to gain a deeper understanding of fundamentals, concepts, and proper usage.
 
 ### Enabling Windows Image Support
 
-To enable scanning of Windows images you'll have to configure more of the system to deploy a feed service and setup the proper drivers to collect vulnerability data for Windows.0
+To enable scanning of Windows images, you'll have to configure more of the system to deploy a feed service and setup the proper drivers to collect vulnerability data for Windows.
 
 
 See: [Enabling Windows]({{< ref "/docs/quickstart/enabling_windows" >}})
 
 ### Next Steps
 
-Now that you have Anchore Enterprise running, you can begin to learning more about Anchore Enterprise Architecture, Anchore Concepts and Anchore Usage.
+Now that you have Anchore Enterprise running, you can begin to learn more about Anchore Enterprise Architecture, Anchore Concepts, and Anchore Usage.
 
 - To learn more about Anchore Enterprise, go to [Overview]({{< ref "/docs/overview" >}})
 - To learn more about Anchore Concepts, go to [Concepts]({{< ref "/docs/overview/concepts" >}})

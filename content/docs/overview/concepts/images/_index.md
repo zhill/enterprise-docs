@@ -19,11 +19,10 @@ The Anchore Engine includes a number of analyzer modules that extract data from 
 - Operating System Package Data (RPM, DEB, APKG)
 - File Data
 - Ruby Gems
-- Nuget Packages
 - Node.JS NPMs
 - Java Archives
 - Python Packages
-- Dotnet Nuget Packages
+- .NET NuGet Packages
 - File content
 
 Once a tag has been added to the Anchore Engine the repository will be monitored for updates to that tag.
