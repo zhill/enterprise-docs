@@ -8,9 +8,17 @@ weight: 1
 
 In this section, you'll learn how to get up and running with a stand-alone Anchore Enterprise installation for trial, demonstration, and review with [Docker Compose](https://docs.docker.com/compose/install/). If you are specifically looking for a quickstart for Anchore Engine OSS alone, please jump to [Anchore Engine Quickstart]({{< ref "/docs/engine/quickstart" >}}).
 
-The quickstart docker-compose.yaml file is available [here](./docker-compose.yaml)
-
 **Note:** If your intent is to gain a deeper understanding of Anchore and its concepts, we recommend navigating to the [Overview]({{< ref "/docs/overview" >}}) section prior to conducting an [installation]({{< ref "/docs/installation" >}}) of Anchore Enterprise.
+
+
+## Configuration Files for this Quickstart:
+
+* [Docker Compose File](./docker-compose.yaml)
+
+* (Optional) [Prometheus Configuration for Monitoring](./anchore-prometheus.yml). See [Enabling Prometheus Monitoring]({{< ref "#optional-enabling-prometheus-monitoring" >}})
+
+* (Optional) [Swagger UI Nginx Proxy](./anchore-swaggerui-nginx.conf) to browse the API with a Swagger UI. See [Enabling Swagger UI]({{< ref "#optional-enabling-swagger-ui" >}})
+
 
 ## Requirements
 
@@ -33,7 +41,9 @@ Password: <your_dockerhub_password>
 
 ### Step 2: Download compose, copy license, and start.
 
- Now, ensure the license.yaml file you got from Anchore Sales/Support is in the directory where you want to run the containers from, then download the compose file and start it.
+Now, ensure the license.yaml file you got from Anchore Sales/Support is in the directory where you want to run the containers from, then download the compose file and start it.
+You can use the link at the top of this page, or use curl or wget to download it as shown below.
+
 ```
 # cp <path/to/your/license.yaml> ./license.yaml
 # curl https://docs.anchore.com/current/docs/quickstart/docker-compose.yaml > docker-compose.yaml
@@ -216,3 +226,85 @@ Now that you have Anchore Enterprise running, you can begin to learn more about 
 - To learn more about Anchore Concepts, go to [Concepts]({{< ref "/docs/overview/concepts" >}})
 - To learn more about other installation methods, go to [Installation]({{< ref "/docs/installation" >}})
 - To learn more about using Anchore Usage, go to [Usage]({{< ref "/docs/using" >}})
+
+
+### Optional: Enabling Prometheus Monitoring
+
+1. Uncomment the following section at the bottom of the docker-compose.yaml file:
+
+    ```
+    #  # Uncomment this section to add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
+    #  prometheus:
+    #    image: docker.io/prom/prometheus:latest
+    #    depends_on:
+    #      - api
+    #    volumes:
+    #      - ./anchore-prometheus.yml:/etc/prometheus/prometheus.yml:z
+    #    logging:
+    #      driver: "json-file"
+    #      options:
+    #        max-size: 100m
+    #    ports:
+    #      - "9090:9090"
+    #
+    ```
+
+1. For each service entry in the docker-compose.yaml, change the following to enable metrics in the API for each service
+
+    ```
+    ANCHORE_ENABLE_METRICS=false
+    ```
+
+    to
+
+    ```
+    ANCHORE_ENABLE_METRICS=true
+    ```
+
+1. Download the example prometheus configuration into the same directory as the docker-compose.yaml file, with name _anchore-prometheus.yml_
+
+    ```
+    curl https://docs.anchore.com/current/docs/quickstart/anchore-prometheus.yml > anchore-prometheus.yml
+    docker-compose up -d
+    ```
+
+    You should see a new container started and can access prometheus via your browser on `http://localhost:9090`
+
+
+### Optional: Enabling Swagger UI
+
+1. Uncomment the following section at the bottom of the docker-compose.yaml file:
+
+    ```
+    #  # Uncomment this section to run a swagger UI service, for inspecting and interacting with the anchore engine API via a browser (http://localhost:8080 by default, change if needed in both sections below)
+    #  swagger-ui-nginx:
+    #    image: docker.io/nginx:latest
+    #    depends_on:
+    #      - api
+    #      - swagger-ui
+    #    ports:
+    #      - "8080:8080"
+    #    volumes:
+    #      - ./anchore-swaggerui-nginx.conf:/etc/nginx/nginx.conf:z
+    #    logging:
+    #      driver: "json-file"
+    #      options:
+    #        max-size: 100m
+    #  swagger-ui:
+    #    image: docker.io/swaggerapi/swagger-ui
+    #    environment:
+    #      - URL=http://localhost:8080/v1/swagger.json
+    #    logging:
+    #      driver: "json-file"
+    #      options:
+    #        max-size: 100m
+    ```
+
+1. Download the nginx configuration into the same directory as the docker-compose.yaml file, with name _anchore-swaggerui-nginx.conf_
+
+    ```
+    curl https://docs.anchore.com/current/docs/quickstart/anchore-swaggerui.conf > anchore-swaggerui-nginx.conf
+    docker-compose up -d
+    ```
+
+    You should see a new container started and can access prometheus via your browser on `http://localhost:8080/ui/`
