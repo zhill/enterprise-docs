@@ -47,9 +47,9 @@ container_scan_service:
   variables:
     ANCHORE_CLI_URL: "http://anchore-engine:8228/v1"
     GIT_STRATEGY: none
-  image: docker.io/anchore/inline-scan:v0.6.0
+  image: docker.io/anchore/inline-scan:latest
   services:
-  - name: docker.io/anchore/inline-scan:v0.6.0
+  - name: docker.io/anchore/inline-scan:latest
     alias: anchore-engine
     command: ["start"]
 
