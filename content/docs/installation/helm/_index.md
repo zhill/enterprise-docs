@@ -75,9 +75,8 @@ To use this Helm chart with the enterprise services enabled, perform these steps
   ```
 
 ### Upgrading from a previous Helm deployment
-A Helm post-upgrade hook job has been added starting with Chart version 1.6.0 - this job will shut down all previously running Anchore services and perform the
-Anchore DB upgrade process using a kubernetes job. The upgrade will only be considered successful when this job completes successfully. Performing an update after v1.6.0
-will cause the Helm client to block until the upgrade job completes and the new Anchore service pods are started.
+A Helm post-upgrade hook job has been added starting with Chart version 1.6.0 - this job will shut down all previously running Anchore services and perform the Anchore DB upgrade process using a kubernetes job. 
+The upgrade will only be considered successful when this job completes successfully. Performing an update after v1.6.0 will cause the Helm client to block until the upgrade job completes and the new Anchore service pods are started.
 
 ```
 helm repo update
