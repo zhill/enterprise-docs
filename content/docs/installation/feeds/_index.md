@@ -1,5 +1,5 @@
 ---
-title: "Feeds Configuration"
+title: "Feeds"
 linkTitle: "Feeds"
 weight: 6
 ---
@@ -20,6 +20,7 @@ In this section, you'll learn about the requirements for installing Anchore Ente
 | linux.oracle.com | 443 | Oracle Linux Security Feed |
 | github.com | 443 | Alpine Linux Security Database |
 | redhat.com | 443 | Red Hat Enterprise Linux Security Database |
+| access.redhat.com | 443 | Red Hat Security Data API |
 | security-tracker.debian.org | 443 | Debian Security Feed |
 | salsa.debian.org | 443 | Debian Security Feed |
 | replicate.npmjs.com | 443 | NPM Registry Package Data |
@@ -27,17 +28,19 @@ In this section, you'll learn about the requirements for installing Anchore Ente
 | nvd.nist.gov | 443 | NVD Database |
 | git.launchpad.net | 443 | Ubuntu Data |
 | alas.aws.amazon.com | 443 | Amazon Linux ALAS Data Feed |
+| api.msrc.microsoft.com | 443 | Microsoft Security Update API |
 | data.anchore-enterprise.com | 443 | Third Party Data Feeds|
+
 
 #### Database
 
 Ruby Gems project publishes package data as a PostgreSQL dump. Enabling the gem driver in Anchore Enterprise Feeds will increase the load on the PostgreSQL database used by the service. We recommend using a different PostgreSQL instance for the gem driver to avoid load spikes and interruptions to the service. The database endpoint for the gem driver can be configured using services->feeds->drivers->gem->db_connect parameter in config.yaml
 
-## Driver Configuration
+### Driver Configuration
 
 Some of the feed drivers will require additional configuration steps, like retrieving an API or token key from a provider.
 
-### Github Driver
+#### Github Driver
 
 The Github driver requires to generate a Personal Access Token (PAT) which is associated with a Github Account. To generate this token, the user will be required to log in to Github and use the following url: [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
 
@@ -54,6 +57,40 @@ Use the new token in _config.yaml_ in the `feeds` section: for all components of
 ```
 
 It is also possible to set the token with the following environment variable: `ANCHORE_ENTERPRISE_FEEDS_GITHUB_DRIVER_TOKEN`. Note that this is only valid when using the _config.yaml_ provided in the image due to that file referencing them explicitly as replacement values.
+
+#### MSRC Driver
+
+MSRC driver requires access to Microsoft Security Update API for raw source data. Access to this API is gated by an API key. To request an API key head over to https://portal.msrc.microsoft.com/en-us/developer and create an account. 
+
+NOTE: The service may currently require @outlook.com, @live.com or @microsoft.com email address for generating an API key. If you do not have one of these email addresses, you can create a personal outlook account to access this service       
+
+Once an API key is available, the feed driver must be enabled and configured to use it 
+
+- For quickstart and deployments using docker-compose.yaml: Find the `feeds` service definition and uncomment or add the following environment variables
+
+    ```YAML
+    services:
+      ...  
+      feeds:
+      ...
+        environment:
+        ...
+        - ANCHORE_ENTERPRISE_FEEDS_MSRC_DRIVER_ENABLED=true
+        - ANCHORE_ENTERPRISE_FEEDS_MSRC_DRIVER_API_KEY=<api-key>
+    ```
+
+- For deployments using config.yaml: Find the `feeds` configuration section and update the f
+ 
+    ```YAML
+    services:
+      ...  
+      feeds:
+      ...
+        drivers:
+          msrc:
+            enabled: true
+            api_key: <api-key>
+    ```
 
 ### Configuring Anchore Engine to use Anchore Enterprise Feeds
 
