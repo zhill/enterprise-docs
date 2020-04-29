@@ -199,7 +199,7 @@ A [sync operation](https://docs.anchore.com/current/docs/using/cli_usage/feeds/f
 
 
 ```
-anchore-cli system feeds sync command
+anchore-cli system feeds sync
 ```
 
 
