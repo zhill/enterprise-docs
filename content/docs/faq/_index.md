@@ -40,53 +40,55 @@ weight: 2
 
 [Can I only enable certain feeds?](#14)
 
+[Why am I seeing 'UnicodeEncodeError: 'ascii' codec can't encode character in the policy engine logs?](#15)
+
 **Integration**
 
-[What registries are supported?](#15)
+[What registries are supported?](#16)
 
-[What CI/CD systems are supported?](#16)
+[What CI/CD systems are supported?](#17)
 
-[What notification systems are supported? ](#17)
+[What notification systems are supported? ](#18)
 
-[How does anchore integrate with Kubernetes?](#18)
+[How does anchore integrate with Kubernetes?](#19)
 
-[How do I access content in my private registry?](#19)
+[How do I access content in my private registry?](#20)
 
 **Scanning**
 
-[What packages does Anchore scanning support?](#20)
+[What packages does Anchore scanning support?](#21)
 
-[Do I need to rescan images?](#21)
+[Do I need to rescan images?](#22)
 
-[How can I scan local images?](#22)
+[How can I scan local images?](#23)
 
-[Can Anchore look inside a file and scan for contents?](#23)
+[Can Anchore look inside a file and scan for contents?](#24)
 
 **CLI**
 
-[Why do I get an “Unauthorized” error when using the CLI?](#24)
+[Why do I get an “Unauthorized” error when using the CLI?](#25)
 
 **Vulnerability Results**
 
-[Why am I getting false positives?](#25)
+[Why am I getting false positives?](#26)
 
-[What can I do in response to a false positive?](#26)
+[What can I do in response to a false positive?](#27)
 
 **Reports**
 
-[Can I generate reports using Anchore Engine?](#27)
+[Can I generate reports using Anchore Engine?](#28)
 
 **Monitoring**
 
-[How do I monitor my Anchore deployment?](#28)
+[How do I monitor my Anchore deployment?](#29)
 
 **Swagger**
 
-[How can I deploy an interactive Swagger UI?](#29)
+[How can I deploy an interactive Swagger UI?](#30)
 
 **Support**
 
-[Where can I ask other questions?](#30)
+[Where can I ask other questions?](#31)
 
 ---
 
@@ -197,22 +199,47 @@ A [sync operation](https://docs.anchore.com/current/docs/using/cli_usage/feeds/f
 
 
 ```
-         anchore-cli system feeds sync command
+anchore-cli system feeds sync command
 ```
 
 
 However, this is an operation that is not required under normal operation, only used for advanced troubleshooting and testing.
 
-### How often are feeds synced? {#13}
+### How often are feeds synced? {#12}
 Feed data is synced by default every ~6 hours.  This is a configurable setting that can be updated to user specifications.  For more information, see our [documentation](https://docs.anchore.com/current/docs/engine/usage/cli_usage/feeds/feed_configuration/#feed-synchronization-interval).
 
-### How long should a feed sync take? {#14}
+### How long should a feed sync take? {#13}
 There is no exact time frame for the initial sync to complete as it depends heavily on environmental factors, such as the host’s memory/cpu allocation, disk space, and network bandwidth.  Generally, the initial sync should complete within 8 hours but may take longer.  Subsequent feed updates are much faster as only deltas are updated.
 
-### Can I only enable certain feeds? {#15}
+### Can I only enable certain feeds? {#14}
 Yes. See the [documentation](https://docs.anchore.com/current/docs/engine/usage/cli_usage/feeds/feed_configuration/#feed-settings).
 
+### Why am I seeing 'UnicodeEncodeError: 'ascii' codec can't encode character in the policy engine logs?{#15}
 
+If you see the following error in the policy engine logs:
+
+```
+UnicodeEncodeError: 'ascii' codec can't encode character '\xa0' in position 87: ordinal not in range(128)
+[service:policy-engine] 2020-04-28 15:36:46+0000 [-] [Thread-45740] [anchore_engine.services.policy_engine.engine.logs/exception()] [ERROR] Error syncing (operation_id=56e48fd78a0f48078cd96d86a5530098, feed=vulndb, group=vulndb:vulnerabilities)
+```
+
+Check the configuration of your PostgresSQL database service. The database encoding should be `UTF8`.
+
+Correct Output:
+
+```
+postgres=# \l
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges   
+-----------+----------+----------+------------+------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+```
+
+If the database encoding is `SQL_ASCII` you will need to change the encoding to the correct `UTF8` encoding.
 
 ## Integration
 ### What registries are supported? {#16}
@@ -245,23 +272,23 @@ Anchore Engine attempts to perform a credential validation upon registry additio
 
 
 ## Scanning
-### What packages does Anchore scanning support? {#20}
+### What packages does Anchore scanning support? {#21}
 For operating systems: RPM, Deb, APK
 
 For Languages: Python (PIP), Ruby Gems, NPM, Java (jar, ear, war, hpi), .NET (NuGet)
 
-### Do I need to rescan images? {#21}
+### Do I need to rescan images? {#22}
 No! Anchore Engine maintains a complete inventory of every file, including its contents and metadata, so when a new vulnerability is found, it only needs to scan the database and not the original image.
 
-### How can I scan local images? {#22}
+### How can I scan local images? {#23}
 The Anchore Inline Scanner tool allows you to scan a local image on disk without needing the persistent web service from Anchore Engine available. You can also do the local scan and then pass the details to Anchore Engine after completion. More information is available in our [documentation](https://docs.anchore.com/current/docs/using/integration/ci_cd/inline_analysis/).
 
-### Can Anchore look inside a file and scan for contents? {#23}
+### Can Anchore look inside a file and scan for contents? {#24}
 Yes, regexps can be applied in policies rules to scan for arbitrary content.
 
 
 ## CLI
-### Why do I get an Unauthorized” error when using the CLI? {#24}
+### Why do I get an Unauthorized” error when using the CLI? {#25}
 If you run into an "Unauthorized" error, verify you have configured the Anchore CLI correctly, as this error is most commonly seen when the Username, Password, or Service URL are improperly set.
 
 By default the Anchore CLI will try to connect to the Anchore Engine at http://localhost:8228/v1 with no authentication. The username, password and URL for the server can be passed to the Anchore CLI as command line arguments.
@@ -288,30 +315,30 @@ Rather than passing these parameters for every call to the cli they can be store
 ```
 
 ## Vulnerability Matching
-### Why am I getting false positives? {#25}
+### Why am I getting false positives? {#26}
 False positives are typically caused by:
 
 * Package names reused across package managers (e.g. a gem and npm package with same name). Many data sources, like NVD don’t provide sufficient specification of the ecosystem a package lives in and thus Anchore may match the right name against the wrong type. This is most commonly seen in non-os (non rpm, deb, apk) packages.
 
 * Distro package managers installing non-distro packages using the application package format and not updating the version number when backports are added. This can cause a match of the package against the application-package vulnerability data instead of the distro data.
 
-### What can I do in response to a false positive? {#26}
+### What can I do in response to a false positive? {#27}
 The most immediate way to respond is to create a rule in the Anchore policy engine which [whitelists the package](https://docs.anchore.com/current/docs/using/ui_usage/policies/whitelists/).  \
 
 ## Reports
-### Can I generate reports using Anchore Engine? {#27}
+### Can I generate reports using Anchore Engine? {#28}
 Account wide reporting is only available in Anchore Enterprise. Anchore Engine allows you to generate information about a specific image.
 
 
 ### Monitoring
-### How do I monitor my Anchore deployment? {#28}
+### How do I monitor my Anchore deployment? {#29}
 Anchore recommends using Prometheus for gathering metrics. Both Anchore Enterprise and Engine expose metrics in the API of each service. Set “metrics.enabled” to true in the relevant config.yaml file.
 
 See: [https://docs.anchore.com/current/docs/monitoring/](https://docs.anchore.com/current/docs/monitoring/)
 
 
 ## Swagger
-### How can I deploy an interactive Swagger UI? {#29}
+### How can I deploy an interactive Swagger UI? {#30}
 #### Docker-Compose
 To enable in a quickstart deployment (using docker-compose), simply uncomment the two service sections (the 'anchore-swagger-ui-nginx' and 'anchore-swagger-ui' services) at the end of the default docker-compose.yaml before starting up anchore, according to the regular [Quickstart Guide]({{< ref "/docs/engine/quickstart" >}}).  There is a configuration file for nginx that needs to be mounted in order for the nginx proxy to passthrough to the engine-api.  It can be copied from the anchore-engine Docker image with the following command:
 
@@ -370,7 +397,7 @@ swaggerui :
 
 
 ## Support
-### Where can I ask other questions? {#30}
+### Where can I ask other questions? {#31}
 Community Slack: [https://anchore.slack.com](https://anchore.slack.com)
 
 Github Issues:
