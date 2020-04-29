@@ -239,7 +239,7 @@ postgres=# \l
            |          |          |            |            | postgres=CTc/postgres
 ```
 
-If the database encoding is `SQL_ASCII` you will need to change the encoding to the correct `UTF8` encoding.
+If the database encoding is `SQL_ASCII` you will need to change the encoding to the correct `UTF8`.
 
 ## Integration
 ### What registries are supported? {#16}
