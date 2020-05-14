@@ -61,7 +61,7 @@ Verify these secrets are in the correct namespace: anchore-enterprise
 
 Link the above Docker registry secret to the default service account:
 
-`oc secrets link default anchore-enterprise-pullcreds --for=pull --namepsace=anchore-enterprise`
+`oc secrets link default anchore-enterprise-pullcreds --for=pull --namespace=anchore-enterprise`
 
 Verify this by running the following:
 
