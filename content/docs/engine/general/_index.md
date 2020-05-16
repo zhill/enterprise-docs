@@ -32,7 +32,7 @@ There are, generally speaking, two different ways to use Anchore Engine, within 
 1. Interactive Mode - Use the APIs to explicitly request an image analysis, get a policy evaluation and content reports, but the engine only performs operations when specifically requested by a user
 2. Watch Mode - Use the APIs to configure Anchore Engine to poll specific registries and repositories/tags to watch for new images added and automatically pull and evaluate them, emitting notifications when a given tag's vulnerability or policy evaluation state changes
 
-With these two modes of operation, integration into CI/CD with Interative Mode or less intrusive watching of production image repositories with Watch Mode, Anchore Engine can be easily integrated into most environments and processes.
+With these two modes of operation, integration into CI/CD with Interactive Mode or less intrusive watching of production image repositories with Watch Mode, Anchore Engine can be easily integrated into most environments and processes.
 
 ### How to get it?
 
