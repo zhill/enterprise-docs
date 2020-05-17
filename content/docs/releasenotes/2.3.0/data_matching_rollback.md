@@ -6,7 +6,7 @@ weight: 70
 
 *NOTE: This section is only for very specific situations where you absolutely must revert the matching system to use the RHSA data. This should not be done lightly. The newer CVE-based data is more accurate, specific, and provides a more consistent experience with other distros.*
 
-If your processing of anchore output relies on RHSA keys as vulnerability matches, or you have large RHSA-based whitelists that cannot be converted to CVE-baed,
+If your processing of anchore output relies on RHSA keys as vulnerability matches, or you have large RHSA-based whitelists that cannot be converted to CVE-based,
 then it is possible, though not recommended, to migrate your system back to using the RHSA-based feeds (centos:* groups).
 
 Here is the process. It requires the Anchore CLI with access to the API as well as direct access to the internal policy engine API endpoint. That may require a `docker exec` or `kubectl exec` call
@@ -22,7 +22,7 @@ to achieve and will be deployment/environment specific.
     
     ```
 
-    1. Continuing with API access ot the policy engine directly, replace the removed mappings with new mappings to the _centos_ feeds:
+    1. Continuing with API access to the policy engine directly, replace the removed mappings with new mappings to the _centos_ feeds:
 
     ```
     curl -H "Content-Type: application/json" -X POST -u admin:foobar -d'{"from_distro":"centos", "to_distro":"centos", "flavor":"RHEL"}' http://localhost:8087/v1/distro_mappings
