@@ -8,7 +8,7 @@ This document will walkthrough the installation of Anchore Enterprise in an Azur
 ## Prerequisites
 
 - A running AKS cluster with worker nodes launched. See [AKS Documentation](https://docs.microsoft.com/en-us/azure/aks/) for more information on this setup. 
-- [Helm](https://helm.sh/) client and server installed and configured with your AKS cluster.
+- [Helm](https://helm.sh/) client on local host.
 - [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host. 
 
 Once you have an AKS cluster up and running with worker nodes launched, you can verity via the followiing command. 
@@ -176,8 +176,8 @@ Service reports (anchore-enterprise-anchore-engine-api-df99bdbfb-gzn8t, http://a
 Service rbac_manager (anchore-enterprise-anchore-engine-api-df99bdbfb-gzn8t, http://anchore-enterprise-anchore-engine-api:8229): up
 Service catalog (anchore-enterprise-anchore-engine-catalog-864668c549-lqr46, http://anchore-enterprise-anchore-engine-catalog:8082): up
 
-Engine DB Version: 0.0.11
-Engine Code Version: 0.5.1
+Engine DB Version: 0.0.13
+Engine Code Version: 0.7.1
 ```
 
 #### Anchore Feeds

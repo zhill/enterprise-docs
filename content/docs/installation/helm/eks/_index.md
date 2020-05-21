@@ -8,7 +8,7 @@ This document will walkthrough the installation of Anchore Enterprise on an Amaz
 ## Prerequisites
 
 - A running Amazon EKS cluster with worker nodes launched. See [EKS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) for more information on this setup. 
-- [Helm](https://helm.sh/) client and server installed and configured with your EKS cluster.
+- [Helm](https://helm.sh/) client installed on local host.
 - [Anchore CLI](https://docs.anchore.com/current/docs/installation/anchore_cli/) installed on local host. 
 
 Once you have an EKS cluster up and running with worker nodes launched, you can verity via the followiing command. 
