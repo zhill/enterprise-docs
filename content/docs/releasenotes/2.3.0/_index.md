@@ -35,6 +35,7 @@ as well for a consistent approach across ecosystems. It also includes several en
 
   * To help provide early detection of vulnerabilities before a fix is available or for issues where a fix is not issued, Anchore now uses RedHat's CVE information instead of RHSA information
   * This also provides improved whitelist consistency between RHEL/Centos and images based on other distros since CVEs are consistent
+  * For more details see [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/2.3.0/centos_to_rhel_upgrade" >}})
 
 * Improved feed data and configuration management via APIs and CLI
 
@@ -72,6 +73,15 @@ These changes are all configured by default in the new [quickstart guide]({{< re
 * Fixes in the Anchore Engine [v0.7.0 release notes]({{< ref "/docs/engine/releasenotes/0.7.0" >}}) and [v0.7.1 release notes]({{< ref "/docs/engine/releasenotes/071" >}})
 
 ### Upgrading from Anchore Enterprise 2.2 to 2.3.0
+
+This is a significant upgrade. Backups should be taken, and downtime expected to complete the process.
+
+**NOTE** The upgrade from 2.2.x to 2.3.0 will take several minutes at least for the database schema upgrade and involves a data migration can take longer to fully transition the RHSA data to CVE data. Part of this process is done during
+the database upgrade, but part of the process can only complete after the upgraded feed service is able to run and sync the new RedHat CVE data. Because of this, there will be an interval where RHEL-based images
+will have no vulnerabilities listed. That will automatically resolve itself once the feed syncs, and all affected images will have CVE-based vulnerability matches as expected, but depending on deployment environment and number
+of images in the database, this may take a long time (hours potentially).
+
+See [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/2.3.0/centos_to_rhel_upgrade" >}}) for more information on the change and upgrade implications. 
 
 To upgrade, use the new version of the Helm chart or docker-compose provided with this release. The new chart and compose files contain all needed configuration changes. See [Enterprise Upgrade to 2.3.0]({{< ref "/docs/installation/upgrade" >}}) for details on this specific upgrade process and how to update your own deployment templates if you are not using the official Helm chart.
 
