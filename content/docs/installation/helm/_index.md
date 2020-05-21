@@ -33,15 +33,17 @@ permission to the private docker repositories that contain the enterprise images
 
 To use this Helm chart with the enterprise services enabled, perform these steps.
 
+*Note: It's best to quote user supplied strings in case there are any special characters. For example, the username, password, and email supplied in Step 2 below might contain symbols, dots, underscores, etc.*
+
 1. Create a kubernetes secret containing your license file.
 
-    `kubectl create secret generic anchore-enterprise-license --from-file=license.yaml=<PATH/TO/LICENSE.YAML>`
+    `kubectl create secret generic anchore-enterprise-license --from-file='license.yaml=<PATH/TO/LICENSE.YAML>'`
 
 1. Create a kubernetes secret containing dockerhub credentials with access to the private anchore enterprise repositories.
 
-    `kubectl create secret docker-registry anchore-enterprise-pullcreds --docker-server=docker.io --docker-username=<DOCKERHUB_USER> --docker-password=<DOCKERHUB_PASSWORD> --docker-email=<EMAIL_ADDRESS>`
+    `kubectl create secret docker-registry anchore-enterprise-pullcreds --docker-server='docker.io' --docker-username='<DOCKERHUB_USER>' --docker-password='<DOCKERHUB_PASSWORD>' --docker-email='<EMAIL_ADDRESS>'`
 
-1. Install the helm chart using a custom anchore_values.yaml file (see examples below)
+1. Install the helm chart using a custom anchore_values.yaml file (see examples below). Note that <release_name> is a name that you choose.
 
     #### Helm v3 installation
     `helm repo add stable https://kubernetes-charts.storage.googleapis.com`
