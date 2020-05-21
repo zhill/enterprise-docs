@@ -1,6 +1,6 @@
 ---
 title: "Reverting Back to use RHSA Data"
-linkTitle: "Revert back to RHSA post-0.7.0 upgrade"
+linkTitle: "Revert back to RHSA post-2.3.0 upgrade"
 weight: 70
 ---
 
