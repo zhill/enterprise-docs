@@ -38,7 +38,7 @@ With these two modes of operation, integration into CI/CD with Interactive Mode 
 
 Anchore Engine is [open source](https://github.com/anchore/anchore-engine), and we build and deliver it as a [Docker container](https://hub.docker.com/r/anchore/anchore-engine).
 
-The system is a collection of services that can be deployed co-located or fully distributed or anything in-between, and as such it can scale out to increase analysis throughput. The only external system required is a PostgreSQL database (9.6+) that all service connect to, but do not use for communication beyond some very simple service registration/lookup processes. The database is centralized simply for ease of management and operation.
+The system is a collection of services that can be deployed co-located or fully distributed or anything in-between, and as such it can scale out to increase analysis throughput. The only external system required is a PostgreSQL database (9.6+) that all services connect to, but is not used for communication beyond some very simple service registration/lookup processes. The database is centralized simply for ease of management and operation.
 
 The six services that comprise the Engine can be deployed in a single container or scaled out to handle load:
 
