@@ -100,7 +100,7 @@ From the directory in your system where you have the previous docker-compose.yam
 
 1. Download the new docker-compose.yaml file
     ```
-    curl https://docs.anchore.com/docs/current/quickstart/docker-compose.yaml > docker-compose-new.yaml
+    curl https://docs.anchore.com/current/docs/quickstart/docker-compose.yaml > docker-compose-new.yaml
     ```
 
 1. Create backup of old compose file:
