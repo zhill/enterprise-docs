@@ -105,6 +105,8 @@ services:
       driver: "json-file"
       options:
         max-size: 100m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
 #  # Uncomment this section to add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
 #  anchore-prometheus:
 #    image: docker.io/prom/prometheus:latest
