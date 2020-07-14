@@ -156,6 +156,8 @@ services:
       driver: "json-file"
       options:
         max-size: 100m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
   rbac-authorizer:
     image: docker.io/anchore/enterprise:v2.3.2
     volumes:
@@ -267,6 +269,8 @@ services:
       driver: "json-file"
       options:
         max-size: 100m
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli PING"]
   ui:
     image: docker.io/anchore/enterprise-ui:v2.3.2
     volumes:
