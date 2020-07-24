@@ -4,7 +4,7 @@ linkTitle: "Architecture"
 weight: 2
 ---
 
-This document reviews the overall architecture of a full Anchore Enterprise deployment. With Anchore Enterprise, not all services/features are required, but for the purposes of this document, all services and features are enable and installed.
+This document reviews the overall architecture of a full Anchore Enterprise deployment. With Anchore Enterprise, not all services/features are required, but for the purposes of this document, all services and features are enabled and installed.
 
 ![Architecture Overview](enterprise-architecture.svg)
 
@@ -12,7 +12,7 @@ This document reviews the overall architecture of a full Anchore Enterprise depl
 
 #### Enterprise UI
 
-The Enterprise UI is a proprietary UI for interacting with both the open-source Anchore Engine as well as enterprise extensions like role-based access-control. The UI depends on Redis to provide session state storage in memory and to act as a cache. Requires a valid Anchore Enterprise license to start an run.
+The Enterprise UI is a proprietary UI for interacting with both the open-source Anchore Engine as well as enterprise extensions like role-based access-control. The UI depends on Redis to provide session state storage in memory and to act as a cache. Requires a valid Anchore Enterprise license to start and run.
 
 ##### Consumes
 
@@ -51,7 +51,7 @@ The Anchore Engine API is the primary API for the entire system. This service ru
 
 #### Enterprise RBAC Manager
 
-The RBAC manager is the user-facing API for configuring the roles and assigning users to roles in the system. The API served by this component is also rbac-enabled. Requires a valid Anchore Enterprise license to start an run.
+The RBAC manager is the user-facing API for configuring the roles and assigning users to roles in the system. The API served by this component is also rbac-enabled. Requires a valid Anchore Enterprise license to start and run.
 
 ##### Consumes
 
@@ -88,7 +88,7 @@ The catalog is the primary state manager of the system and owns both the state m
 
 #### Policy Engine
 
-The policy engine is responsible for loading the result of an image analysis and normalizing and structuring the data in a way that makes it quickly saearchable, scans for vulnerabilities in the found artifacts of the image, and provides fast policy evaluation over that data. 
+The policy engine is responsible for loading the result of an image analysis and normalizing and structuring the data in a way that makes it quickly searchable, scans for vulnerabilities in the found artifacts of the image, and provides fast policy evaluation over that data. 
 
 ##### Consumes
 
