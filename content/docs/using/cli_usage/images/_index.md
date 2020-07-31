@@ -49,7 +49,7 @@ To update an image's Dockerfile, simply run the same command again with the path
 When adding an image, there are some additional (optional) parameters that can be used. We show some examples below.
 `anchore-cli image add alpine:latest --force`
 
-the `--force` option can be used to reset the image analysis status of any image to *not_analyzed*, which is the base analysis state for an image. This option should be be necessary to use in normal circumstancesm but can be useful if image re-analysis is needed for any reason desired.
+the `--force` option can be used to reset the image analysis status of any image to *not_analyzed*, which is the base analysis state for an image. This option shouldn't be necessary to use in normal circumstances, but can be useful if image re-analysis is needed for any reason desired.
 
 `anchore-cli image add myrepo.example.com:5000/app/webapp:latest --dockerfile /path/to/dockerfile --annotation owner=someperson --annotation owneremail=someperson@somewhere.com`
 
