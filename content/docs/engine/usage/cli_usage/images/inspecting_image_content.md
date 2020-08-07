@@ -24,6 +24,8 @@ the CONTENT_TYPE can be one of the following types:
 - java: Java Archives
 - python: Python Artifacts
 - nuget: .NET NuGet Artifacts
+- malware: malware findings from scanners (default is ClamAV)
+- binary: specific binaries that are statically checked for metadata (e.g. python and go runtime)
 
 For example: `anchore-cli image content debian:latest files`
 
