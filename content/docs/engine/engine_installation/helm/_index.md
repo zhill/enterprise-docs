@@ -4,9 +4,9 @@ linkTitle: "Kubernetes"
 weight: 2
 ---
 
-The Anchore Engine Helm chart can be found in the [official stable repository](https://github.com/helm/charts/tree/master/stable/anchore-engine). 
+The Anchore Engine Helm chart can be found in the [anchore-charts repository](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine). 
 
-The [README](https://github.com/helm/charts/blob/master/stable/anchore-engine/README.md) in the chart repository should always be consulted before proceeding with installation or upgrades.
+The [README](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine/README.md) in the chart repository should always be consulted before proceeding with installation or upgrades.
 
 ### Background
 Helm is the package manager for Kubernetes, inspired by packaged managers such as homebrew, yum, npm and apt. Applications are packaged in Charts which are a collection of files that contain the definition and configuration of resources to be deployed to a Kubernetes cluster. Helm was created by Deis who donated the project to the Cloud Native Computing Foundation (CNCF).
@@ -42,14 +42,15 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-By default, the Anchore Engine chart will deploy a single pod for each Anchore Engine service along with a PostgreSQL database container. This behavior can be overridden if you have an existing PostgreSQL service available, see the [README](https://github.com/helm/charts/blob/master/stable/anchore-engine/README.md) for more details.
+By default, the Anchore Engine chart will deploy a single pod for each Anchore Engine service along with a PostgreSQL database container. This behavior can be overridden if you have an existing PostgreSQL service available, see the [README](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine/README.md) for more details.
 
-In this example we will deploy the database, and a single pod of every Open Source Anchore Engine service. Please refer to the [README](https://github.com/helm/charts/blob/master/stable/anchore-engine/README.md) for more sophisticated deployments including scaling options.
+In this example we will deploy the database, and a single pod of every Open Source Anchore Engine service. Please refer to the [README](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine/README.md) for more sophisticated deployments including scaling options.
 
-The installation can be completed with a single command:
+The installation can be completed with the following commands:
 
 ```
-$ helm install anchore-demo stable/anchore-engine
+$ helm repo add anchore https://charts.anchore.io
+$ helm install anchore-demo anchore/anchore-engine
 ```
 
 The Helm installation should complete in a matter of seconds after which time it will output details of the deployed resources showing the secrets, configMaps, volumes, services, deployments and pods that have been created.

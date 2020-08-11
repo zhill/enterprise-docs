@@ -81,11 +81,11 @@ Doing the upgrade:
 
 1. Review any custom values.yaml configuration and compare to the defaults in the chart. Either use 
 
-    `helm pull stable/anchore-engine`
+    `helm pull anchore/anchore-engine`
  
-    to view the  updated chart, or view on [Helm Charts Github repository](https://github.com/helm/charts/tree/master/stable/anchore-engine)
+    to view the updated chart, or view on [Helm Charts Github repository](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine)
 
-1. Upgrade your deployment: `helm upgrade <your release name, e..g anchore> stable/anchore-engine <-f custom_values.yaml>`
+1. Upgrade your deployment: `helm upgrade <your release name, e..g anchore> anchore/anchore-engine <-f custom_values.yaml>`
 
 1. The command will wait while the upgrade jobs complete before returning a success. This may take some time as the database upgrade involves some data migrations.
 

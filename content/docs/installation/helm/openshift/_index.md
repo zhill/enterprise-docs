@@ -17,7 +17,7 @@ This document will walkthrough the installation of Anchore Enterprise on an Open
 
 ## Anchore Helm Chart
 
-Anchore maintains a [Helm chart](https://github.com/helm/charts/tree/master/stable/anchore-engine) to simplify the software installation process. An Enterprise installation of the chart will include the following:
+Anchore maintains a [Helm chart](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine) to simplify the software installation process. An Enterprise installation of the chart will include the following:
 
 - Anchore Enterprise Software
 - PostgreSQL (9.6.2)
@@ -126,7 +126,8 @@ anchore-ui-redis:
 
 Run the following command to install the software:
 
-`helm install --name anchore-enterprise -f values.yaml stable/anchore-engine`
+`helm repo add anchore https://charts.anchore.io`
+`helm install --name anchore-enterprise -f values.yaml anchore/anchore-engine`
 
 It will take the system several minutes to bootstrap. You can checks on the status of the pods by running `oc get pods`:
 

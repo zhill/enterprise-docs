@@ -32,7 +32,7 @@ Whether or not you wish to have the ability to downgrade, we recommend backing u
 
 For the latest upgrade instructions using the Helm chart, please refer to the official Anchore Helm Chart documentation
 
-- [Anchore Helm Chart](https://github.com/helm/charts/tree/master/stable/anchore-engine)
+- [Anchore Helm Chart](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine)
 
 
 ### Upgrade Procedure (example with docker-compose)
