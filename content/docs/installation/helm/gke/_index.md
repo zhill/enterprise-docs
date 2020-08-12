@@ -23,7 +23,7 @@ gke-standard-cluster-1-default-pool-c04de8f1-mz3q   Ready    <none>   78s   v1.1
 
 ## Anchore Helm Chart
 
-Anchore maintains a [Helm chart](https://github.com/helm/charts/tree/master/stable/anchore-engine) to simplify the software installation process. An Enterprise installation of the chart will include the following:
+Anchore maintains a [Helm chart](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine) to simplify the software installation process. An Enterprise installation of the chart will include the following:
 
 - Anchore Enterprise software
 - PostgreSQL (9.6.2)
@@ -114,7 +114,8 @@ Create a kubernetes secret containing DockerHub credentials with access to the p
 
 Install Anchore Enterprise:
 
-`helm install --name anchore-enterprise stable/anchore-engine -f anchore_values.yaml`
+`helm repo add anchore https://charts.anchore.io`
+`helm install --name anchore-enterprise anchore/anchore-engine -f anchore_values.yaml`
 
 It will take the system several minutes to bootstrap. You can checks on the status of the pods by running `kubectl get pods`:
 

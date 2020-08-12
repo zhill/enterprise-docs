@@ -6,9 +6,9 @@ weight: 3
 
 ## Introduction
 
-The preferred method for deploying Anchore Enterprise on Kubernetes is with [Helm](https://helm.sh). The [Anchore Engine Helm Chart](https://github.com/helm/charts/tree/master/stable/anchore-engine) now includes configuration options for a full Enterprise deployment. This deploys an Anchore Engine system as well as the enterprise extensions and services. 
+The preferred method for deploying Anchore Enterprise on Kubernetes is with [Helm](https://helm.sh). The [Anchore Engine Helm Chart](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine) now includes configuration options for a full Enterprise deployment. This deploys an Anchore Engine system as well as the enterprise extensions and services. 
 
-The [README](https://github.com/helm/charts/blob/master/stable/anchore-engine/README.md) in the chart repository contains more details on how to configure the Anchore Engine Helm chart and should always be consulted before proceeding with installation or upgrades.
+The [README](https://github.com/anchore/anchore-charts/blob/master/stable/anchore-engine/README.md) in the chart repository contains more details on how to configure the Anchore Engine Helm chart and should always be consulted before proceeding with installation or upgrades.
 
 This chart deploys the Anchore Engine docker container image analysis system. Anchore Engine requires a PostgreSQL database (>=9.6) which may be handled by the chart or supplied externally, and executes in a service based architecture utilizing the following Anchore Engine services: External API, Simplequeue, Catalog, Policy Engine, and Analyzer.
 
@@ -46,9 +46,9 @@ To use this Helm chart with the enterprise services enabled, perform these steps
 1. Install the helm chart using a custom anchore_values.yaml file (see examples below). Note that <release_name> is a name that you choose.
 
     #### Helm v3 installation
-    `helm repo add stable https://kubernetes-charts.storage.googleapis.com`
+    `helm repo add anchore https://charts.anchore.io`
 
-    `helm install <release_name> -f anchore_values.yaml stable/anchore-engine`
+    `helm install <release_name> -f anchore_values.yaml anchore/anchore-engine`
 
 #### Example anchore_values.yaml file for installing Anchore Enterprise
 *Note: This installs with chart managed PostgreSQL & Redis databases. This is not a production ready config.*
@@ -82,7 +82,7 @@ The upgrade will only be considered successful when this job completes successfu
 
 ```
 helm repo update
-helm upgrade <release_name> stable/anchore-engine -f anchore_values.yaml
+helm upgrade <release_name> anchore/anchore-engine -f anchore_values.yaml
 ```
 
 ### Next Steps

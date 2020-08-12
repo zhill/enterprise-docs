@@ -141,7 +141,7 @@ Prometheus is very commonly used for monitoring kubernetes clusters and is suppo
 
 The Anchore Helm Chart includes a quick way to enable the prometheus metrics on each service container:
 
-Set: `helm install --name myanchore stable/anchore-engine --set anchoreGlobal.enableMetrics=true`
+Set: `helm install --name myanchore anchore/anchore-engine --set anchoreGlobal.enableMetrics=true`
 
 or, directly in your customized values.yaml
 
