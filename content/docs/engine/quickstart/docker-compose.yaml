@@ -108,7 +108,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
 #  # Uncomment this section to add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
-#  anchore-prometheus:
+#  prometheus:
 #    image: docker.io/prom/prometheus:latest
 #    depends_on:
 #      - api
@@ -122,7 +122,7 @@ services:
 #      - "9090:9090"
 #
 #  # Uncomment this section to run a swagger UI service, for inspecting and interacting with the anchore engine API via a browser (http://localhost:8080 by default, change if needed in both sections below)
-#  anchore-swagger-ui-nginx:
+#  swagger-ui-nginx:
 #    image: docker.io/nginx:latest
 #    depends_on:
 #      - api
@@ -135,7 +135,7 @@ services:
 #      driver: "json-file"
 #      options:
 #        max-size: 100m
-#  anchore-swagger-ui:
+#  swagger-ui:
 #    image: docker.io/swaggerapi/swagger-ui
 #    environment:
 #      - URL=http://localhost:8080/v1/swagger.json
