@@ -1,30 +1,18 @@
 ---
-title: "Base Comparison"
-linkTitle: "Base Comparison"
-weight: 7
+title: "Compare Base Image Policy Checks"
+linkTitle: "Compare Policy Checks"
+weight: 1
 ---
 
-{{% alert title="Info" color="info" %}}
-This feature is available only in Anchore Enterprise >= v2.4.0
-{{% /alert %}}
-
-Base comparison provides a mechanism to compare the policy checks for an image with those of a base image. An image is considered an ancestor or base if it's layers are a subset of another image. You can read more about the different types of ancestor images and how to find them [FIX-THIS]({{< ref "/docs/using/ui_usage/notifications" >}}). Base comparison uses the same policy bundle and tag to evaluate both images to ensure a fair comparison. The API yields a response similar to the policy checks API with an additional element within each triggered gate check to indicate whether the result is inherited from the base image.
+This feature provides a mechanism to compare the policy checks for an image with those of a base image. You can read more about base images and how to find them [here]({{< ref "/docs/overview/concepts/base_images" >}}). Base comparison uses the same policy bundle and tag to evaluate both images to ensure a fair comparison. The API yields a response similar to the policy checks API with an additional element within each triggered gate check to indicate whether the result is inherited from the base image.
 
 ### Usage
 
 This functionality is currently available via the Enterprise UI and API. Watch this space as we add base comparison support in other tools
 
-#### Enterprise UI
-       
-To learn more about exercising base comparison via the Enterprise UI, go to [FIX-THIS]({{< ref "/docs/using/ui_usage/notifications" >}})
+#### API
 
-#### API          
-
-The JSON definition for the Enterprise API specification for your specific instance can be downloaded from a running Anchore Enterprise service at the following URI:
-
-`http://{servername:port}/v1/enterprise/swagger.json`
-
-API route for base comparison is `GET /enterprise/images/{imageDigest}/check`. This API exposes similar path and query parameters as image policy check API `GET /images/{imageDigest}/check` plus an optional query parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to evaluating image policy checks without comparing the results to the base image.   
+Refer to [API Access]({{< ref "/docs/using/api_usage" >}}) section for the API specification. The API route for base comparison is `GET /enterprise/images/{imageDigest}/check`. This API exposes similar path and query parameters as image policy check API `GET /images/{imageDigest}/check` plus an optional query parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to evaluating image policy checks without comparing the results to the base image.   
 
 Example request using curl to retrieve policy check for an image digest sha256:xyz and tag p/q:r and compare the results to a base image digest sha256:abc
 

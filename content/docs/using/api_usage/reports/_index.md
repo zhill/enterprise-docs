@@ -1,7 +1,7 @@
 ---
 title: "Anchore Enterprise Reports API Access"
 linkTitle: "Reports"
-weight: 1
+weight: 3
 ---
 
 Anchore Enterprise Reports provides a [GraphQL](https://graphql.org/) API for direct interaction with the service. GraphQL is a query language for APIs and a runtime for fulfilling those queries. 

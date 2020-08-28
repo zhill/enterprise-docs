@@ -1,7 +1,7 @@
 ---
 title: "Anchore Enterprise Feeds Advanced API Access"
 linkTitle: "Feeds"
-weight: 1
+weight: 2
 ---
 
 Anchore Enterprise Feeds offers a RESTful API.

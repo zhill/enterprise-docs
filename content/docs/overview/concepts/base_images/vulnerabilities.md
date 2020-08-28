@@ -1,30 +1,18 @@
 ---
-title: "Base Comparison"
-linkTitle: "Base Comparison"
-weight: 5
+title: "Compare Base Image Security Vulnerabilities"
+linkTitle: "Compare Vulnerabilities"
+weight: 2
 ---
 
-{{% alert title="Info" color="info" %}}
-This feature is available only in Anchore Enterprise >= v2.4.0
-{{% /alert %}}
-
-Base comparison provides a mechanism to compare the security vulnerabilities in an image with those of a base image. An image is considered an ancestor or base if it's layers are a subset of another image. You can read more about the different types of ancestor images and how to find them [FIX-THIS]({{< ref "/docs/using/ui_usage/notifications" >}}). The API yields a response similar to vulnerabilities API with an additional element within each result to indicate whether the result is inherited from the base image.
+This feature provides a mechanism to compare the security vulnerabilities detected in an image with those of a base image. You can read more about base images and how to find them [here]({{< ref "/docs/overview/concepts/base_images" >}}). The API yields a response similar to vulnerabilities API with an additional element within each result to indicate whether the result is inherited from the base image.
 
 ### Usage
 
 This functionality is currently available via the Enterprise UI and API. Watch this space as we add base comparison support in other tools
 
-#### Enterprise UI
-       
-To learn more about exercising base comparison via the Enterprise UI, go to [FIX-THIS]({{< ref "/docs/using/ui_usage/notifications" >}})
-
 #### API          
 
-The JSON definition for the Enterprise API specification for your specific instance can be downloaded from a running Anchore Enterprise service at the following URI:
-
-`http://{servername:port}/v1/enterprise/swagger.json`
-
-API route for base comparison is `GET /enterprise/images/{imageDigest}/vuln/{vtype}`. This API exposes similar path and query parameters as the security vulnerabilities API `GET /images/{imageDigest}/vuln/{vtype}` plus an optional query parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to retrieving security vulnerabilities in the image without comparing the results to the base image.   
+Refer to [API Access]({{< ref "/docs/using/api_usage" >}}) section for the API specification. The API route for base comparison is `GET /enterprise/images/{imageDigest}/vuln/{vtype}`. This API exposes similar path and query parameters as the security vulnerabilities API `GET /images/{imageDigest}/vuln/{vtype}` plus an optional query parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to retrieving security vulnerabilities in the image without comparing the results to the base image.   
 
 Example request using curl to retrieve security vulnerabilities for an image digest sha:xyz and compare the results to a base image digest sha256:abc
 
