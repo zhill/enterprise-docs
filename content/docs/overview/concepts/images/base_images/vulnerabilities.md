@@ -4,7 +4,9 @@ linkTitle: "Compare Vulnerabilities"
 weight: 2
 ---
 
-This feature provides a mechanism to compare the security vulnerabilities detected in an image with those of a base image. You can read more about base images and how to find them [here]({{< ref "/docs/overview/concepts/base_images" >}}). The API yields a response similar to vulnerabilities API with an additional element within each result to indicate whether the result is inherited from the base image.
+This feature provides a mechanism to compare the security vulnerabilities detected in an image with those of a base image. You can read more about base 
+images and how to find them [here]({{< ref "/docs/overview/concepts/images/base_images" >}}). The API yields a response similar to vulnerabilities API with an 
+additional element within each result to indicate whether the result is inherited from the base image.
 
 ### Usage
 
@@ -12,7 +14,10 @@ This functionality is currently available via the Enterprise UI and API. Watch t
 
 #### API          
 
-Refer to [API Access]({{< ref "/docs/using/api_usage" >}}) section for the API specification. The API route for base comparison is `GET /enterprise/images/{imageDigest}/vuln/{vtype}`. This API exposes similar path and query parameters as the security vulnerabilities API `GET /images/{imageDigest}/vuln/{vtype}` plus an optional query parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to retrieving security vulnerabilities in the image without comparing the results to the base image.   
+Refer to [API Access]({{< ref "/docs/using/api_usage" >}}) section for the API specification. The API route for base comparison is `GET /enterprise/images/{imageDigest}/vuln/{vtype}`. 
+This API exposes similar path and query parameters as the security vulnerabilities API `GET /images/{imageDigest}/vuln/{vtype}` plus an optional query 
+parameter for supplying the digest of the base image. If the base digest is omitted, the system falls back to retrieving security vulnerabilities in 
+the image without comparing the results to the base image.   
 
 Example request using curl to retrieve security vulnerabilities for an image digest sha:xyz and compare the results to a base image digest sha256:abc
 
@@ -96,7 +101,8 @@ Example output:
 }
 ```
 
-Note that `inherited_from_base` is a new element in the API response added to support base comparison. The assigned boolean value indicates whether the exact vulnerability is present in the base image. In the above example
+Note that `inherited_from_base` is a new element in the API response added to support base comparison. The assigned boolean value indicates whether the 
+exact vulnerability is present in the base image. In the above example
 
 - CVE-2018-16842 affects libcurl-7.61.1-r3 package in both images, hence `inherited_from_base` is marked `true`
 - CVE-2019-5482 affects apache2-2.4.43-r0 package does not affect the base image and therefore `inherited_from_base` is set to `false`
