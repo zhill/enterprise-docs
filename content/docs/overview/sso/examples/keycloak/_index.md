@@ -92,17 +92,17 @@ Some config choices and assumptions specifically for this example:
   ![Anchore KeyCloak setup](keycloak_sso_anchoreui_config1.png)
 
   1. Enter the values:
-    1. Name: "keycloak" - This is the name of the configuration and will be referenced in login and sso URLs, so we use the value chosen at the beginning of this example
-    1. Enabled: True - This controls whether or not users will be able to login with this configuration. We'll enable it for the example but can disable later if no longer needed.
-    1. ACS HTTPS Port: -1 or 443 - This is the port to use for HTTPS to the ACS (Assertion Consumer Service, in this case the UI). It is only needed if you need to use a non-standard https port
-    1. SP Entity ID: `http://localhost:3000/service/sso/auth/keycloak` (NOTE: this must match the Client ID you used for the Client in the KeyCloak setup
-    1. ACS URL: `http://localhost:3000/service/sso/auth/keycloak`
-    1. Default Account: `keycloakusers` for this example, but can be any account name (existing or not) that you'd like the users to be members of. See [Mappings]({{< ref "/docs/overview/sso/mapping" >}}) for more information on how this
-    1. Default Role: `read-write` for this example so that the users have full access to the account to analyze images, setup policies, etc.
-    1. IDP Metadata XML: Paste the downloaded or copied XML from KeyCloak in step 4.3 above
-    1. Require Signed Assertions - Select off
-    1. Require Signed Response - Select on
-    1. Save the configuration
+        1. Name: "keycloak" - This is the name of the configuration and will be referenced in login and sso URLs, so we use the value chosen at the beginning of this example
+        1. Enabled: True - This controls whether or not users will be able to login with this configuration. We'll enable it for the example but can disable later if no longer needed.
+        1. ACS HTTPS Port: -1 or 443 - This is the port to use for HTTPS to the ACS (Assertion Consumer Service, in this case the UI). It is only needed if you need to use a non-standard https port
+        1. SP Entity ID: `http://localhost:3000/service/sso/auth/keycloak` (NOTE: this must match the Client ID you used for the Client in the KeyCloak setup
+        1. ACS URL: `http://localhost:3000/service/sso/auth/keycloak`
+        1. Default Account: `keycloakusers` for this example, but can be any account name (existing or not) that you'd like the users to be members of. See [Mappings]({{< ref "/docs/overview/sso/mapping" >}}) for more information on how this
+        1. Default Role: `read-write` for this example so that the users have full access to the account to analyze images, setup policies, etc.
+        1. IDP Metadata XML: Paste the downloaded or copied XML from KeyCloak in step 4.3 above
+        1. Require Signed Assertions - Select off
+        1. Require Signed Response - Select on
+        1. Save the configuration
 
 ![Anchore KeyCloak setup2](keycloak_sso_anchoreui_config2.png)
 
