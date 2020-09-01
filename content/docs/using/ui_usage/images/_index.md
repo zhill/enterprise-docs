@@ -27,9 +27,9 @@ of this view you will see the **Analyze Repository** and **Analyze Tag** buttons
 ![alt text](ImageAnalysisView.png)
 
 These controls allow you to add _entire repositories_ or _individual items_ to
-the Anchore Engine analysis queue, and to also provide details about how you
-would like the analysis of these submissions to be handled on an ongoing basis.
-Both options are described below in the following sections.
+the Anchore analysis queue, and to also provide details about how you would like
+the analysis of these submissions to be handled on an ongoing basis. Both
+options are described below in the following sections.
 
 ### Analyze a Repository
 
@@ -97,17 +97,16 @@ option is ignored if the tag has not yet been analyzed.
 - **Add Annotation**—annotations are optional key-pair values that can be 
 added to the image metadata. They are visible within the **Overview** tab of
 the **Image Analysis** view once the image has been analyzed, as well as from
-within the payload of any webhook notification from Anchore Engine that contains
-image information.
+within the payload of any webhook notification from Anchore that contains image
+information.
 
 Once you have populated the required fields and click **OK**, the specified tag
 will be scheduled for analysis. 
 
-**Note:** Anchore Engine will attempt to download images from any registry
-without requiring further configuration. However, if your registry needs
-authentication then the corresponding credentials will need to be defined. See
-[Configuring Registries]({{< ref "/docs/using/ui_usage/registries" >}}) for more
-information.
+**Note:** Anchore will attempt to download images from any registry without
+requiring further configuration. However, if your registry needs authentication
+then the corresponding credentials will need to be defined. See [Configuring
+Registries]({{< ref "/docs/using/ui_usage/registries" >}}) for more information.
 
 ### Repository Deletion
 
@@ -136,6 +135,6 @@ taking longer than initially expected.
 
 - **Remove Repository and Analyzed Items**—In order to remove a repository from
 the repository view in its entirety, _all_ items currently present within the
-repository must first be removed from Anchore Engine. When invoked, all items
-(in any state of analysis) will be removed. If the repository is being watched,
-this subscription is also removed.
+repository must first be removed from Anchore. When invoked, all items (in any
+state of analysis) will be removed. If the repository is being watched, this
+subscription is also removed.
