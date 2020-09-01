@@ -106,7 +106,7 @@ will be scheduled for analysis.
 **Note:** Anchore Engine will attempt to download images from any registry
 without requiring further configuration. However, if your registry needs
 authentication then the corresponding credentials will need to be defined. See
-[Configuring Registries]({{< ref "/docs/using/ui_usage/registries/" >}}) for more
+[Configuring Registries]({{< ref "/docs/using/ui_usage/registries" >}}) for more
 information.
 
 ### Repository Deletion
