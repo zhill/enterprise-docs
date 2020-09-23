@@ -92,7 +92,7 @@ To enable windows support in the quickstart install docker-compose.yaml file you
 # docker-compose exec api anchore-cli system feeds list
 ```
 
-will show 'microsoft' feed, with 'msrc' group data entries. In addition, you caqn verify with `anchore-cli event list` to show a feed sync complete event for the 'microsoft' feed.
+will show 'microsoft' feed, with 'msrc' group data entries. In addition, you can verify with `anchore-cli event list` to show a feed sync complete event for the 'microsoft' feed.
 
 1. Scan windows images! Either via the UI, or CLI analyze windows-based images
 
