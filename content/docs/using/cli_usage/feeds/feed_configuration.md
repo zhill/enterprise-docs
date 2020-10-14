@@ -38,7 +38,7 @@ feeds:
       packages: False
       nvdv2: True
       github: True  
-  url: 'https://ancho.re/v1/service/feeds'  
+  url: 'https://ancho.re/v1/services/feeds'  
   connection_timeout_seconds: 3
   read_timeout_seconds: 60
 ```
