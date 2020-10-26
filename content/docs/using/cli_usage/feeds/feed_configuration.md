@@ -23,7 +23,7 @@ For most users the only configuration option that is typically updated is the fe
 Feed sync configuration is set in the config.yaml file used by policy engine service. The `feeds` section of the configuration file in the policy engine's container controls the behavior of feed syncs done by that particular container. Ensure these are synchronized between
 containers if you are running more than one policy engine. This is usually handled for you by Helm Charts on Kubernetes, for example.
 
-The Anchore Engine will default to downloading feed data from Anchore's feed service hosted at https://ancho.re/v1/services/feeds and running in AWS in the us-west-2 region.
+The Anchore Engine will default to downloading feed data from Anchore's feed service hosted at https://ancho.re/v1/service/feeds and running in AWS in the us-west-2 region.
 
 
 By default the Anchore Engine will perform a selective sync enabling only the vulnerabilities feed. Setting the (selective_sync) enabled flag to false, or updating the other feed types to True will enable synchronization of the specified feed.
@@ -38,7 +38,7 @@ feeds:
       packages: False
       nvdv2: True
       github: True  
-  url: 'https://ancho.re/v1/services/feeds'  
+  url: 'https://ancho.re/v1/service/feeds'  
   connection_timeout_seconds: 3
   read_timeout_seconds: 60
 ```
