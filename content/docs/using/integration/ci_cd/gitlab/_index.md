@@ -6,7 +6,7 @@ weight: 4
 
 ### Adding Anchore Scanning to Gitlab
 
-The Anchore Enterprise GitLab Scan integration enables vulnerability scanning via Anchore Enterprise in GitLab CI. This includes automatic conversion Anchore's default vulnerability report format to GitLab's container scanning format, for display in GitLab's Security & Compliance Vulnerability UI.
+The Anchore Enterprise GitLab Scan integration enables vulnerability scanning via Anchore Enterprise in GitLab CI. This includes automatic conversion from the Anchore default vulnerability report format to GitLab's container scanning format, for display in the GitLab Security & Compliance Vulnerability UI.
 
 
 ### Requirements
@@ -39,11 +39,11 @@ containerscan:anchorescan:
       container_scanning: gl-container-scanning-report.json
 ```
 
-3. After a successful scan, results will now be available for review and management using GitLab's native security features. Navigate to your project's Security & Compiance > Vulnerability Report UI to review any discovered vulnerabilities in your container image.
+3. After a successful scan, results will be available for review and management using GitLab's native security features. Navigate to your project's Security & Compliance > Vulnerability Report UI to review any discovered vulnerabilities in your container image.
 
 ### Example
 
-For this example, we'll add two sections to GitLab CI's .gitlab-ci.yml; the first runs Docker to build an image and then pushes it to the GitLab Container Registry for the project. The second runs Anchore Enterprise vulnerability scanning on the image and converts the output to GitLab's container scanning format.
+For this example, we'll add two sections to the GitLab CI .gitlab-ci.yml file; the first runs Docker to build an image and push it to the GitLab Container Registry for the project. The second runs Anchore Enterprise vulnerability scanning on the image and converts the output to GitLab's container scanning format.
 
 #### Add Dockerfile and .gitlab-ci.yml To Your GitLab Project
 
