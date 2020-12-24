@@ -56,7 +56,7 @@ ingress:
 
 **Note:** Configuring ingress is optional. It is used throughout this guide to expose the Anchore deployment on the public internet.
 
-#### Anchore Engine API Service
+#### Anchore API Service
 
 ```
 # Pod configuration for the anchore engine api service.

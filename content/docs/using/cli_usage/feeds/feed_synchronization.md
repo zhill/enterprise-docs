@@ -4,7 +4,7 @@ linkTitle: "Synchronization"
 weight: 1
 ---
 
-When the Anchore Engine runs it will begin to synchronize security feed data from the Anchore feed service.
+When Anchore Enterprise runs it will begin to synchronize security feed data from the Anchore feed service.
 
 CVE data for Linux distributions such as Alpine, CentOS, Debian, Oracle, Red Hat and Ubuntu will be downloaded. The initial sync may take anywhere from  10 to 60 minutes depending on the speed of your network connection.
 
@@ -45,13 +45,13 @@ vulnerabilities        ubuntu:17.04           2018-04-25T11:51:39.485986Z       
 vulnerabilities        ubuntu:17.10           2018-04-25T11:51:22.047635Z        7169               
 ```
 
-This command will report list the feeds synchronized by the Anchore engine, last sync time and current record count.
+This command will report list the feeds synchronized by Anchore Enterprise, last sync time and current record count.
 
 Note: Time is reported as UTC, not local time.
 
 ### Manually initiating feed sync
 
-After the initial sync has completed the engine will run an incremental sync at a user defined period, by default every 4 hours. At any time a feed sync can be initiated through the API or CLI.
+After the initial sync has completed the system will run an incremental sync at a user defined period, by default every 4 hours. At any time a feed sync can be initiated through the API or CLI.
 
 A sync operation can be manually initiated by running the system feeds sync command however this should not be required under normal operation.
 
@@ -59,9 +59,9 @@ A sync operation can be manually initiated by running the system feeds sync comm
 
 ### Performing full resync
 
-The Anchore Engine can be instructed to flush the current feed data and perform a full synchronization.
+Anchore Enterprise can be instructed to flush the current feed data and perform a full synchronization.
 
-Under normal circumstances this operation should not be required since the Anchore Engine performs regular incremental sync.
+Under normal circumstances this operation should not be required since Anchore Enterprise performs regular incremental sync.
 
 This process may take anywhere from  10 to 60 minutes depending on the speed of your network connection.
 

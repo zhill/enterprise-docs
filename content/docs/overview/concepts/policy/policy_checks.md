@@ -6,7 +6,7 @@ weight: 6
 
 ## Introduction
 
-In this document, we describe the current anchore gates (and related triggers/parameters) that are supported within anchore policy bundles.  If you have a running anchore engine, this information can also be obtained using the CLI:
+In this document, we describe the current anchore gates (and related triggers/parameters) that are supported within anchore policy bundles.  If you have a running anchore enterprise, this information can also be obtained using the CLI:
 
 `# anchore-cli policy describe (--gate <gatename> ( --trigger <triggername))`
 
@@ -135,7 +135,7 @@ NPM Checks
 | version_not_in_feeds | Triggers if an installed NPM version is not listed in the official NPM feed as a valid version. | | | |
 | blacklisted_name_version | Triggers if the evaluated image has an NPM package installed that matches the name and optionally a version specified in the parameters. | name | Npm package name to blacklist. | time_diff |
 | blacklisted_name_version | Triggers if the evaluated image has an NPM package installed that matches the name and optionally a version specified in the parameters. | version | Npm package version to blacklist specifically. | 0.2.9 |
-| feed_data_unavailable | Triggers if the engine does not have access to the NPM data feed. | | | |
+| feed_data_unavailable | Triggers if the system does not have access to the NPM data feed. | | | |
 
 ### Gate: secret_scans
 

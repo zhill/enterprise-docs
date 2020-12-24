@@ -4,7 +4,7 @@ linkTitle: "Monitoring"
 weight: 6
 ---
 
-Anchore Enterprise employs the same monitoring mechanisms as Anchore Engine, exposing prometheus metrics in the API of each service if the config.yaml used by that service has the metrics.enabled key set to true. See Anchore Engine > Monitoring > Prometheus for more details.
+Anchore Enterprise exposes prometheus metrics in the API of each service if the config.yaml used by that service has the metrics.enabled key set to true.
 
 Each service exports its own metrics and is typically scraped by a Prometheus installation to gather the metrics. Anchore does not aggregate or distribute metrics between services. You should configure your Prometheus deployment or integration to check each Anchore service's api (using the same port it exports), for the /metrics route.
 
@@ -27,7 +27,7 @@ anchore-prometheus:
        - "9090:9090"
 ```
 
-Now, enable metrics for each engine or enterprise service:
+Now, enable metrics for each enterprise service:
 
 `sed -i 's/ANCHORE_ENABLE_METRICS=false/ANCHORE_ENABLE_METRICS=true/g' docker-compose.yaml`
 

@@ -6,7 +6,7 @@ weight: 1
 
 ## Introduction
 
-In this section, you'll learn how to get up and running with a stand-alone Anchore Enterprise installation for trial, demonstration, and review with [Docker Compose](https://docs.docker.com/compose/install/). If you are specifically looking for a quickstart for Anchore Engine OSS alone, please jump to [Anchore Engine Quickstart]({{< ref "/docs/engine/quickstart" >}}).
+In this section, you'll learn how to get up and running with a stand-alone Anchore Enterprise installation for trial, demonstration, and review with [Docker Compose](https://docs.docker.com/compose/install/).
 
 **Note:** If your intent is to gain a deeper understanding of Anchore and its concepts, we recommend navigating to the [Overview]({{< ref "/docs/overview" >}}) section prior to conducting an [installation]({{< ref "/docs/installation" >}}) of Anchore Enterprise.
 
@@ -52,7 +52,7 @@ You can use the link at the top of this page, or use curl or wget to download it
 
 ### Step 3: Verify service availability
 
-After a few moments (depending on system speed), your Anchore Engine, Anchore Enterprise, and Anchore UI services should be up and running, ready to use.  You can verify the containers are running with docker-compose:
+After a few moments (depending on system speed) Anchore Enterprise and Anchore UI services should be up and running, ready to use.  You can verify the containers are running with docker-compose:
 
 ```
 # docker-compose ps
@@ -72,7 +72,7 @@ anchorequickstart_ui-redis_1          docker-entrypoint.sh redis ...   Up       
 anchorequickstart_ui_1                /docker-entrypoint.sh node ...   Up             0.0.0.0:3000->3000/tcp
 ```
 
-You can run a command to get the status of the Anchore Engine services:
+You can run a command to get the status of the Anchore Enterprise services:
 
 ```
 # docker-compose exec api anchore-cli system status
@@ -91,7 +91,7 @@ Engine Code Version: 2.3.0
 
 ```
 
-**Note:** The first time you run Anchore Enterprise, it will take some time (10+ minutes, depending on network speed) for the vulnerability data to get synced into the engine.  For the best experience, wait until the core vulnerability data feeds have completed before proceeding.  You can check the status of your feed sync using the CLI:
+**Note:** The first time you run Anchore Enterprise, it will take some time (10+ minutes, depending on network speed) for the vulnerability data to get synced into the system.  For the best experience, wait until the core vulnerability data feeds have completed before proceeding.  You can check the status of your feed sync using the CLI:
 
 ```
 # docker-compose exec api anchore-cli system feeds list
@@ -169,7 +169,7 @@ Feed sync: Success.
 
 ### Step 4: Start using Anchore
 
-To get started, you can add a few images to Anchore Engine using the CLI. Once complete, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
+To get started, you can add a few images to Anchore Enterprise using the CLI. Once complete, you can also run an additional CLI command to monitor the analysis state of the added images, waiting until the images move into an 'analyzed' state.
 
 ```
 # docker-compose exec api anchore-cli image add docker.io/library/alpine:latest
@@ -276,7 +276,7 @@ Now that you have Anchore Enterprise running, you can begin to learn more about 
 1. Uncomment the following section at the bottom of the docker-compose.yaml file:
 
     ```
-    #  # Uncomment this section to run a swagger UI service, for inspecting and interacting with the anchore engine API via a browser (http://localhost:8080 by default, change if needed in both sections below)
+    #  # Uncomment this section to run a swagger UI service, for inspecting and interacting with the system API via a browser (http://localhost:8080 by default, change if needed in both sections below)
     #  swagger-ui-nginx:
     #    image: docker.io/nginx:latest
     #    depends_on:

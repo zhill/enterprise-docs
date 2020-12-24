@@ -4,7 +4,7 @@ linkTitle: "Trouble Shooting"
 weight: 9
 ---
 
-This guide will walkthrough some general troubleshooting tips with your Anchore Engine instance. When troubleshooting Anchore Engine, the recommend approach is to first verify all Anchore services are up, use the event subsystem to narrow down particular issues, and then navigate to the logs for specific services to find out more information.
+This guide will walkthrough some general troubleshooting tips with your Anchore Enterprise instance. When troubleshooting Anchore Enterprise, the recommend approach is to first verify all Anchore services are up, use the event subsystem to narrow down particular issues, and then navigate to the logs for specific services to find out more information.
 
 If you are running into issues performing certain Anchore operations (examples: images are failing analysis or cannot access a private registry) please consult the [FAQ]({{< ref "/docs/faq" >}}) document.
 
@@ -62,7 +62,7 @@ Engine Code Version: 0.6.0
 
 ### The --debug and --json options
 
-Passing the `--debug` option to any Anchore CLI can often help narrow down particular issues, by displaying the API calls that are being made from the CLI tool to the anchore engine itself.
+Passing the `--debug` option to any Anchore CLI can often help narrow down particular issues, by displaying the API calls that are being made from the CLI tool to anchore enterprise itself.
 
 ```
 # Example system status with --debug
@@ -114,11 +114,11 @@ Passing the `--json` option to any Anchore CLI commands will output the direct A
 
 ## Events
 
-If you've successfully verified that all of the Anchore Engine services are up, but are still running into issues operating Anchore a good place check is the event log.
+If you've successfully verified that all of the Anchore Enterprise services are up, but are still running into issues operating Anchore a good place check is the event log.
 
-The event log subsystem provides users with a mechanism to inspect asynchronous event occurring across various Anchore Engine services. Anchore events include periodically triggered activities such as vulnerability data feed sync in the policy_engine service, image analysis failures originating from the analyzer service, and other informational or system fault events. The catalog service may also generate events for any repositories or image tags that are being watched, when Anchore Engine encounters connectivity, authentication, authorization or other errors in the process of checking for updates.
+The event log subsystem provides users with a mechanism to inspect asynchronous event occurring across various Anchore Enterprise services. Anchore events include periodically triggered activities such as vulnerability data feed sync in the policy_engine service, image analysis failures originating from the analyzer service, and other informational or system fault events. The catalog service may also generate events for any repositories or image tags that are being watched, when Anchore Enterprise encounters connectivity, authentication, authorization or other errors in the process of checking for updates.
 
-The event log is aimed at troubleshooting most common failure scenarios (especially those that happen during asynchronous engine operations) and to pinpoint the reasons for failures, that can be used subsequently to help with corrective actions. Events can be cleared from Anchore Engine in bulk or individually.
+The event log is aimed at troubleshooting most common failure scenarios (especially those that happen during asynchronous operations) and to pinpoint the reasons for failures, that can be used subsequently to help with corrective actions. Events can be cleared from Anchore Enterprise in bulk or individually.
 
 ### Viewing Events
 
@@ -224,6 +224,6 @@ As stated above, if you are running into issues performing certain Anchore opera
 
 ## Removing a Repository and Images
 
-There may be a time when you wish to stop a repository analysis when the analysis is running (e.g., accidentally watching an image with a large number of tags).  There are several steps in the process which can be found under [Removing a Repository and All Images]({{< ref "/docs/engine/usage/cli_usage/repositories/_index.md#removing-a-repository-and-all-images" >}}).
+There may be a time when you wish to stop a repository analysis when the analysis is running (e.g., accidentally watching an image with a large number of tags).  There are several steps in the process which can be found under [Removing a Repository and All Images]({{< ref "/docs/using/cli_usage/repositories/_index.md#removing-a-repository-and-all-images" >}}).
 
 **Note:** Be careful when deleting images. In this flow, Anchore deletes the image, not just the repository/tag combo.  Because of this, deletes may impact more than the expected repository since an image may have tags in multiple repositories or even registries.

@@ -4,7 +4,7 @@ linkTitle: "Policy"
 weight: 2
 ---
 
-Once an image has been analyzed and its content has been discovered, categorized, and processed, the results can be evaluated against a user-defined set of checks to give a final pass/fail recommendation for an image. Anchore Engine policies are how users describe which checks to perform on what images and how the results should be interpreted.
+Once an image has been analyzed and its content has been discovered, categorized, and processed, the results can be evaluated against a user-defined set of checks to give a final pass/fail recommendation for an image. Anchore Enterprise policies are how users describe which checks to perform on what images and how the results should be interpreted.
 
  A policy is expressed as a policy bundle, which is made up from a set of rules that are used to perform an evaluation a container image. The rules can define checks against an image for things such as:
 
@@ -15,7 +15,7 @@ Once an image has been analyzed and its content has been discovered, categorized
 - image manifest changes
 - exposed ports
 
-These checks are defined as Gates that contain Triggers that perform specific checks and emit match results and these define the things that the engine can automatically evaluate and return a decision about.
+These checks are defined as Gates that contain Triggers that perform specific checks and emit match results and these define the things that the system can automatically evaluate and return a decision about.
 
 For a full listing of gate, triggers, and their parameters see: Anchore Policy Checks
 

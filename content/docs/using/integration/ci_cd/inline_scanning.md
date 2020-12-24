@@ -1,5 +1,5 @@
 ---
-title: "Anchore Engine Inline Scanning"
+title: "Anchore Inline Scanning"
 linkTitle: "Inline Scanning"
 weight: 3
 ---

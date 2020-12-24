@@ -4,7 +4,7 @@ linkTitle: "CircleCI"
 weight: 1
 ---
 
-Integrating Anchore engine into your CircleCI pipeline can be accomplished seamlessly using the official Anchore Engine Orb.
+Integrating Anchore Enterprise into your CircleCI pipeline can be accomplished seamlessly using the official Anchore Orb.
 
 Orb source code & usage examples can be found on our [GitHub Repository](https://github.com/anchore/ci-tools/tree/master/circleci-orbs/anchore-engine).
 

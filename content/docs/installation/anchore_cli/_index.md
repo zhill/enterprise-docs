@@ -6,7 +6,7 @@ weight: 3
 
 ### Introduction
 
-In this section you will learn how to install and configure the Anchore CLI. The Anchore CLI provides a command line interface on top of the Anchore Engine REST API. THe Anchore CLI is published as a Python Package that can be installed from source from the Python PyPI package repository on any platform supporting PyPi. Using the Anchore CLI users can manage and inspect images, policies, subscriptions, and registries. 
+In this section you will learn how to install and configure the Anchore CLI. The Anchore CLI provides a command line interface on top of the REST API. THe Anchore CLI is published as a Python Package that can be installed from source from the Python PyPI package repository on any platform supporting PyPi. Using the Anchore CLI users can manage and inspect images, policies, subscriptions, and registries. 
 
 You can view the Anchore CLI on [Github](https://github.com/anchore/anchore-cli) or [Docker Hub](https://hub.docker.com/r/anchore/engine-cli/).
 

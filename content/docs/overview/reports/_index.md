@@ -8,9 +8,9 @@ weight: 4
 
 Added in Anchore Enterprise v2.0
 
-Anchore Enterprise Reports is a new service introduced in v2.0. It aggregates data from Anchore Engine to provide insightful analytics and metrics for account-wide artifacts. The service employs GraphQL to expose a rich API for querying the aggregated data and metrics.  
+Anchore Enterprise Reports is a new service introduced in v2.0. It aggregates data to provide insightful analytics and metrics for account-wide artifacts. The service employs GraphQL to expose a rich API for querying the aggregated data and metrics.  
 
-> NOTE: This service captures a snapshot of artifacts in Anchore Engine at a given point in time. Therefore analytics and metrics computed by the service are not in real time, and may not reflect most up-to-date state in Anchore Engine  
+> NOTE: This service captures a snapshot of artifacts in Anchore Enterprise at a given point in time. Therefore analytics and metrics computed by the service are not in real time, and may not reflect most up-to-date state in Anchore Enterprise  
 
 ### Installation
 
@@ -18,7 +18,7 @@ Anchore Enterprise Reports is included with Anchore Enterprise, and is installed
 
 ### How it works
 
-One of the main functions of Anchore Enterprise Reports is aggregating data from Anchore Engine. The service keeps a summary of all current and historical images and tags for every account known to Anchore Engine. It also maintains vulnerability reports and policy evaluations generated using the active bundle for all the images and tags respectively. 
+One of the main functions of Anchore Enterprise Reports is aggregating data. The service keeps a summary of all current and historical images and tags for every account known to Anchore Enterprise. It also maintains vulnerability reports and policy evaluations generated using the active bundle for all the images and tags respectively. 
 
 > WARNING: Anchore Enterprise Reports shares persistence layer with Anchore Engine. Ensure sufficient storage is provisioned
 
@@ -55,9 +55,9 @@ In an Anchore Enterprise RBAC enabled deployment, any non-admin account user mus
 
 #### Data ingress
 
-Reports service handles data ingress from Anchore Engine via the following asynchronous processes triggered periodically - 
+Reports service handles data ingress from Anchore Enterprise via the following asynchronous processes triggered periodically - 
 
-- **Loader** Compares the working set of images and tags in Anchore Engine with its own records. Based on the difference, images and tags along with the vulnerability report and policy evaluations are loaded into the service. Artifacts deleted from Anchore Engine are marked inactive in the service. 
+- **Loader** Compares the working set of images and tags in Anchore Enterprise with its own records. Based on the difference, images and tags along with the vulnerability report and policy evaluations are loaded into the service. Artifacts deleted from Anchore Enterprise are marked inactive in the service. 
 
     This process is triggered periodically every 10 minutes (600 seconds). To modify the loader interval, update `cycle_timers` -> `reports_data_load` in the config.yaml snippet above. In a quickstart deployment, add `ANCHORE_ENTERPRISE_REPORTS_DATA_LOAD_INTERVAL_SEC=<interval-in-seconds>` to the environment variables section of the reports service in docker-compose.yaml.
 
@@ -67,7 +67,7 @@ Reports service handles data ingress from Anchore Engine via the following async
 
 > WARNING: Reports service may miss updates to artifacts if they are added and deleted in between consecutive ingress processes
 
-Data ingress is enabled by default. It can be turned off with `enable_data_ingress: false` in the config.yaml snippet above. In a quickstart deployment, add `ANCHORE_ENTERPRISE_REPORTS_ENABLE_DATA_INGRESS=false` to the environment variables section of the reports service in docker-compose.yaml. When the ingress is turned off, Reports service will no longer aggregate data from Anchore Engine, metric computations will also come to a halt. However, the service will continue to serve API requests/queries with the existing data.
+Data ingress is enabled by default. It can be turned off with `enable_data_ingress: false` in the config.yaml snippet above. In a quickstart deployment, add `ANCHORE_ENTERPRISE_REPORTS_ENABLE_DATA_INGRESS=false` to the environment variables section of the reports service in docker-compose.yaml. When the ingress is turned off, Reports service will no longer aggregate data from Anchore Enterprise, metric computations will also come to a halt. However, the service will continue to serve API requests/queries with the existing data.
 
 #### Metrics
 

@@ -4,7 +4,7 @@ linkTitle: "Analysis Archive"
 weight: 3
 ---
 
-Anchore Engine is a data intensive system. Storage consumption grows with the number of images analyzed, which leaves the
+Anchore Enterprise is a data intensive system. Storage consumption grows with the number of images analyzed, which leaves the
 following options for storage management:
 
 1. Over-provisioning storage significantly
@@ -14,7 +14,7 @@ following options for storage management:
 In most cases, option 1 only works for a while, which then requires using 2 or 3. Managing storage provisioned for a 
 postgres DB is somewhat complex and may require significant data copies to new volumes to grow capacity over time.
 
-To help mitigate the storage growth of the db itself, Anchore Engine already provides an object storage subsystem that 
+To help mitigate the storage growth of the db itself, Anchore Enterprise already provides an object storage subsystem that 
 enables using external object stores like S3 or Swift to offload the unstructured data storage needs to systems that are 
 more growth tolerant and flexible. This lowers the db overhead but does not fundamentally address the issue of unbounded 
 growth in a busy system.
