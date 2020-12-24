@@ -4,11 +4,11 @@ linkTitle: "Registries"
 weight: 3
 ---
 
-Using the API or CLI the Anchore Engine can be instructed to download an image from a public or private container registry.
+Using the API or CLI, Anchore Enterprise can be instructed to download an image from a public or private container registry.
 
-The Anchore Engine will attempt to download images from any registry without requiring further configuration. However if
+Anchore Enterprise will attempt to download images from any registry without requiring further configuration. However if
 your registry requires authentication then the registry and corresponding credentials will need to be defined.
-Anchore Engine can analyze images from any Docker V2 compatible registry.
+Anchore Enterprise can analyze images from any Docker V2 compatible registry.
 
 ![alt text](RegistryAccess.png)
 

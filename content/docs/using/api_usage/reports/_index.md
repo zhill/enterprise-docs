@@ -15,7 +15,7 @@ There are different ways of interacting with the Anchore Enterprise Reports Grap
 #### Interactive GUI
 One of the ways of exploring and testing a GraphQL schema is by using [GraphiQL](https://electronjs.org/apps/graphiql). Anchore Enterprise Reports Service has GraphiQL built-in to the service and enabled by default. 
 
-To access it in a running Anchore Enterprise deployment, open http://\<servername:port\>/v1/reports/graphql in a browser and input your Anchore Engine credentials. Click the Docs tab to view the self-describing schema 
+To access it in a running Anchore Enterprise deployment, open http://\<servername:port\>/v1/reports/graphql in a browser and input your Anchore Enterprise credentials. Click the Docs tab to view the self-describing schema 
 
 ![Reports GraphQL Schema](ReportsGraphiQLSchema.png)
 

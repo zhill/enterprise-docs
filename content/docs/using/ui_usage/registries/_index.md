@@ -74,7 +74,7 @@ Regular docker v2 registries include dockerhub, quay.io, artifactory, docker reg
 - **Type**
   Set this to **awsecr**
 
-For **Username** and **Password**, there are three different modes that require different settings when adding an ECR registry, depending on where your Anchore Engine is running and how your AWS IAM settings are configured to allow access to a given ECR registry.
+For **Username** and **Password**, there are three different modes that require different settings when adding an ECR registry, depending on where your Anchore Enterprise is running and how your AWS IAM settings are configured to allow access to a given ECR registry.
 
 1. API Keys
     Provide access/secret keys from an account or IAM user. We highly recommend using a dedicated IAM user with specific access restrictions for this mode.
@@ -86,7 +86,7 @@ For **Username** and **Password**, there are three different modes that require 
       AWS secret key
 
 2. Local Credentials
-    Uses the AWS credentials found in the local execution environment for Anchore Engine (Ex. env vars, ~/.aws/credentials, or instance profile).
+    Uses the AWS credentials found in the local execution environment for Anchore Enterprise (Ex. env vars, ~/.aws/credentials, or instance profile).
 
     - **Username**
       Set this to **awsauto**
@@ -95,7 +95,7 @@ For **Username** and **Password**, there are three different modes that require 
       Set this to **awsauto**
 
 3. ECR Assume Role
-    To have Anchore Engine assume a specific role different from the role it currently runs within, specify a different role ARN. Anchore Engine will use the execution role (as in iamauto mode from the instance/task profile) to assume a different role. The execution role must have permissions to assume the role requested.
+    To have Anchore Enterprise assume a specific role different from the role it currently runs within, specify a different role ARN. Anchore Enterprise will use the execution role (as in iamauto mode from the instance/task profile) to assume a different role. The execution role must have permissions to assume the role requested.
 
     - **Username**
       Set this to **_iam_role**

@@ -23,13 +23,13 @@ The Enterprise UI contains an enumeration of the specific permissions granted to
 
 ### Roles, Users, and Accounts
 
-Roles are applied within the existing account and user frameworks defined in Anchore Engine. Resources are still scoped to the account namespace and accounts provide full resource isolation (e.g. an image must be analyzed within an account to be referenced in that account). Roles allow users to be granted permissions in both the account to which they belong as well as external accounts to facilitate resource-sharing.
+Roles are applied within the existing account and user frameworks defined in Anchore Enterprise. Resources are still scoped to the account namespace and accounts provide full resource isolation (e.g. an image must be analyzed within an account to be referenced in that account). Roles allow users to be granted permissions in both the account to which they belong as well as external accounts to facilitate resource-sharing.
 
 #### Terminology
 
-**User:** An authenticated identity (a principal in rbac-speak) (unchanged from the Anchore Engine usage)
+**User:** An authenticated identity (a principal in rbac-speak)
 
-**Account:** A resource namespace and user grouping that also defines an authorization domain to which permissions are applied (unchanged from Anchore Engine usage)
+**Account:** A resource namespace and user grouping that also defines an authorization domain to which permissions are applied
 
 **Role:** A named set of permissions
 

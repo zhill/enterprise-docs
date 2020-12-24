@@ -25,7 +25,7 @@ For example "Updated to account for false positive in glibc library"
 
 ### Uploading a Whitelist 
 
-![alt text](UploadWhitelistButton.jpeg) If you have a JSON document containing an existing whitelist then this may be uploaded into the Anchore Engine.
+![alt text](UploadWhitelistButton.jpeg) If you have a JSON document containing an existing whitelist then this may be uploaded into Anchore Enterprise.
 
 Selecting the Upload whitelist button will present a dialog allowing for a whitelist file to be uploaded or manually edited in the native JSON format.
 
@@ -33,7 +33,7 @@ Selecting the Upload whitelist button will present a dialog allowing for a white
 
 Whitelist files can be dragged into the dropzone, indicated by a blue plus sign, or clicking in the dropzone will open a file selector dialog allowing a file to be loaded from the local filesystem.
 
-Selecting OK will perform validation on the whitelist. Only validated whitelists may be stored by the Anchore Engine.
+Selecting OK will perform validation on the whitelist. Only validated whitelists may be stored by Anchore Enterprise.
 
 ### Copying a Whitelist
 
@@ -53,7 +53,7 @@ An existing whitelist can be downloaded as a JSON file by using the Tools drop d
 
 The Whitelist editor allows new whitelist entries to be created and existing entries to be edited or removed.
 
-The Anchore Engine supports whitelisting any policy trigger however the whitelist editor currently supports only adding Anchore Security checks, allowing vulnerabilities to be whitelisted.
+Anchore Enterprise supports whitelisting any policy trigger however the whitelist editor currently supports only adding Anchore Security checks, allowing vulnerabilities to be whitelisted.
 
 A vulnerabilities whitelist entry includes two elements:
 
@@ -87,7 +87,7 @@ A good example of a valid use case for a wildcard in the CVE / Vulnerability Ide
 
 Whitelist entries can be edited be pressing the ![alt text](describe.jpeg) button and can be removed using the Remove button.
 
-Ensure that all changes are saved before exiting out of the Edit Whitelist Items Page. At that point the edits will be sent to the Anchore Engine.
+Ensure that all changes are saved before exiting out of the Edit Whitelist Items Page. At that point the edits will be sent to Anchore Enterprise.
 
 ![alt text](UIEditWhitelistItems.jpeg)
 

@@ -10,7 +10,7 @@ Anchore has the capability to monitor external Docker Registries for updates to 
 
 ### Repository Updates: New Tags
 
-The process for monitoring updates to repositories, the addition of new tag names, is done on a duty cycle and performed by the Engine Catalog component(s). The scheduling and tasks are driven by queues provided by the SimpleQueue service. 
+The process for monitoring updates to repositories, the addition of new tag names, is done on a duty cycle and performed by the Catalog component(s). The scheduling and tasks are driven by queues provided by the SimpleQueue service. 
 
 1. Periodically, controlled by the cycle_timers configuration in the config.yaml of the catalog, a process is triggered to list all the Repository Subscription records in the system and for each record, add a task to a specific queue.
 2. Periodically, also controlled by the cycle_timers config, a process is triggered to pick up tasks off that queue and process repository scan tasks. Each task looks approximately like the following:

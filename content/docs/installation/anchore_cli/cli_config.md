@@ -9,7 +9,7 @@ The username, password and URL for the server can be passed to the Anchore CLI u
 
 ### Command Line Parameters
 
-The following command line parameters are used to configure the  Anchore CLI to connect to and authenticate with the Anchore Engine.
+The following command line parameters are used to configure the  Anchore CLI to connect to and authenticate with the system.
 
 ```
 --u   TEXT   Username     eg. admin

@@ -32,13 +32,13 @@ A bundle container 5 elements:
 
 ### Policy Bundles
 
-The Policy Manager displays a list of bundles loaded in the Anchore Engine. Each Policy Bundle has a unique name, unique ID (UUID), and optionally a description.
+The Policy Manager displays a list of bundles loaded in the system. Each Policy Bundle has a unique name, unique ID (UUID), and optionally a description.
 
 ![alt text](UIPolicyBundle.png)
 
-The Anchore Engine supports multiple bundles. The Anchore API, CLI, and CI/CD plugins support specifying a Bundle when requesting an image evaluation. For example, the development team may use a different set of policy checks than the operations team. In this case, the development team would specify their bundle ID as part of their policy evaluation request.
+Anchore Enterprise supports multiple bundles. The Anchore API, CLI, and CI/CD plugins support specifying a Bundle when requesting an image evaluation. For example, the development team may use a different set of policy checks than the operations team. In this case, the development team would specify their bundle ID as part of their policy evaluation request.
 
-If no bundle ID is specified, then the Anchore Engine will use the active bundle which can be considered as the default bundle. Only one bundle can be set as default/active at any time. This bundle will be highlighted with a green ribbon.
+If no bundle ID is specified, then Anchore Enterprise will use the active bundle which can be considered as the default bundle. Only one bundle can be set as default/active at any time. This bundle will be highlighted with a green ribbon.
 
 ![alt text](GreenPolicyRibbon.png)
 
@@ -58,13 +58,13 @@ A new, empty policy bundle can be created by pressing the Create New Policy butt
 
 You will be prompted to name the policy bundle. This name should be unique. 
 
-A description is optional but recommended. Once created a unique ID (UUID) will be automatically created by the Anchore Engine.
+A description is optional but recommended. Once created a unique ID (UUID) will be automatically created by Anchore Enterprise.
 
 ![alt text](UICreateBundle.png)
 
 ### Uploading a Policy Bundle
 
-If you have a JSON document containing an existing policy bundle then this may be uploaded into the Anchore Engine.
+If you have a JSON document containing an existing policy bundle then this may be uploaded into Anchore Enterprise.
 
 Selecting the Upload Bundle button will present a dialog allowing for a policy bundle to be uploaded or manually edited in the native JSON format.
 
@@ -72,7 +72,7 @@ Selecting the Upload Bundle button will present a dialog allowing for a policy b
 
 Policy Bundle files can be dragged into the dropzone, indicated by a blue plus sign, or clicking in the dropzone will open a file selector dialog allowing a bundle to be loaded from the local filesystem.
 
-Selecting OK will perform validation on a bundle. Only validated bundles may be stored by the Anchore Engine.
+Selecting OK will perform validation on a bundle. Only validated bundles may be stored by Anchore Enterprise.
 
 The following command can be run to add policy bundles using the Anchore CLI
 

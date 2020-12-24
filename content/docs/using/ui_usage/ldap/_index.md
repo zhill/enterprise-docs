@@ -22,7 +22,7 @@ The Lightweight Directory Access Protocol (LDAP) is a standardized and widely-us
 
 In order to configure Anchore Enterprise Client for use with LDAP, the requisite information for connecting and authenticating with an LDAP directory server must first be provided by an administrator. For the purposes of determining what users can see and do once they are logged in, the administrator must also create one or more account association entries, called _user mappings_.
 
-When an LDAP user authenticates, the Anchore Engine account associated with their session is determined by the first user mapping containing a search filter that matches the information in their LDAP record. LDAP authentication will fail if&nbsp;_no_ matches are found, if the associated account is disabled, or if the user's login credentials are incorrect.
+When an LDAP user authenticates, the Anchore Enterprise account associated with their session is determined by the first user mapping containing a search filter that matches the information in their LDAP record. LDAP authentication will fail if&nbsp;_no_ matches are found, if the associated account is disabled, or if the user's login credentials are incorrect.
 
 The following sections in this document describe how to configure the Anchore Enterprise Client for use with an LDAP directory server, how to add user mappings, and how to log in to the application as an LDAP user.
 
@@ -46,11 +46,11 @@ After you have entered the required connection properties, click the **Save** bu
 **Note:** Clicking **Save** when no values are provided in any of the fields will disable LDAP in the application and prevent **LDAP** from being displayed as an authentication option on the login screen.
 
 ### User Mappings
-LDAP user mappings contain search filters that unite the results of searches made against the data attributes of LDAP records with account information stored in Anchore Engine.
+LDAP user mappings contain search filters that unite the results of searches made against the data attributes of LDAP records with account information stored in Anchore Enterprise.
 
-When an LDAP user submits their credentials on the login page, the first match encountered will provide Anchore Enterprise Client with an associated Anchore Engine account that is used to define the scope of what the user can see and do once they are fully authenticated.
+When an LDAP user submits their credentials on the login page, the first match encountered will provide Anchore Enterprise Client with an associated Anchore Enterprise account that is used to define the scope of what the user can see and do once they are fully authenticated.
 
-If a match is detected, the submitted password is then validated against the one stored inside the matched LDAP record. If the password is correct and the associated Anchore Engine account is not suspended, the user will be successfully logged in. If no match is found or the password is incorrect, authentication will fail.
+If a match is detected, the submitted password is then validated against the one stored inside the matched LDAP record. If the password is correct and the associated Anchore Enterprise account is not suspended, the user will be successfully logged in. If no match is found or the password is incorrect, authentication will fail.
 
 #### Adding a User Mapping
 
@@ -63,7 +63,7 @@ You will be presented a dialog, similar to the one shown below, where you can pr
 <img class="img_medium" src="LdapAddMapping.png" />
 
 #### LDAP Search Filters
-The LDAP search filter in each mapping provides the criteria for associating that mapping with an Anchore Engine account. For example:
+The LDAP search filter in each mapping provides the criteria for associating that mapping with an Anchore Enterprise account. For example:
 
 ```
 uid=$USERNAME
@@ -100,7 +100,7 @@ By default, mappings are evaluated in priority order, with new entries being sto
 
 From here you can move row entries to a higher or lower order of precedence by clicking down on a hotspot (<img src="LdapDragMapping.png" class="img_mini" />) and then dragging the row up or down the list.
 
-The priority order of user mappings determines the order in which search filters are evaluated when a user logs in. The first mapping to successfully locate an LDAP user record that matches the `$USERNAME` and any other criteria in its search filter will be used to determine the Anchore Engine account association for that user.
+The priority order of user mappings determines the order in which search filters are evaluated when a user logs in. The first mapping to successfully locate an LDAP user record that matches the `$USERNAME` and any other criteria in its search filter will be used to determine the Anchore Enterprise account association for that user.
 
 Once a user is located, subsequent mapping entries will be ignored, regardless of (possibly narrower) specificity, as only priority order matters here.
 
@@ -108,11 +108,11 @@ Once a user is located, subsequent mapping entries will be ignored, regardless o
 
 You can evaluate the behavior of your user mappings by entering `$USERNAME` data (for example, the `uid` of a user) in the **Check $USERNAME Against LDAP Mappings** search field.
 
-If an LDAP record is located that matches the search filter criteria of a mapping, you'll be informed of which mapping provided the match, the associated Anchore Engine user, and the distinguished name of the user whose LDAP record was returned.
+If an LDAP record is located that matches the search filter criteria of a mapping, you'll be informed of which mapping provided the match, the associated Anchore Enterprise user, and the distinguished name of the user whose LDAP record was returned.
 
 ### Login With LDAP Credentials
 
-If a set of valid LDAP server connection properties have been stored by an administrator, the **LDAP** authentication option is activated in the application login view, in addition to the **Default** option of authenticating against the user records stored in Anchore Engine:
+If a set of valid LDAP server connection properties have been stored by an administrator, the **LDAP** authentication option is activated in the application login view, in addition to the **Default** option of authenticating against the user records stored in Anchore Enterprise:
 
 <img class="img_medium" src="LdapLogin.png" />
 

@@ -4,13 +4,13 @@ linkTitle: "Kubernetes"
 weight: 3
 ---
 
-*For Anchore Engine installation see - [Kubernetes Installation]({{< ref "/docs/installation/helm" >}})*
+*For installation see - [Kubernetes Installation]({{< ref "/docs/installation/helm" >}})*
 
-Anchore Engine can be integrated with Kubernetes to ensure that only certified images are started within a Kubernetes POD.
+Anchore Enterprise can be integrated with Kubernetes to ensure that only certified images are started within a Kubernetes POD.
 
 Kubernetes can be configured to use an Admission Controller to validate that the container image is compliant with the user's policy.
 
-The admission controller can be configured to make a webhook call into the Anchore Engine. The Anchore Engine exports a Kubernetes-specific API endpoint and will return the pass of fail response in the form of an ImageReview response.
+The admission controller can be configured to make a webhook call into Anchore Enterprise. Anchore Enterprise exports a Kubernetes-specific API endpoint and will return the pass of fail response in the form of an ImageReview response.
 
 ![alt text](k8s.png)
 

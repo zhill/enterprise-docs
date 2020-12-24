@@ -5,7 +5,7 @@ weight: 3
 
 ## Introduction
 
-During the analysis of container images the Anchore Engine performs deep inspection, collecting data on all artifacts in the image including files, operating system packages and software artifacts such as Ruby GEMs and Node.JS NPM modules.
+During the analysis of container images, Anchore Enterprise performs deep inspection, collecting data on all artifacts in the image including files, operating system packages and software artifacts such as Ruby GEMs and Node.JS NPM modules.
 
 ### Inspecting images
 

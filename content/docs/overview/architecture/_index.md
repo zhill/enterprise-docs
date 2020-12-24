@@ -16,8 +16,11 @@ The Enterprise UI is a proprietary UI for interacting with both the open-source 
 
 ##### Consumes
 
-- Engine API
-- Enterprise RBAC Manager API
+- External APIs 
+- RBAC
+- Notifications 
+- Reporting
+
 
 ##### Requires
 
@@ -26,17 +29,17 @@ The Enterprise UI is a proprietary UI for interacting with both the open-source 
 
 #### Anchore Engine CLI
 
-The open-source Anchore CLI is the primary command line interface to Anchore Engine and interfaces with the Engine API. See: Anchore CLI on Github
+The open-source Anchore CLI is the primary command line interface to Enterprise and interfaces with the API. See: Anchore CLI on Github
 
 ##### Consumes
 
-- Engine API
+- Image, Policy, Subscription, Vulnerabilities APIs
 
 ### User-Facing API Services
 
-#### Engine API
+#### External API
 
-The Anchore Engine API is the primary API for the entire system. This service runs the API used to analyze images, get policy evaluations etc. In Enterprise installations, it is enhanced with an authorization plugin to provide role-based access-control (rbac) of resources and actions in addition to the standard account and user management features of the open-source Engine.
+The external API is the primary API for the entire system. This service runs the API used to analyze images, get policy evaluations etc. In Enterprise installations, it is enhanced with an authorization plugin to provide role-based access-control (rbac) of resources and actions in addition to the standard account and user management features of the open-source Engine.
 
 ##### Consumes
 

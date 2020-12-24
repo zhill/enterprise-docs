@@ -6,7 +6,7 @@ weight: 4
 
 ### Overview
 
-Anchore Enterprise Feeds is an On-Premises service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of Anchore Engine, uses this data for finding vulnerabilities and evaluating policies. Read more about how Anchore Engine manages feed data [here]({{< ref "/docs/engine/usage/cli_usage/feeds" >}}) 
+Anchore Enterprise Feeds is an On-Premises service that supplies os and non-os vulnerability data and package data for consumption by Anchore Engine. Policy Engine, a service component of Anchore Engine, uses this data for finding vulnerabilities and evaluating policies. Read more about how Anchore Engine manages feed data [here]({{< ref "/docs/using/cli_usage/feeds" >}}) 
 
 Anchore maintains a public and free feed service at https://ancho.re/v1/service/feeds which is used by open source Anchore Engine. Anchore Enterprise Feeds offers the following benefits over the free service:
 

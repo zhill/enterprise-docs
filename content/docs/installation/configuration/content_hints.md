@@ -4,7 +4,7 @@ linkTitle: "Configuring Content Hints"
 weight: 5
 ---
 
-For an overview of the content hints and overrides features, see the [feature overview]({{<ref "/docs/engine/general/concepts/images/analysis/content_hints" >}})
+For an overview of the content hints and overrides features, see the [feature overview]({{<ref "/docs/overview/concepts/images/analysis/content_hints" >}})
 
 ## Enabling Content Hints
 
@@ -14,7 +14,7 @@ In the each analyzer's ```config.yaml``` file (by default at ```/config/config.y
 
 Set the ```enable_hints: true``` setting in the ```analyzer``` service section of config.yaml.  
 
-If using the default config.yaml included in the image, you may instead set an environment variable (e.g for use in our provided config for Docker Compose for [Quickstart]({{< ref "/docs/engine/quickstart" >}})):
+If using the default config.yaml included in the image, you may instead set an environment variable (e.g for use in our provided config for Docker Compose for [Quickstart]({{< ref "/docs/quickstart" >}})):
 
 ```ANCHORE_HINTS_ENABLED=true``` environment variable for the analyzer service.
 

@@ -37,13 +37,13 @@ The next line explains that the image had been **blacklisted** by the **No cento
 
 The subsequent table lists the policy checks that resulted in any Warning or Stop (failure) checks.
 
-The policy checks are performed on images already analyzed and recorded in the Anchore Engine. If an image has been added to the engine but has not yet completed analysis then the system will display the following error: 
+The policy checks are performed on images already analyzed and recorded in Anchore Enterprise. If an image has been added to the system but has not yet completed analysis then the system will display the following error: 
 
 ![alt text](ImageUndergoingAnalysis.png)
 
 If the evaluation test is re-run after a few minutes the image will likely have completed analysis and a policy evaluation result will be returned.
 
-If the image specified has not been analyzed by the Anchore Engine and has not been submitted for analysis then the following error message will be displayed.
+If the image specified has not been analyzed by the system and has not been submitted for analysis then the following error message will be displayed.
 
 ![alt text](SorryUnableToLocateImage.png)
 

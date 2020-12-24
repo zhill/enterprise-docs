@@ -6,9 +6,9 @@ weight: 2
 
 ## Introduction
 
-Policies are central to the concept of Anchore Engine, this article provides information on how to create, delete, update, and describe policies using the Anchore CLI to interact with a running Anchore Engine deployment. 
+Policies are central to the concept of Anchore Enterprise, this article provides information on how to create, delete, update, and describe policies using the Anchore CLI to interact with a running Anchore Enterprise deployment. 
 
-At a high-level Anchore Engine consumes policies store in a Policy Bundle that contain:
+At a high-level Anchore Enterprise consumes policies store in a Policy Bundle that contain:
 
 - Policies
 - Whitelists
@@ -16,13 +16,13 @@ At a high-level Anchore Engine consumes policies store in a Policy Bundle that c
 - Whitelisted Images
 - Blacklisted Images
 
-The Anchore Engine can store multiple policy bundles for each user, but only one bundle can be active at any point in time. It is common to store historic bundles to allow previous policies and evaluations to be inspected. The active bundle is the one used for evaluation for notifications, incoming kubernetes webhooks (unless configured otherwise), and other automatic system functions, but a user may request evaluation of any bundle stored in the system using that bundle's id.
+Anchore Enterprise can store multiple policy bundles for each user, but only one bundle can be active at any point in time. It is common to store historic bundles to allow previous policies and evaluations to be inspected. The active bundle is the one used for evaluation for notifications, incoming kubernetes webhooks (unless configured otherwise), and other automatic system functions, but a user may request evaluation of any bundle stored in the system using that bundle's id.
 
 For more information on the content and semantics of policy bundles see: Policy Bundles and Evaluation
 
 ### Creating Policies
 
-Policy bundles are just JSON documents. Anchore Engine includes a default policy configured at installation that performs basic CVE checks as well as some Dockerfile checks.
+Policy bundles are just JSON documents. Anchore Enterprise includes a default policy configured at installation that performs basic CVE checks as well as some Dockerfile checks.
 
 To create custom polices, you may:
 
@@ -35,7 +35,7 @@ Policies can be managed directly using the REST API or the `anchore-cli policy` 
 
 #### Adding Policies from the CLI
 
-The `anchore-cli` tool allows you to upload policy bundles to the Anchore Engine.
+The `anchore-cli` tool allows you to upload policy bundles to Anchore Enterprise.
 
 `anchore-cli policy add /path/to/policy/bundle.json`
 
@@ -43,7 +43,7 @@ The `anchore-cli` tool allows you to upload policy bundles to the Anchore Engine
 
 #### Listing Policies
 
-The Anchore Engine may store multiple policy bundles however at a given time only one bundle may be active. Policy bundles can be listed using the `policy list` command.
+Anchore Enterprise may store multiple policy bundles however at a given time only one bundle may be active. Policy bundles can be listed using the `policy list` command.
 
 ```
 $ anchore-cli policy list
@@ -81,11 +81,11 @@ The `policy activate` command can be used to activate a policy bundle. The polic
 
 `$ anchore-cli policy activate 2170857d-b660-4b56-a1a7-06550bf02eb2`
 
-**Note:** If the Anchore Engine has been configured to automatically synchronize policy bundles from the Anchore Cloud then the active policy may be overridden automatically during the next sync.
+**Note:** If Anchore Enterprise has been configured to automatically synchronize policy bundles from the Anchore Cloud then the active policy may be overridden automatically during the next sync.
 
 #### Deleting Policies
 
-Policies can be deleted from the Anchore Engine using the `policy del` command The policy is referenced using its unique id. A policy marked as *active* cannot be deleted, another policy has to be marked active before deleting the currently active policy.
+Policies can be deleted from Anchore Enterprise using the `policy del` command The policy is referenced using its unique id. A policy marked as *active* cannot be deleted, another policy has to be marked active before deleting the currently active policy.
 
 `$ anchore-cli policy del 715a6056-87ab-49fb-abef-f4b4198c67bf`
 

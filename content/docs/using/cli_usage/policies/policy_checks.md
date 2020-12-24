@@ -6,7 +6,7 @@ weight: 3
 
 ## Introduction
 
-Information about the latest available policy gates, triggers and parameters can be retrieved from a running anchore-engine, using the anchore-cli command below:
+Information about the latest available policy gates, triggers and parameters can be retrieved from a running anchore-enterprise, using the anchore-cli command below:
 
 `# anchore-cli policy describe (--gate <gatename> ( --trigger <triggername))`
 

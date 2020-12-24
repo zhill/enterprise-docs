@@ -8,7 +8,7 @@ weight: 3
 
 Anchore Enterprise 2.1+ can be configured to support user login to the UI using identities from external identity providers 
 that support SAML 2.0. In such a configuration, Anchore never stores any credentials for the users, only their usernames 
-and Anchore permissions, and all UI access is gated thru a user's valid login into the identity provider. Anchore uses the external 
+and Anchore permissions, and all UI access is gated through a user's valid login into the identity provider. Anchore uses the external 
 provider to verify username identity and initialize a username, account, and roles on first login for a new user. Once a 
 user's identity is initialized in Anchore, the Anchore administrator may manage user permissions by managing the roles 
 associated with the user's identity in Anchore itself.
@@ -52,7 +52,7 @@ In order to use SAML SSO, the Anchore Enterprise deployment must:
 
 1. Have Oauth enabled. This is required so that Anchore can issue bearer tokens for subsequent API usage by the UI to the system APIs.
 
-1. Using hashed passwords is optional but highly recommended. See [User Credential Storage]({{< ref "/docs/engine/engine_installation/configuration/user_credential_storage" >}})
+1. Using hashed passwords is optional but highly recommended. See [User Credential Storage]({{< ref "/docs/installation/configuration/user_credential_storage.md" >}})
 for more information on configuring OAuth and hashed password storage.
 
 1. Be able to reach the IDP login URL from the user's browser
