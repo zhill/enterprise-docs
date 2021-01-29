@@ -36,6 +36,12 @@ For an image that has not yet been analyzed, the status will appear as *not_anal
 
 The image type is shown as `docker`, future release will support the analysis of OCI formatted images.
 
+As of v3.0, Anchore Enterprise can be configured to have a size limit for images being added for analysis. Images that exceed the configured maximum size will not be added to Anchore and the catalog service will log a message. This size limit is also applied to [tag subscriptions]({{< ref "docs/using/cli_usage/subscriptions/_index.md#tag-updates" >}}) and [repository watchers]({{< ref "/docs/using/cli_usage/repositories/_index.md#watching-repositories" >}}) in addition to the standard API for adding images to Anchore for analysis. 
+
+The max size feature is disabled by default but can be enabled through the `max_compressed_image_size_mb` configuration variable, which represents the size limit in MB of the compressed image. Values less than 0 will disable the feature and allow images of any size to be added to Anchore. A value of 0 will be enforced and prevent any images from being added. Non-integer values will cause bootstrap of the service to fail. If using compose with the default config, this can be set through the `ANCHORE_MAX_COMPRESSED_IMAGE_SIZE_MB` env variable on the catalog service. If using helm, it can be defined in the values file via `anchoreGlobal.maxCompressedImageSizeMB`
+
+
+
 ### Adding images that you own
 
 For images that you are building yourself, the Dockerfile used to build the image should always be passsed to Anchore Enterprise at the time of image addition. This is achieved by adding the image as above, but with the additional option to pass the Dockerfile contents to be stored with the system alongside the image analysis data.
