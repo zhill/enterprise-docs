@@ -20,6 +20,8 @@ For example, if you had a subscription to the docker.io/library/node:latest tag 
 
 This subscription is activated automatically when a new tag is added to Anchore Enterprise.
 
+The configuration for a [max image size]({{< ref "/docs/using/cli_usage/images/_index.md#adding-an-image" >}}) applies to tag updates. If the new image associated with the tag exceeds the defined limit then it will fail to update in anchore and an error message will be logged in the catalog service. 
+
 **Note:** If this subscription is disabled Anchore Enterprise will not monitor the registry for new images.
 
 ### Policy Updates
