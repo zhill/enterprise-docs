@@ -150,4 +150,4 @@ Tag Detected At: 2021-02-01T20:54:46Z
 Install [Syft](http://github.com/anchore/syft) to scan local images and generate software Bill-of-Materials to upload into your Anchore deployment.
 
 After uploading the analysis, you'll need to use the CLI or UI to view vulnerabilities or policy evaluations using the enterprise feed data and policy features
-such as [base-image diffs]({{< ref "/docs/overview/concepts/images/base_images/" >}}) or [false positive management]({{< ref "/docs/overview/concepts/images/false_positive_management" >}}) 
+such as [base-image diffs]({{< ref "/docs/overview/concepts/images/base_images" >}}) or [false positive management]({{< ref "/docs/overview/concepts/images/false_positive_management" >}}) 
