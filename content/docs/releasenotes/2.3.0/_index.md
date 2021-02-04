@@ -42,7 +42,7 @@ as well for a consistent approach across ecosystems. It also includes several en
   * New APIs and CLI commands allow dynamic configuration of which feeds to sync and the ability to enable/disable and delete feed data without updating configuration files or restarting containers.
   * See [CLI Feeds configuration]({{< ref "/docs/using/cli_usage/feeds/feed_configuration" >}})
 
-* **Built on Anchore Engine v0.7.1:** Anchore Enterprise is built on top of the OSS Anchore Engine, which has received new features and updates in the 0.7 series. See [Anchore Engine Release Notes]({{< ref "/docs/releasenotes/engine" >}}) for information on new features, bug fixes, and improvements in Anchore Engine for versions v0.7.0 and v0.7.1.
+* **Built on Anchore Engine v0.7.1:** Anchore Enterprise is built on top of the OSS Anchore Engine, which has received new features and updates in the 0.7 series. See [Anchore Engine Release Notes](https://engine.anchore.io/docs/releasenotes/) for information on new features, bug fixes, and improvements in Anchore Engine for versions v0.7.0 and v0.7.1.
 
 ### Changes
 
@@ -70,7 +70,7 @@ These changes are all configured by default in the new [quickstart guide]({{< re
 * Fixed missing scrollbar for context switching in UI
 * Fixed problem with sorting vulnerability columns in UI causing hangs and missing links
 * Updates to dependencies
-* Fixes in the Anchore Engine [v0.7.0 release notes]({{< ref "/docs/releasenotes/engine/0.7.0" >}}) and [v0.7.1 release notes]({{< ref "/docs/releasenotes/engine/071" >}})
+* Fixes in the Anchore Engine [v0.7.0 release notes](https://engine.anchore.io/docs/releasenotes/070/) and [v0.7.1 release notes](https://engine.anchore.io/docs/releasenotes/071/)
 
 ### Upgrading from Anchore Enterprise 2.2 to 2.3.0
 
