@@ -35,7 +35,7 @@ as well for a consistent approach across ecosystems. It also includes several en
 
   * To help provide early detection of vulnerabilities before a fix is available or for issues where a fix is not issued, Anchore now uses RedHat's CVE information instead of RHSA information
   * This also provides improved whitelist consistency between RHEL/Centos and images based on other distros since CVEs are consistent
-  * For more details see [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/enterprise/2.3.0/centos_to_rhel_upgrade" >}})
+  * For more details see [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/2.3.0/centos_to_rhel_upgrade" >}})
 
 * Improved feed data and configuration management via APIs and CLI
 
@@ -81,7 +81,7 @@ the database upgrade, but part of the process can only complete after the upgrad
 will have no vulnerabilities listed. That will automatically resolve itself once the feed syncs, and all affected images will have CVE-based vulnerability matches as expected, but depending on deployment environment and number
 of images in the database, this may take a long time (hours potentially).
 
-See [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/enterprise/2.3.0/centos_to_rhel_upgrade" >}}) for more information on the change and upgrade implications. 
+See [RHSA-to-CVE Feed Change]({{< ref "/docs/releasenotes/2.3.0/centos_to_rhel_upgrade" >}}) for more information on the change and upgrade implications. 
 
 To upgrade, use the new version of the Helm chart or docker-compose provided with this release. The new chart and compose files contain all needed configuration changes. See [Enterprise Upgrade to 2.3.0]({{< ref "/docs/installation/upgrade" >}}) for details on this specific upgrade process and how to update your own deployment templates if you are not using the official Helm chart.
 
