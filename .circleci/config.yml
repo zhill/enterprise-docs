@@ -30,6 +30,7 @@ jobs:
           name: Install PostCSS as global package
           command: |
             npm install postcss@^7.0.32
+            npm install postcss@^8.0.0
             npm install postcss-cli@^8.3.1
       - run:
           name: Build docs
