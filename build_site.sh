@@ -30,7 +30,7 @@ then
   fi
 
   echo Building with site prefix ${site_prefix}/${pub_path}
-  ./tools/hugo --gc -b ${site_prefix}/${pub_path}
+  hugo --gc -b ${site_prefix}/${pub_path}
 else
-  ./tools/hugo --gc
+  hugo --gc
 fi
