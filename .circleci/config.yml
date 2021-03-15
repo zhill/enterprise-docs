@@ -29,12 +29,12 @@ jobs:
       - run:
           name: Install PostCSS as global package
           command: |
-            npm install -g postcss-cli
+            sudo npm install -g postcss-cli
       - run:
           name: Build docs
           command: |
             export PATH=${PATH}:./tools/
-            ./build_site.sh ${SITE_PREFIX_URL} ${CIRCLE_BRANCH}
+            sudo ./build_site.sh ${SITE_PREFIX_URL} ${CIRCLE_BRANCH}
       - persist_to_workspace:
           root: ./
           paths:
