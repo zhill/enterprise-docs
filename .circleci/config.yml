@@ -29,7 +29,7 @@ jobs:
       - run:
           name: Install PostCSS as global package
           command: |
-            sudo npm install -g postcss-cli
+            sudo npm install -g postcss-cli@^8.0.0
       - run:
           name: Build docs
           command: |
