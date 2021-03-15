@@ -37,4 +37,6 @@
   {{ end }}
 </ul>
 {{ end }}
-{{ partial "google/analytics" . }}
+{{ if hugo.IsProduction }}
+  {{ partial "google/analytics" . }}
+{{ end }}
