@@ -273,7 +273,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "redis-cli PING"]
   ui:
-    image: docker.io/anchore/enterprise-ui:v3.0.1
+    image: docker.io/anchore/enterprise-ui:v3.0.2
     volumes:
       - ./license.yaml:/license.yaml:ro
       #- ./config-ui.yaml:/config/config-ui.yaml:z
