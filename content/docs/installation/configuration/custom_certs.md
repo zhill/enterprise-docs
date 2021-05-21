@@ -34,7 +34,7 @@ FROM docker.io/anchore/anchore-engine:v0.4.0
 USER root:root
 COPY ./custom-ca.pem /usr/local/lib/python3.6/site-packages/certifi/
 RUN update-ca-trust
-RUN /usr/local/lib/python3.6/site-packages/certifi/custom-ca.pem >> /usr/lib/python3.6/site-packages/certifi/cacert.pem
+RUN /usr/bin/cat /usr/local/lib/python3.6/site-packages/certifi/custom-ca.pem >> /usr/lib/python3.6/site-packages/certifi/cacert.pem
 USER anchore:anchore
 
 ```
