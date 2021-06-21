@@ -42,7 +42,7 @@ services:
     command: ["anchore-enterprise-manager", "service", "start",  "apiext"]
   # Catalog is the primary persistence and state manager of the system
   catalog:
-    image: docker.io/anchore/enterprise:v3.0.2
+    image: docker.io/anchore/enterprise:v3.0.3
     depends_on:
       - anchore-db
     volumes:
