@@ -1,13 +1,13 @@
 ---
-title: "Anchore CLI"
-linkTitle: "Anchore CLI"
+title: "AnchoreCTL"
+linkTitle: "AnchoreCTL"
 weight: 3
 ---
 
 ### Introduction
 
 In this section you will learn how to install and configure AnchoreCTL, the Anchore Enterprise CLI.
-The AnchoreCTL Enterprise CLI provides a command line interface on top of the Anchore Enterprise & Engine REST APIs. 
+It currently shares some functionality with anchore-cli is designed specifically for use with Anchore Enterprise. 
 AnchoreCTL is published as a Cobra-CLI Go Binary that can be installed from a public S3 bucket. 
 Using AnchoreCTL, users can manage and inspect images, manage their false-positive management settings, manage their runtime inventory settings, interact with the runtime compliance API, and even generate/upload image SBOMs.
 
@@ -16,7 +16,7 @@ Installation of AnchoreCTL (from a release) happens a few different ways, depend
 
 #### macOS
 ```shell script
-curl -o anchorectl.dmg https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.0_darwin_amd64.dmg
+curl -o anchorectl.dmg https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.1_darwin_amd64.dmg
 ```
 ```shell script
 aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_darwin_amd64.dmg anchorectl.dmg
@@ -25,7 +25,7 @@ aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_darwin_amd64.dmg anch
 #### Debian
 
 ```shell script
-curl -o anchorectl.deb https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.0_linux_amd64.deb
+curl -o anchorectl.deb https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.1_linux_amd64.deb
 ```
 ```shell script
 aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_linux_amd64.deb anchorectl.deb
@@ -34,7 +34,7 @@ aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_linux_amd64.deb ancho
 #### RPM
 
 ```shell script
-curl -o anchorectl.rpm https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.0_linux_amd64.rpm
+curl -o anchorectl.rpm https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.1_linux_amd64.rpm
 ```
 ```shell script
 aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_linux_amd64.rpm anchorectl.rpm
@@ -52,7 +52,7 @@ aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_linux_amd64.tar.gz an
 #### Windows
 
 ```shell script
-curl -o anchorectl.zip https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.0_windows_amd64.zip
+curl -o anchorectl.zip https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl_0.1.1_windows_amd64.zip
 ```
 ```shell script
 aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl_0.1.0_windows_amd64.zip anchorectl.zip
@@ -70,10 +70,10 @@ AnchoreCTL can be configured via a config file at the following locations, with 
 
 To get a release-matched version of this configuration file, you can retrieve it as follows:
 ```shell script
-curl -o anchorectl.yaml https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.0/anchorectl.yaml
+curl -o anchorectl.yaml https://anchorectl-releases.s3-us-west-2.amazonaws.com/v0.1.1/anchorectl.yaml
 ```
 ```shell script
-aws s3 cp s3://anchorectl-releases/v0.1.0/anchorectl.yaml anchorectl.yaml
+aws s3 cp s3://anchorectl-releases/v0.1.1/anchorectl.yaml anchorectl.yaml
 ```
 Note that it has detailed comments above each configuration value so you know what each does.
 
