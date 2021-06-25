@@ -34,7 +34,7 @@ To enable windows support in the quickstart install docker-compose.yaml file you
           options:
             max-size: 100m
       feeds:
-        image: docker.io/anchore/enterprise:v2.3.0
+        image: docker.io/anchore/enterprise:v3.1.0
         volumes:
         - feeds-workspace-volume:/workspace
         - ./license.yaml:/license.yaml:ro
