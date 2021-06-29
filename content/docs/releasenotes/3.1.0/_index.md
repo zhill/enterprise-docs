@@ -29,7 +29,7 @@ See [Compliance Checks]({{<ref "/docs/overview/runtime_compliance" >}}) for more
 
 ### New CLI with Integrated Pipeline Scanning Support
 
-The new anchorectl command line tool provides a new Enterprise-focused CLI experience with support for local analysis of images to import
+The new `anchorectl` tool provides a new Enterprise-focused CLI experience with support for local analysis of images to import
 into your deployment. Using the new tool you can also perform other Enterprise operations such as interacting with new compliance reports
 and viewing or configuring inventory scanning.
 
@@ -48,12 +48,12 @@ on your database size.
 ### Owned Package Filtering Control
 A new configuration option: services.analyzer.enable_owned_package_filtering: <bool> is now available in the analyzer service configuration. 
 By default, the analyzer will filter packages that are determined by at analysis time to be "owned" by a parent package when that package 
-is a rpm, deb, apk, or similar distro package that installs all the files of the child package. That behavior can be disabled by setting this configuration 
-value to "false". The filtering removes false positives associated with packages installed by yum, apt, or apkg, that also 
-install language packages like python, npms, or gems that have backports applied by the distro maintainer but no corresponding 
-language package version change other than the parent package version. However, if you package your own applications as 
-rpms, debs, or similar and need to ensure all included packages are scanned directly against NVD sources, then you can 
-disable this behavior.
+installs all the files of the child package. That behavior can be disabled by setting this configuration value to "false". 
+
+The default filtering removes false positives associated with packages installed by distro packages that install language 
+packages like python, npms, or gems and have backports applied by the distro maintainer with no corresponding 
+language package version change. However, if you package your own applications as rpms, debs, or similar and need to 
+ensure all included packages are scanned directly against NVD sources, then you can disable this behavior.
 
 ## Added
 - New tech-preview vulnerability scanner
@@ -85,7 +85,6 @@ configuration. The provided helm charts, docker-compose.yaml and default configu
 The `affected_package_version` query parameter in GET /query/vulnerabilities is not supported in the V2 scanner (aka Grype mode) 
 and has known correctness issues in the legacy mode. It is deprecated and will be removed in a future release.
 
-
 ## Enterprise UI Changes
 
 ### Added
@@ -96,7 +95,5 @@ and has known correctness issues in the legacy mode. It is deprecated and will b
 
 Additional minor bug fixes and enhancements
 
-
 ### Upgrading
-
 * [Upgrading Anchore]({{< ref "/docs/installation/upgrade" >}})
