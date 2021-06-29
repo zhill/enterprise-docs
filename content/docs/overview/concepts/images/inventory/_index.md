@@ -11,7 +11,7 @@ This binary is installed into the Enterprise Docker Image and can be configured 
 
 ## Agent Mode
 The most common way to track inventory is to install [`kai`](https://github.com/anchore/kai). as an agent in your cluster. To do this you will need to configure credentials
-and information about your deployment in the values file. It is recommended to first [configure a specific robot user]({{< ref "/current/docs/using/cli_usage/user_management" >}}) for the account you'll want to track your inventory in. 
+and information about your deployment in the values file. It is recommended to first [configure a specific robot user]({{< ref "/docs/using/cli_usage/user_management" >}}) for the account you'll want to track your inventory in. 
 
 As an agent kai is installed using helm and the helm chart is hosted as part of the https://charts.anchore.io repo. It is based on the [anchore/kai](https://hub.docker.com/r/anchore/kai) docker image. 
 
