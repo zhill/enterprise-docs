@@ -48,7 +48,7 @@ on your database size.
 ### Owned Package Filtering Control
 A new configuration option: services.analyzer.enable_owned_package_filtering: <bool> is now available in the analyzer service configuration. 
 By default, the analyzer will filter packages that are determined by at analysis time to be "owned" by a parent package when that package 
-is an rpm, deb, apk, or similar distro package that installs all the files of the child package. That behavior can be disabled by setting this configuration 
+is a rpm, deb, apk, or similar distro package that installs all the files of the child package. That behavior can be disabled by setting this configuration 
 value to "false". The filtering removes false positives associated with packages installed by yum, apt, or apkg, that also 
 install language packages like python, npms, or gems that have backports applied by the distro maintainer but no corresponding 
 language package version change other than the parent package version. However, if you package your own applications as 
@@ -69,15 +69,13 @@ disable this behavior.
 - Ensure python38 used in the Dockerfile build, and set tox tests to only run py38
 - User to not be able to delete some notification configurations when they should be able based on RBAC role
 
-
 ### Improved
 - Performance of GET operations between services improved by better streaming memory management for large payload transfers
 - Use UBI 8.4 as base image in Docker build
 - Updates skopeo version used to 1.2.1, allowing removal of the 'lookuptag' field in the POST /repositories call for 
-  watching repositories that do not have a latest tag
+  watching repositories that do not have a 'latest' tag
 - RedHat packages for an Out-of-Support distro release version now indicated as being vulnerable if a newer distro release version is supported and indicated as affected for the package.
 Additional minor bug fixes and enhancements
-
 
 ### Known Issues/Errata
 Note: the policy engine feed sync configuration is now in the policy engine service configuration as part of the provider 
