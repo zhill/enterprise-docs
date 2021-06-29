@@ -1,13 +1,13 @@
 ---
-title: "Anchore CLI"
-linkTitle: "Anchore CLI"
+title: "AnchoreCTL"
+linkTitle: "AnchoreCTL"
 weight: 3
 ---
 
 ### Introduction
 
 In this section you will learn how to install and configure AnchoreCTL, the Anchore Enterprise CLI.
-The AnchoreCTL Enterprise CLI provides a command line interface on top of the Anchore Enterprise & Engine REST APIs. 
+It currently shares some functionality with anchore-cli is designed specifically for use with Anchore Enterprise. 
 AnchoreCTL is published as a Cobra-CLI Go Binary that can be installed from a public S3 bucket. 
 Using AnchoreCTL, users can manage and inspect images, manage their false-positive management settings, manage their runtime inventory settings, interact with the runtime compliance API, and even generate/upload image SBOMs.
 
