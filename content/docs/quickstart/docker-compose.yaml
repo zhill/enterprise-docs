@@ -293,7 +293,6 @@ services:
       - ANCHORE_REDIS_URI=redis://ui-redis:6379
       - ANCHORE_APPDB_URI=postgres://postgres:mysecretpassword@anchore-db:5432/postgres
       - ANCHORE_REPORTS_URI=http://reports:8228/v1
-      - ANCHORE_POLICY_HUB_URI=https://hub.anchore.io
       - ANCHORE_NOTIFICATIONS_URI=http://notifications:8228/v1
 
   # Uncomment this section to add an on-prem feed service to this deployment. This will incur first-time feed sync delay, but is included for completeness / review of enterprise service deployment options
