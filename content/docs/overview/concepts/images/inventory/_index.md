@@ -10,7 +10,7 @@ Anchore uses a go binary called [kai](https://github.com/anchore/kai) that lever
 This binary is installed into the Enterprise Docker Image and can be configured using the REST API, but depends on Anchore knowing your cluster configuration and corresponding credentials. On the other hand, `kai` can also be run via it's helm chart, embedded within your Kubernetes cluster as an agent. In this run-mode, it will require access to the Anchore API.  
 
 ## Agent Mode
-The most common way to track inventory is to install [`kai`](https://github.com/anchore/kai). as an agent in your cluster. To do this you will need to configure credentials
+The most common way to track inventory is to install [`kai`](https://github.com/anchore/kai) as an agent in your cluster. To do this you will need to configure credentials
 and information about your deployment in the values file. It is recommended to first [configure a specific robot user]({{< ref "/docs/using/cli_usage/user_management" >}}) for the account you'll want to track your inventory in. 
 
 As an agent kai is installed using helm and the helm chart is hosted as part of the https://charts.anchore.io repo. It is based on the [anchore/kai](https://hub.docker.com/r/anchore/kai) docker image. 

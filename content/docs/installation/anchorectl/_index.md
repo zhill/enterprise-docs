@@ -8,7 +8,7 @@ weight: 3
 
 In this section you will learn how to install and configure AnchoreCTL, the Anchore Enterprise CLI.
 It currently shares some functionality with anchore-cli is designed specifically for use with Anchore Enterprise. 
-AnchoreCTL is published as simple binary that can be installed by downloading it or using provided packages for installation in different platforms. 
+AnchoreCTL is published as a simple binary that can be installed by downloading it or using provided packages for installation in different platforms. 
 Using AnchoreCTL, users can manage and inspect images, manage their false-positive management settings, manage their runtime inventory settings, interact with the runtime compliance API, and even generate/upload image SBOMs.
 
 ### Getting Started
