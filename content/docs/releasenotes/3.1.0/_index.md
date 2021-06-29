@@ -6,7 +6,8 @@ weight: 65
 
 ## Anchore Enterprise 3.1.0
 
-This release adds new 
+This release adds new capabilities for runtime inventory automated scanning, checking running container compliance, a new 
+vulnerability scanner option in tech preview, a new enterprise CLI, and other improvements and fixes. 
 
 ## New Features
 
@@ -75,7 +76,6 @@ disable this behavior.
 - Updates skopeo version used to 1.2.1, allowing removal of the 'lookuptag' field in the POST /repositories call for 
   watching repositories that do not have a latest tag
 - RedHat packages for an Out-of-Support distro release version now indicated as being vulnerable if a newer distro release version is supported and indicated as affected for the package.
-
 Additional minor bug fixes and enhancements
 
 
