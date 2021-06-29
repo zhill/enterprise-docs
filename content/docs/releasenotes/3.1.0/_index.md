@@ -6,8 +6,8 @@ weight: 65
 
 ## Anchore Enterprise 3.1.0
 
-This release adds new capabilities for runtime inventory automated scanning, checking running container compliance, a new 
-vulnerability scanner option in tech preview, a new enterprise CLI, and other improvements and fixes. 
+This release adds new capabilities for automated runtime inventory scanning, runtime container compliance checks, a new 
+vulnerability scanner option in tech preview, a new enterprise CLI, as well as other improvements and fixes.
 
 ## New Features
 
