@@ -15,7 +15,7 @@ The charts at the top of the UI provide key contextual information about your ru
 ### Using Views
 In addition to navigating your runtime inventory by clusters and namespaces, users can opt to view the images or vulnerabilities across. This is a great way to identify vulnerabilities across your runtime and asses their impact.
 
-### Assesing impact
+### Assessing impact
 Another important aspect of the Kubernetes Inventory UI is the ability to assess how a vulnerability in a container images impacts your environment. For every container when you see a note about it usage being seen in particular cluster and X more... you will be able to mouse over the link for a detailed list of where else that container image is being used. This is fast way to determine the "bast-radius" of a vulnerability. 
 
 ## Data Delays
