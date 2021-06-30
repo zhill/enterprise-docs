@@ -38,26 +38,24 @@ Retrieving the default configuration file is the same regardless of which operat
 ```shell script
 curl -o rem.yaml https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem.yaml
 ```
-```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem.yaml rem.yaml
-```
 
-#### macOS
+#### macOS dmg
 
 ```shell script
 curl -o rem.dmg https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_darwin_amd64.dmg
 ```
+
+#### macOS Tar
+
 ```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_darwin_amd64.dmg rem.dmg
+curl -o rem.tar.gz https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_darwin_amd64.tar.gz
 ```
+
 
 #### Debian
 
 ```shell script
 curl -o rem.deb https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_linux_amd64.deb
-```
-```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_linux_amd64.deb rem.deb
 ```
 
 #### RPM
@@ -65,26 +63,17 @@ aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_linux_amd64.deb rem.deb
 ```shell script
 curl -o rem.rpm https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_linux_amd64.rpm
 ```
-```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_linux_amd64.rpm rem.rpm
-```
 
 #### Linux Tar
 
 ```shell script
 curl -o rem.tar.gz https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_linux_amd64.tar.gz
 ```
-```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_linux_amd64.tar.gz rem.tar.gz
-```
 
 #### Windows
 
 ```shell script
 curl -o rem.zip https://anchore-rem-releases.s3-us-west-2.amazonaws.com/v0.1.9/rem_0.1.9_windows_amd64.zip
-```
-```shell script
-aws s3 cp s3://anchore-rem-releases/v0.1.9/rem_0.1.9_windows_amd64.zip rem.zip
 ```
 
 ### Usage:
