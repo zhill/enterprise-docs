@@ -269,7 +269,7 @@ paths:
       description: Delete a selector mapped to a Slack endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.slack
       operationId: delete_slack_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string
@@ -475,7 +475,7 @@ paths:
       description: Delete a selector mapped to a SMTP endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.smtp
       operationId: delete_smtp_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string
@@ -681,7 +681,7 @@ paths:
       description: Delete a selector mapped to a Teams endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.teams
       operationId: delete_teams_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string
@@ -887,7 +887,7 @@ paths:
       description: Delete a selector mapped to a Webhook endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.webhook
       operationId: delete_webhook_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string
@@ -1093,7 +1093,7 @@ paths:
       description: Delete a selector mapped to a GitHub endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.github
       operationId: delete_github_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string
@@ -1299,7 +1299,7 @@ paths:
       description: Delete a selector mapped to a Jira endpoint configuration
       x-swagger-router-controller: anchore_enterprise.services.notifications.api.controllers.jira
       operationId: delete_jira_selector
-      x-anchore-authz-action: deletetNotificationEndpointConfiguration
+      x-anchore-authz-action: deleteNotificationEndpointConfiguration
       parameters:
         - name: configuration_uuid
           type: string

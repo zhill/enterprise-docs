@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "This is the Anchore Engine API. Provides the primary external API for users of the service."
-  version: "0.1.17"
+  version: "0.1.18"
   title: "Anchore Engine API Server"
   contact:
     email: "nurmi@anchore.com"
@@ -1160,11 +1160,6 @@ paths:
           in: query
           type: boolean
           description: "flag to enable/disable auto tag_update activation when new images from a repo are added"
-          required: false
-        - name: 'lookuptag'
-          in: query
-          type: string
-          description: "use specified existing tag to perform repo scan (default is 'latest')"
           required: false
         - name: 'dryrun'
           in: query
@@ -2418,9 +2413,7 @@ paths:
           in: path
       responses:
         200:
-          description: Archive transition rule
-          schema:
-            $ref: "#/definitions/AnalysisArchiveTransitionRule"
+          description: Analysis archive rule succesfuly deleted
         500:
           description: Internal error
           schema:
@@ -2524,9 +2517,7 @@ paths:
           type: boolean
       responses:
         200:
-          description: ArchivdImageAnalysis record but with status 'deleted'
-          schema:
-            $ref: "#/definitions/ArchivedAnalysis"
+          description: ArchivdImageAnalysis successfully deleted
         500:
           description: Internal error
           schema:
@@ -3705,6 +3696,11 @@ definitions:
                 type: string
             location:
               type: string
+            cpes:
+              type: array
+              items:
+                type: string
+              description: A list of Common Platform Enumerations that may uniquely identify the package
   ContentMalwareResponse:
     type: object
     description: Malware listing response
@@ -3769,6 +3765,11 @@ definitions:
               type: string
             origin:
               type: string
+            cpes:
+              type: array
+              items:
+                type: string
+              description: A list of Common Platform Enumerations that may uniquely identify the package
   MetadataResponse:
     type: object
     description: "Generic wrapper for metadata listings from images"
@@ -4477,6 +4478,9 @@ definitions:
     properties:
       selector:
         $ref: "#/definitions/ImageSelector"
+      rule_id:
+        type: string
+        description: Unique identifier for archive rule
       tag_versions_newer:
         type: integer
         description: Number of images mapped to the tag that are newer
