@@ -90,10 +90,32 @@ and has known correctness issues in the legacy mode. It is deprecated and will b
 
 ### Added
 
+- From the new Kubernetes Runtime Inventory view you can now inspect
+  the spread of compliance and vulnerability information reported by
+  the [KAI](https://github.com/anchore/kai/) agent across all detected
+  Kubernetes clusters and namespaces in your deployment topology
+- Information relating to any items detected by the runtime agent is
+  now surfaced in the repository- and tag-level views within the Image
+  Selection hierarchy
+  
 ### Improved
+- If the reporting service fails, feature components that require this
+  service as a dependency will be disabled in the navigation bar until
+  service recovery
+- Pie-chart components have been restructured to present selected
+  information inclusively when segments are clicked—other segments
+  are now disabled
 
 ### Fixes
-
+- Printable view assembly issues addressed in Image Analysis Vulnerability
+  and Compliance views—charts now render correctly in portrait mode
+- The alerts banner is now subject to RBAC and will not appear if the
+  fetch alert permission is not detected
+- Clipping issues resolved in the creation date popup in the Policy Bundle view
+- Supporting libraries have been updated in order to improve security,
+  performance, and also to remove deprecation warnings from browser
+  and server output logs
+  
 Additional minor bug fixes and enhancements
 
 ### Upgrading
