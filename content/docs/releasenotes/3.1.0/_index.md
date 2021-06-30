@@ -1,7 +1,7 @@
 ---
 title: "Anchore Enterprise Release Notes - Version 3.1.0"
 linkTitle: "3.1.0"
-weight: 65
+weight: 50
 ---
 
 ## Anchore Enterprise 3.1.0
