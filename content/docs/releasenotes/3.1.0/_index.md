@@ -47,7 +47,7 @@ on your database size.
 
 ### Owned Package Filtering Control
 A new configuration option: services.analyzer.enable_owned_package_filtering: <bool> is now available in the analyzer service configuration. 
-By default, the analyzer will filter packages that are determined by at analysis time to be "owned" by a parent package when that package 
+By default, the analyzer will filter packages that are determined at analysis time to be "owned" by a parent package when that package 
 installs all the files of the child package. That behavior can be disabled by setting this configuration value to "false". 
 
 The default filtering removes false positives associated with packages installed by distro packages that install language 
@@ -75,6 +75,7 @@ ensure all included packages are scanned directly against NVD sources, then you 
 - Updates skopeo version used to 1.2.1, allowing removal of the 'lookuptag' field in the POST /repositories call for 
   watching repositories that do not have a 'latest' tag
 - RedHat packages for an Out-of-Support distro release version now indicated as being vulnerable if a newer distro release version is supported and indicated as affected for the package.
+
 Additional minor bug fixes and enhancements
 
 ### Known Issues/Errata
