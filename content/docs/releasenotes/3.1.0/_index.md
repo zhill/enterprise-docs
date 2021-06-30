@@ -6,7 +6,7 @@ weight: 65
 
 ## Anchore Enterprise 3.1.0
 
-This release adds new capabilities for automated runtime inventory scanning, runtime container compliance checks, a new 
+This release adds new capabilities for automated runtime inventory scanning, runtime container compliance checks, a new
 vulnerability scanner option in tech preview, a new enterprise CLI, as well as other improvements and fixes.
 
 ## New Features
@@ -46,13 +46,13 @@ inventory records. Unless you have a very large number of inventory records, the
 on your database size.
 
 ### Owned Package Filtering Control
-A new configuration option: services.analyzer.enable_owned_package_filtering: <bool> is now available in the analyzer service configuration. 
-By default, the analyzer will filter packages that are determined at analysis time to be "owned" by a parent package when that package 
-installs all the files of the child package. That behavior can be disabled by setting this configuration value to "false". 
+A new configuration option: services.analyzer.enable_owned_package_filtering: <bool> is now available in the analyzer service configuration.
+By default, the analyzer will filter packages that are determined at analysis time to be "owned" by a parent package when that package
+installs all the files of the child package. That behavior can be disabled by setting this configuration value to "false".
 
-The default filtering removes false positives associated with packages installed by distro packages that install language 
-packages like python, npms, or gems and have backports applied by the distro maintainer with no corresponding 
-language package version change. However, if you package your own applications as rpms, debs, or similar and need to 
+The default filtering removes false positives associated with packages installed by distro packages that install language
+packages like python, npms, or gems and have backports applied by the distro maintainer with no corresponding
+language package version change. However, if you package your own applications as rpms, debs, or similar and need to
 ensure all included packages are scanned directly against NVD sources, then you can disable this behavior.
 
 ## Added
@@ -72,27 +72,49 @@ ensure all included packages are scanned directly against NVD sources, then you 
 ### Improved
 - Performance of GET operations between services improved by better streaming memory management for large payload transfers
 - Use UBI 8.4 as base image in Docker build
-- Updates skopeo version used to 1.2.1, allowing removal of the 'lookuptag' field in the POST /repositories call for 
+- Updates skopeo version used to 1.2.1, allowing removal of the 'lookuptag' field in the POST /repositories call for
   watching repositories that do not have a 'latest' tag
 - RedHat packages for an Out-of-Support distro release version now indicated as being vulnerable if a newer distro release version is supported and indicated as affected for the package.
 
 Additional minor bug fixes and enhancements
 
 ### Known Issues/Errata
-Note: the policy engine feed sync configuration is now in the policy engine service configuration as part of the provider 
+Note: the policy engine feed sync configuration is now in the policy engine service configuration as part of the provider
 configuration. The provided helm charts, docker-compose.yaml and default configurations handle this change automatically.
 
 ### Deprecations
-The `affected_package_version` query parameter in GET /query/vulnerabilities is not supported in the V2 scanner (aka Grype mode) 
+The `affected_package_version` query parameter in GET /query/vulnerabilities is not supported in the V2 scanner (aka Grype mode)
 and has known correctness issues in the legacy mode. It is deprecated and will be removed in a future release.
 
 ## Enterprise UI Changes
 
 ### Added
 
+- From the new Kubernetes Runtime Inventory view you can now inspect
+  the spread of compliance and vulnerability information reported by
+  the [KAI](https://github.com/anchore/kai/) agent across all detected
+  Kubernetes clusters and namespaces in your deployment topology
+- Information relating to any items detected by the runtime agent is
+  now surfaced in the repository- and tag-level views within the Image
+  Selection hierarchy
+
 ### Improved
+- If the reporting service fails, feature components that require this
+  service as a dependency will be disabled in the navigation bar until
+  service recovery
+- Pie-chart components have been restructured to present selected
+  information inclusively when segments are clicked—other segments
+  are now disabled
 
 ### Fixes
+- Printable view assembly issues addressed in Image Analysis Vulnerability
+  and Compliance views—charts now render correctly in portrait mode
+- The alerts banner is now subject to RBAC and will not appear if the
+  fetch alert permission is not detected
+- Clipping issues resolved in the creation date popup in the Policy Bundle view
+- Supporting libraries have been updated in order to improve security,
+  performance, and also to remove deprecation warnings from browser
+  and server output logs
 
 Additional minor bug fixes and enhancements
 
